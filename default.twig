@@ -1,0 +1,104 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<div class="page  page--default">
+	<div class="site-container">
+
+		{% include "includes/header.twig" %}
+
+		<div class="widget  widget--template-widget" data-widget-type="feature">
+		    <div class="bk-feature  feature  widget__feature">
+		        <div class="background-image  feature__background-image  feature-parallax--on" style="background-image: url('/index.php/template/feature-widget-options/images/feature-image1.jpg'); background-position: center 100%">
+		            <div class="content-wrap  feature__content-wrap">
+		                <div class="content-inner-wrap  feature__content-inner-wrap  feature-height--fullscreen  feature-alignment__middle--center  feature-transparency--type-overlay">
+		                    <h2 class="headline  feature__headline">My Website Header</h2>
+		                    <h3 class="strapline  feature__strapline">Here is the website strapline!</h3>
+		                    <button class="button  button--primary  feature__button  js-feature-btn">Button</button>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		    <img src="/index.php/template/feature-widget-options/images/feature-image.jpg" style="display:none;" class="js-image" alt="feature image">
+		</div>
+
+		{# {{widget('feature', 'feature', {
+		  'header': 'profile',
+		  'strapline': 'profile',
+		  'defaultBgImg': asset('images/feature-image.jpg'),
+		  'positionTopPercentage': '100',
+		  'showBtn': true,
+		  'buttonText': 'Button',
+		  'action': 'external',
+		  'url': 'http://docs.basekit.com',
+		  'target': '_blank'
+		})|raw}} #}
+
+		<div class="main">
+
+			<div class="site-content">
+				<div class="zone-content">
+					{# {{zone('main')|raw}} #}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id pulvinar ex, venenatis finibus purus. Sed feugiat metus sit amet eros dignissim maximus. Sed vitae risus ante. Etiam vitae sagittis urna, vel dapibus turpis. Maecenas ultrices nibh purus, id posuere est efficitur id. Maecenas ac quam vehicula, dignissim diam vel, vulputate lectus. Cras imperdiet nibh sit amet lorem ultricies, sit amet hendrerit est pretium. Donec in mauris at magna ultrices posuere. Proin eu volutpat nulla. Aliquam pretium, arcu a commodo consequat, felis arcu porttitor neque, in laoreet tortor justo a nisi. Duis elementum imperdiet sem, eget malesuada risus porta quis. Nulla id magna a mauris eleifend ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+					Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent in posuere elit. Maecenas sit amet auctor nibh. Donec vitae velit lacus. Aliquam volutpat felis felis, in lobortis purus hendrerit at. In hac habitasse platea dictumst. Integer vitae augue elit. Integer vestibulum consequat tincidunt. Curabitur erat enim, mollis eu nisl eu, ullamcorper facilisis turpis. Quisque eu sem sit amet dui tempor interdum ac at lacus. Aliquam feugiat nisi tristique, hendrerit urna et, finibus erat.
+
+					Fusce pharetra ultrices lorem sed vehicula. In hac habitasse platea dictumst. Nunc eget eros nibh. Nulla et tristique risus. Sed feugiat eros at vehicula dapibus. Aenean eu semper enim. Nunc in placerat ipsum. Maecenas et metus euismod, auctor libero sodales, semper arcu.
+
+					Praesent et ligula eu sapien venenatis viverra et eu mauris. Curabitur nec metus sodales, ultrices sapien at, vehicula leo. Nunc orci elit, consectetur at egestas ac, facilisis non tellus. Sed tempus ut lectus ac iaculis. Sed et risus lacinia, finibus est eu, vehicula ipsum. Etiam non fermentum magna. Aenean sed congue nunc. Vestibulum nec mi ut lacus condimentum pulvinar eget a justo. Nulla consectetur malesuada purus, in sodales ante efficitur at. Morbi ut urna nunc. Duis laoreet ipsum id faucibus sollicitudin. Aliquam vitae neque quis risus venenatis feugiat vel vitae risus. Aenean mollis erat pellentesque varius suscipit. In sed pharetra lacus. Curabitur non metus convallis, efficitur magna sed, viverra tellus.
+
+					Nulla maximus ut eros quis malesuada. Donec consequat mi sit amet luctus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et risus leo. Nulla eget odio id dolor congue pretium vitae ut velit. Quisque scelerisque laoreet erat. Vivamus sit amet mauris ornare lectus consequat fringilla sed non mauris.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id pulvinar ex, venenatis finibus purus. Sed feugiat metus sit amet eros dignissim maximus. Sed vitae risus ante. Etiam vitae sagittis urna, vel dapibus turpis. Maecenas ultrices nibh purus, id posuere est efficitur id. Maecenas ac quam vehicula, dignissim diam vel, vulputate lectus. Cras imperdiet nibh sit amet lorem ultricies, sit amet hendrerit est pretium. Donec in mauris at magna ultrices posuere. Proin eu volutpat nulla. Aliquam pretium, arcu a commodo consequat, felis arcu porttitor neque, in laoreet tortor justo a nisi. Duis elementum imperdiet sem, eget malesuada risus porta quis. Nulla id magna a mauris eleifend ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+					Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent in posuere elit. Maecenas sit amet auctor nibh. Donec vitae velit lacus. Aliquam volutpat felis felis, in lobortis purus hendrerit at. In hac habitasse platea dictumst. Integer vitae augue elit. Integer vestibulum consequat tincidunt. Curabitur erat enim, mollis eu nisl eu, ullamcorper facilisis turpis. Quisque eu sem sit amet dui tempor interdum ac at lacus. Aliquam feugiat nisi tristique, hendrerit urna et, finibus erat.
+
+					Fusce pharetra ultrices lorem sed vehicula. In hac habitasse platea dictumst. Nunc eget eros nibh. Nulla et tristique risus. Sed feugiat eros at vehicula dapibus. Aenean eu semper enim. Nunc in placerat ipsum. Maecenas et metus euismod, auctor libero sodales, semper arcu.
+
+					Praesent et ligula eu sapien venenatis viverra et eu mauris. Curabitur nec metus sodales, ultrices sapien at, vehicula leo. Nunc orci elit, consectetur at egestas ac, facilisis non tellus. Sed tempus ut lectus ac iaculis. Sed et risus lacinia, finibus est eu, vehicula ipsum. Etiam non fermentum magna. Aenean sed congue nunc. Vestibulum nec mi ut lacus condimentum pulvinar eget a justo. Nulla consectetur malesuada purus, in sodales ante efficitur at. Morbi ut urna nunc. Duis laoreet ipsum id faucibus sollicitudin. Aliquam vitae neque quis risus venenatis feugiat vel vitae risus. Aenean mollis erat pellentesque varius suscipit. In sed pharetra lacus. Curabitur non metus convallis, efficitur magna sed, viverra tellus.
+
+					Nulla maximus ut eros quis malesuada. Donec consequat mi sit amet luctus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et risus leo. Nulla eget odio id dolor congue pretium vitae ut velit. Quisque scelerisque laoreet erat. Vivamus sit amet mauris ornare lectus consequat fringilla sed non mauris.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id pulvinar ex, venenatis finibus purus. Sed feugiat metus sit amet eros dignissim maximus. Sed vitae risus ante. Etiam vitae sagittis urna, vel dapibus turpis. Maecenas ultrices nibh purus, id posuere est efficitur id. Maecenas ac quam vehicula, dignissim diam vel, vulputate lectus. Cras imperdiet nibh sit amet lorem ultricies, sit amet hendrerit est pretium. Donec in mauris at magna ultrices posuere. Proin eu volutpat nulla. Aliquam pretium, arcu a commodo consequat, felis arcu porttitor neque, in laoreet tortor justo a nisi. Duis elementum imperdiet sem, eget malesuada risus porta quis. Nulla id magna a mauris eleifend ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+					Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent in posuere elit. Maecenas sit amet auctor nibh. Donec vitae velit lacus. Aliquam volutpat felis felis, in lobortis purus hendrerit at. In hac habitasse platea dictumst. Integer vitae augue elit. Integer vestibulum consequat tincidunt. Curabitur erat enim, mollis eu nisl eu, ullamcorper facilisis turpis. Quisque eu sem sit amet dui tempor interdum ac at lacus. Aliquam feugiat nisi tristique, hendrerit urna et, finibus erat.
+
+					Fusce pharetra ultrices lorem sed vehicula. In hac habitasse platea dictumst. Nunc eget eros nibh. Nulla et tristique risus. Sed feugiat eros at vehicula dapibus. Aenean eu semper enim. Nunc in placerat ipsum. Maecenas et metus euismod, auctor libero sodales, semper arcu.
+
+					Praesent et ligula eu sapien venenatis viverra et eu mauris. Curabitur nec metus sodales, ultrices sapien at, vehicula leo. Nunc orci elit, consectetur at egestas ac, facilisis non tellus. Sed tempus ut lectus ac iaculis. Sed et risus lacinia, finibus est eu, vehicula ipsum. Etiam non fermentum magna. Aenean sed congue nunc. Vestibulum nec mi ut lacus condimentum pulvinar eget a justo. Nulla consectetur malesuada purus, in sodales ante efficitur at. Morbi ut urna nunc. Duis laoreet ipsum id faucibus sollicitudin. Aliquam vitae neque quis risus venenatis feugiat vel vitae risus. Aenean mollis erat pellentesque varius suscipit. In sed pharetra lacus. Curabitur non metus convallis, efficitur magna sed, viverra tellus.
+
+					Nulla maximus ut eros quis malesuada. Donec consequat mi sit amet luctus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et risus leo. Nulla eget odio id dolor congue pretium vitae ut velit. Quisque scelerisque laoreet erat. Vivamus sit amet mauris ornare lectus consequat fringilla sed non mauris.</p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<!-- <script>
+
+		// Fixed position and fade out when scrolling
+		var scrollEffect = function (elem) {
+
+			// How high the window is
+			var window_height = window.innerHeight;
+
+			// Apply styles as user scrolls
+			elem.setAttribute(
+				"style", "opacity:" + Math.max(0, parseFloat(1-(1.8/window_height*window.pageYOffset)).toFixed(2)) + "; -webkit-transform: translateY(" + window.pageYOffset + "px)"
+			);
+
+		};
+
+		var elem = document.querySelector('.content-inner-wrap');
+
+		window.onscroll = function(e) {
+			scrollEffect(elem);
+		};
+
+	</script> -->
+
+{% endblock %}

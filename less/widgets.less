@@ -1,0 +1,142 @@
+// -------------------------------------
+// Variable Template: LESS > Widgets
+// -------------------------------------
+
+// -----------------------------
+// Table Of Contents
+// -----------------------------
+
+//  #Logo
+//  #Company Name
+//  #Feature
+
+//  #Image
+//  #Gallery
+//  #Slideshow
+
+//  #Twitter Feed
+//  #Profile
+//  #Social Icons
+
+
+
+
+// -----------------------------
+// #Logo
+// -----------------------------
+
+.logo {
+    line-height: 0;
+    font-size: 0;
+}
+
+
+
+
+// -----------------------------
+// #Company Name
+// -----------------------------
+
+.companyname {
+    display: block;
+
+    @media @tablet {
+        margin-top: 20px;
+    }
+}
+
+// Company link
+.company-link {
+    color: @color__companyname--text;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+
+
+
+// -----------------------------
+// #Feature
+// -----------------------------
+
+// CSS Parallax Test === HERE IVAN
+@scroll-factor : .9;
+
+main {
+    height: 150vh;
+    max-height: 100%;
+    overflow-x: hidden;
+    perspective: 1px;
+    perspective-origin: center top;
+    transform-style: preserve-3d;
+}
+
+.feature-test {
+    position: relative;
+    vertical-align: top;
+    transform-origin: center top;
+    transform:
+    translateZ(-@scroll-factor * 2px)
+    scale(1 + @scroll-factor * 2);
+}
+
+section {
+    min-height: 200vh;
+    background: white;
+    transform: translateZ(0);
+    padding: 10px 0;
+}
+
+
+.feature {
+    position: relative;
+    background-color: @color__feature--background;
+
+    .background-image {
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .content-wrap {
+        width: 100%;
+        height: 100%;
+    }
+    .content-inner-wrap {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+
+        height: 100%;
+    }
+    .headline {
+        color: @color__feature-headline--text;
+        text-transform: uppercase;
+
+        @media @tablet {
+            font-size: bkscale(@font-swatch8-font-size, 0.8);
+        }
+        @media @mobile {
+            font-size: bkscale(@font-swatch8-font-size, 0.65);
+            line-height: bkscale(@font-swatch8-line-height, 0.7);
+        }
+    }
+    .strapline {
+        margin: 10px 0 20px;
+        color: @color__feature-strapline--text;
+
+        @media @tablet {
+            font-size: bkscale(@font-swatch9-font-size, 0.8);
+        }
+        @media @mobile {
+            margin: 10px 0;
+            font-size: bkscale(@font-swatch9-font-size, 0.7);
+        }
+    }
+}
+
+.feature__content-wrap {
+    padding: 0;
+}

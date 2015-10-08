@@ -1,0 +1,58 @@
+<!doctype html>
+<!--[if lt IE 7]>
+	<html class="no-js ie6 oldie" lang="en">
+<![endif]-->
+<!--[if IE 7]>
+	<html class="no-js ie7 oldie" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+	<html class="no-js ie8 oldie" lang="en">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="{{ page.seoLang }}">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>{{ page.title }}</title>
+	<meta name="keywords" content="{{ page.keywords }}" />
+	<meta name="description" content="{{ page.description }}" />
+
+	{% if site.favicon %}
+		<link rel="icon" href="{{ site.favicon['favicon'] }}" type="image/x-icon" />
+		<link rel="SHORTCUT ICON" href="{{ site.favicon['thumbnail'] }}?v={{ "now"|date("U") }}" type="image/x-icon" />
+	{% endif %}
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	{% include basekit.headScript %}
+</head>
+<body class="{{ page.backgroundClass }}">
+
+	{% block content %}
+	{% endblock %}
+
+    {% include basekit.bodyScript %}
+
+	<!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<!-- Menu Navigation Toggle -->
+    <script>
+
+    	// Toggles class open to display/hide the whole navigation
+    	$( ".navigation-toggle" ).click(function() {
+  			$( ".navigation-body" ).toggleClass( "open" );
+		});
+
+    	// Toggles class open to display/hide folders
+		$( ".navigation-item.folder" ).each(function() {
+			$( this ).click(function() {
+	  			$( this ).toggleClass( "open" );
+			});
+		});
+	</script>
+
+	{% block scripts %}
+	{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+// -------------------------------------
+// Variable Template: Stylesheet
+// -------------------------------------
+
+
+// -----------------------------
+// Table of Contents
+// -----------------------------
+
+//  #LESS Includes
+//  #Site
+//  #Typography
+//  #Header
+//  #Navigation
+//  #Buttons
+
+
+// -----------------------------
+// 1. LESS Includes
+// -----------------------------
+
+
+// BK LESS Framework Include
+// -------------------------
+
+@import "@{templateCommon}/bk-less-framework.less";
+
+
+// Template Includes
+// -----------------
+
+@import "@{templateLocal}/less/widgets.less";           // Widgets
+@import "@{templateLocal}/less/color-variables.less";   // Variables
+@import "@{templateLocal}/less/custom-difm.less";       // Custom DIFM
+
+
+
+
+// -----------------------------
+// #Site
+// -----------------------------
+
+body {
+    background-color: @color__body--background;
+}
+
+// Site Canvas
+.site-content {
+    position: relative;
+    display: block;
+    width: @value__site-content--width;
+    margin: 0 auto;
+}
+
+// Site Links
+a {
+    color: @color__link--text;
+
+    &:hover {
+        color: darken(@color__link--text, 15%);
+    }
+}
+
+
+// Layout
+// ----------
+
+.site-container {
+    max-width: @value__site--width;
+}
+
+// Main
+.main {
+    position: relative;
+    z-index: 7000;
+    background-color: @color__container--background;
+    padding: @value__site--spacing 0;
+}
+
+
+// Inner Pages
+// -----------
+
+.page {
+    overflow: hidden;
+}
+
+.page-title {
+    background-color: #f3f3f3;
+    padding: 10px 0;
+}
+
+
+
+
+// -----------------------------
+// #Typography
+// -----------------------------
+
+h1 {
+    color: @color__h1--text;
+}
+h2 {
+    color: @color__h2--text;
+}
+h3 {
+    color: @color__h3--text;
+}
+h4 {
+    color: @color__h4--text;
+}
+p {
+    color: @color__p--text;
+}
+
+
+
+
+// -----------------------------
+// #Header
+// -----------------------------
+
+.template-header {
+    width: 100%;
+    max-width: 100%;
+    padding: @value__header--spacing 0;
+
+    @media @tablet {
+        padding-bottom: 0!important;
+        margin-bottom: 0;
+    }
+
+    .flex-container {
+        align-items: center;
+
+        @media @tablet {
+            .flex-item:first-child,
+            .flex-item:nth-child(2) {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+
+
+
+// -----------------------------
+// #Navigation
+// -----------------------------
+
+
+// Template Navigation
+.template-navigation {
+    @media @tablet {
+        margin-top: 20px;
+        border-top: 1px solid @color__navigation--border;
+    }
+}
+
+// Navigation List
+.navigation-list {
+    margin: 0;
+
+    @media @tablet {
+        display: none;
+        text-align: left;
+    }
+}
+.navigation-list.open {
+    display: block;
+}
+
+// Navigation Item
+.navigation-item {
+    display: inline-block;
+    vertical-align: middle;
+
+    @media @tablet {
+        display: block;
+
+        &:first-child {
+            padding-top: 10px;
+            border-top: 1px solid @color__navigation--border;
+        }
+    }
+
+    .item-name {
+        padding-left: 30px;
+        color: @color__navigation--text;
+        text-transform: uppercase;
+
+        @media @tablet {
+            padding-left: 0;
+        }
+
+        &:hover {
+            color: @color__navigation--text--hover;
+        }
+
+        &.item-name--parent {
+            padding-right: 0;
+        }
+    }
+
+    &.selected .item-name {
+        color: @color__navigation--text--selected;
+    }
+
+    &:last-child .item-name {
+        padding-right: 0;
+    }
+}
+
+// Dropdown Menu
+.navigation-item.folder .navigation-list {
+    position: absolute;
+    min-width: 150px;
+    background-color: @color__navigation-list--background;
+
+    .navigation-item {
+        display: block;
+        width: 100%;
+        background-color: @color__body--background;
+    }
+    .navigation-item--child {
+        padding: 0 10px;
+
+        .item-name {
+            padding: 4px 10px;
+        }
+    }
+}
+// Folder arrow
+.item-name--parent:after {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    margin-left: 4px;
+    border: 5px solid transparent;
+    border-top-color: @color__navigation--text;
+}
+
+// Toggle Button
+.navigation-toggle {
+    display: none;
+
+    @media @tablet {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        background-color: transparent;
+        color: @color__h1--text;
+        text-align: left;
+        text-transform: uppercase;
+
+        &:hover {
+            background: transparent;
+        }
+    }
+
+    &:after {
+        content: "+";
+        position: absolute;
+        right: 0;
+    }
+}
+
+
+
+
+// -----------------------------
+// #Buttons
+// -----------------------------
+
+.button {
+    padding: 6px 16px;
+    background-color: @color__button--background;
+    color: @color__button--text;
+
+    &:hover {
+        background-color: @color__button--background--hover;
+    }
+}
+
+
+
+
+
+
+
+
+

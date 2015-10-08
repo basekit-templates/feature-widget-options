@@ -1,0 +1,15 @@
+<header class="template-header  header-layout--left  header-position--standard">
+	<div class="site-content  flex-container">
+		<div class="flex-item">
+			{{widget('logo', 'header-logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+		</div>
+		<div class="flex-item">
+			{{widget('companyname', 'companyname', {"business": "profile" })|raw}}
+		</div>
+		<div class="flex-item">
+			<nav class="template-navigation">
+				{{widget('extendednavigation', 'header-nav', {"align":"right"})|raw}}
+			</nav>
+		</div>
+	</div>
+</header>
