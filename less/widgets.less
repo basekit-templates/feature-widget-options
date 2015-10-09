@@ -61,35 +61,6 @@
 // #Feature
 // -----------------------------
 
-// CSS Parallax Test === HERE IVAN
-@scroll-factor : .9;
-
-main {
-    height: 150vh;
-    max-height: 100%;
-    overflow-x: hidden;
-    perspective: 1px;
-    perspective-origin: center top;
-    transform-style: preserve-3d;
-}
-
-.feature-test {
-    position: relative;
-    vertical-align: top;
-    transform-origin: center top;
-    transform:
-    translateZ(-@scroll-factor * 2px)
-    scale(1 + @scroll-factor * 2);
-}
-
-section {
-    min-height: 200vh;
-    background: white;
-    transform: translateZ(0);
-    padding: 10px 0;
-}
-
-
 .feature {
     position: relative;
     background-color: @color__feature--background;
@@ -107,6 +78,8 @@ section {
     .content-inner-wrap {
         display: flex;
         flex-direction: column;
+        // align-items: center;
+        // justify-content: center;
         padding: 30px;
 
         height: 100%;
