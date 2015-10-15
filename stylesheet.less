@@ -8,6 +8,7 @@
 // -----------------------------
 
 //  #LESS Includes
+//  #Mixins
 //  #Site
 //  #Typography
 //  #Header
@@ -16,7 +17,7 @@
 
 
 // -----------------------------
-// 1. LESS Includes
+// #LESS Includes
 // -----------------------------
 
 
@@ -32,6 +33,66 @@
 @import "@{templateLocal}/less/widgets.less";           // Widgets
 @import "@{templateLocal}/less/color-variables.less";   // Variables
 @import "@{templateLocal}/less/feature-options.less";   // Feature options
+
+
+
+
+// -----------------------------
+// #Mixins
+// -----------------------------
+
+// Flexbox Mixins
+// --------------
+
+// Flexbox Display
+.flex--display(@display: flex) {
+    display: ~"-webkit-@{display}";
+    display: ~"-moz-@{display}";
+    display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
+    display: ~"-ms-@{display}";    // IE11
+    display: @display;
+}
+
+// Flex
+.flex--flex(@columns: initial) {
+    -webkit-flex: @columns;
+    -moz-flex: @columns;
+    -ms-flex: @columns;
+    flex: @columns;
+}
+
+// Flex Direction
+.flex--flex-direction(@direction: row) {
+    -webkit-flex-direction: @direction;
+    -moz-flex-direction: @direction;
+    -ms-flex-direction: @direction;
+    flex-direction: @direction;
+}
+
+// Justify Content
+.flex--justify-content(@justify: flex-start) {
+    -webkit-justify-content: @justify;
+    -moz-justify-content: @justify;
+    -ms-justify-content: @justify;
+    -ms-flex-pack: @justify;
+    justify-content: @justify;
+}
+
+// Align Content
+.flex--align-content(@align: stretch) {
+    -webkit-align-content: @align;
+    -moz-align-content: @align;
+    -ms-align-content: @align;
+    align-content: @align;
+}
+
+// Align Items
+.flex--align-items(@align: stretch) {
+    -webkit-align-items: @align;
+    -moz-align-items: @align;
+    -ms-align-items: @align;
+    align-items: @align;
+}
 
 
 

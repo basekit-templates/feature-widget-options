@@ -22,17 +22,17 @@
 	bottom: 20px;
 	right: 20px;
 	margin: 0 0 0 20px;
-	padding: 22px 30px 30px;
+	padding: 12px 20px 16px;
 	border-radius: 5px;
 	background-color: rgba(51, 51, 51, 0.9);
 	box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
 
 	h4 {
 		font-family: @font-swatch1-font-family;
-		font-size: 11px;
+		font-size: 10px;
 		font-weight: normal;
 		color: #e2e2e2;
-		line-height: 26px;
+		line-height: 20px;
 		letter-spacing: 1px;
 		text-transform: uppercase;
 	}
@@ -43,11 +43,28 @@
 .feature-options-item {
 	display: inline-block;
 	margin-right: 10px;
+
+	&:last-child {
+		margin-right: 0;
+	}
 }
 .header-options {
 	display: inline-block;
-	margin-right: 50px;
+	margin-right: 30px;
 }
+
+
+
+
+// -----------------------------
+// #Site Options
+// -----------------------------
+
+.site-layout--full {
+
+}
+
+
 
 
 // -----------------------------
@@ -60,8 +77,8 @@
 // Left
 .header-layout--left {
 	.flex-container {
-		display: flex;
-		justify-content: space-between;
+		.flex--display;
+		.flex--justify-content(center);
 
 		@media @tablet {
 			display: block;
@@ -71,7 +88,7 @@
 			margin-right: 20px;
 		}
 		.flex-item:last-child {
-			flex: 1 1 auto;
+			.flex--flex(1 1 auto);
 		}
 	}
 	.navigation-list {
@@ -82,15 +99,15 @@
 // Right
 .header-layout--right {
 	.flex-container {
-		display: flex;
-		flex-direction: row-reverse;
-		justify-content: space-between;
+		.flex--display;
+		.flex--flex-direction(row-reverse);
+		.flex--justify-content(center);
 	}
 	.flex-item:nth-child(2) {
 		margin: 0 20px;
 	}
 	.flex-item:last-child {
-		flex: 1 1 auto;
+		.flex--flex(1 1 auto);
 	}
 	.navigation-list {
 		text-align: left;
@@ -185,30 +202,35 @@
 // Feature Height
 // --------------
 
-// Fullscreen
-.feature .feature-height--fullscreen {
-	min-height: calc(~"100vh - 110px");
-}
+.feature {
 
-// Medium
-.feature .feature-height--medium {
-	min-height: 600px;
-
-	@media @tablet {
-		min-height: 500px;
+	// Fullscreen
+	.feature-height--fullscreen {
+		min-height: calc(~"100vh - 110px");
+		// min-height: 100vh;
 	}
-	@media @mobile {
+
+	// Medium
+	.feature .feature-height--medium {
+		min-height: 600px;
+
+		@media @tablet {
+			min-height: 500px;
+		}
+		@media @mobile {
+			min-height: 400px;
+		}
+	}
+
+	// Small
+	.feature-height--small {
 		min-height: 400px;
-	}
-}
 
-// Small
-.feature .feature-height--small {
-	min-height: 400px;
-
-	@media @tablet {
-		min-height: 300px;
+		@media @tablet {
+			min-height: 300px;
+		}
 	}
+
 }
 
 
@@ -219,52 +241,52 @@
 
 	// Top
 	.feature-alignment--top--left {
-		justify-content: flex-start;
-		align-items: flex-start;
+		.flex--justify-content(flex-start);
+		.flex--align-items(flex-start);
 		text-align: left;
 	}
 	.feature-alignment--top--center {
-		justify-content: flex-start;
-		align-items: center;
+		.flex--justify-content(flex-start);
+		.flex--align-items(center);
 		text-align: center;
 	}
 	.feature-alignment--top--right {
-		justify-content: flex-start;
-		align-items: flex-end;
+		.flex--justify-content(flex-start);
+		.flex--align-items(flex-end);
 		text-align: right;
 	}
 
 	// Middle
 	.feature-alignment--middle--left {
-		justify-content: center;
-		align-items: flex-start;
+		.flex--justify-content(center);
+		.flex--align-items(flex-start);
 		text-align: left;
 	}
 	.feature-alignment--middle--center {
-		justify-content: center;
-		align-items: center;
+		.flex--justify-content(center);
+		.flex--align-items(center);
 		text-align: center;
 	}
 	.feature-alignment--middle--right {
-		justify-content: center;
-		align-items: flex-end;
+		.flex--justify-content(center);
+		.flex--align-items(flex-end);
 		text-align: right;
 	}
 
 	// Bottom
 	.feature-alignment--bottom--left {
-		justify-content: flex-end;
-		align-items: flex-start;
+		.flex--justify-content(flex-end);
+		.flex--align-items(flex-start);
 		text-align: left;
 	}
 	.feature-alignment--bottom--center {
-		justify-content: flex-end;
-		align-items: center;
+		.flex--justify-content(flex-end);
+		.flex--align-items(center);
 		text-align: center;
 	}
 	.feature-alignment--bottom--right {
-		justify-content: flex-end;
-		align-items: flex-end;
+		.flex--justify-content(flex-end);
+		.flex--align-items(flex-end);
 		text-align: right;
 	}
 
