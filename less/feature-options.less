@@ -10,9 +10,53 @@
 @value__site-content--width:  90%;   // Content width (wrapper)
 @value__site--spacing:  	  30px;  // Site spacing
 
+
+// Site Layout
+// -----------
+
+// Full
 .site-layout--full {
 	width: 100%;
+
+	.site-content {
+		padding: 0 5%;
+	}
 }
+
+// Contained
+.site-layout--contained {
+	width: 1100px;
+}
+
+
+// Site Position
+// -------------
+
+// Center
+.site-position--center {
+	margin: 0 auto;
+}
+
+// Left
+.site-position--left {
+	margin-right: auto;
+
+	.template-header,
+	.main {
+		padding-left: @value__site--spacing;
+		padding-right: @value__site--spacing;
+	}
+}
+
+// Right
+.site-position--right {
+	margin-left: auto;
+
+	.template-header {
+		padding-right: @value__site--spacing;
+	}
+}
+
 
 
 
@@ -22,6 +66,7 @@
 // -----------------------------
 
 @value__header--spacing:  20px;  // Header spacing
+
 
 // Header Layout
 // -------------
