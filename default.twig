@@ -21,7 +21,6 @@
 		})|raw}}
 
 		<div class="main">
-
 			<div class="site-content">
 				<div class="zone-content">
 					{# {{zone('main')|raw}} #}
@@ -34,6 +33,7 @@
 					Praesent et ligula eu sapien venenatis viverra et eu mauris. Curabitur nec metus sodales, ultrices sapien at, vehicula leo. Nunc orci elit, consectetur at egestas ac, facilisis non tellus. Sed tempus ut lectus ac iaculis. Sed et risus lacinia, finibus est eu, vehicula ipsum. Etiam non fermentum magna. Aenean sed congue nunc. Vestibulum nec mi ut lacus condimentum pulvinar eget a justo. Nulla consectetur malesuada purus, in sodales ante efficitur at. Morbi ut urna nunc. Duis laoreet ipsum id faucibus sollicitudin. Aliquam vitae neque quis risus venenatis feugiat vel vitae risus. Aenean mollis erat pellentesque varius suscipit. In sed pharetra lacus. Curabitur non metus convallis, efficitur magna sed, viverra tellus.
 
 					Nulla maximus ut eros quis malesuada. Donec consequat mi sit amet luctus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et risus leo. Nulla eget odio id dolor congue pretium vitae ut velit. Quisque scelerisque laoreet erat. Vivamus sit amet mauris ornare lectus consequat fringilla sed non mauris.</p>
+
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id pulvinar ex, venenatis finibus purus. Sed feugiat metus sit amet eros dignissim maximus. Sed vitae risus ante. Etiam vitae sagittis urna, vel dapibus turpis. Maecenas ultrices nibh purus, id posuere est efficitur id. Maecenas ac quam vehicula, dignissim diam vel, vulputate lectus. Cras imperdiet nibh sit amet lorem ultricies, sit amet hendrerit est pretium. Donec in mauris at magna ultrices posuere. Proin eu volutpat nulla. Aliquam pretium, arcu a commodo consequat, felis arcu porttitor neque, in laoreet tortor justo a nisi. Duis elementum imperdiet sem, eget malesuada risus porta quis. Nulla id magna a mauris eleifend ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
 					Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent in posuere elit. Maecenas sit amet auctor nibh. Donec vitae velit lacus. Aliquam volutpat felis felis, in lobortis purus hendrerit at. In hac habitasse platea dictumst. Integer vitae augue elit. Integer vestibulum consequat tincidunt. Curabitur erat enim, mollis eu nisl eu, ullamcorper facilisis turpis. Quisque eu sem sit amet dui tempor interdum ac at lacus. Aliquam feugiat nisi tristique, hendrerit urna et, finibus erat.
@@ -54,231 +54,20 @@
 					Nulla maximus ut eros quis malesuada. Donec consequat mi sit amet luctus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et risus leo. Nulla eget odio id dolor congue pretium vitae ut velit. Quisque scelerisque laoreet erat. Vivamus sit amet mauris ornare lectus consequat fringilla sed non mauris.</p>
 				</div>
 			</div>
-
 		</div>
 
 	</div>
 </div>
 
-<!-- Feature Options -->
-<ul class="feature-options">
-
-	<div class="header-options">
-		<li class="feature-options-item">
-			<h4>Header Layout</h4>
-			<select class="header-layout">
-				<option value="header-layout--left" selected="selected">Left</option>
-				<option value="header-layout--right">Right</option>
-				<option value="header-layout--center">Center</option>
-			</select>
-		</li>
-
-		<li class="feature-options-item">
-			<h4>Header Position</h4>
-			<select class="header-position">
-				<option value="header-position--standard" selected="selected">Standard</option>
-				<option value="header-position--overlap">Overlap</option>
-			</select>
-		</li>
-	</div>
-
-	<li class="feature-options-item">
-		<h4>Height</h4>
-		<select class="feature-height">
-			<option value="feature-height--fullscreen">Fullscreen</option>
-			<option value="feature-height--medium" selected="selected">Medium</option>
-			<option value="feature-height--small">Small</option>
-		</select>
-	</li>
-
-	<li class="feature-options-item">
-		<h4>Alignment</h4>
-		<select class="feature-alignment">
-			<option value="feature-alignment--top--left">Top Left</option>
-			<option value="feature-alignment--top--right">Top Right</option>
-			<option value="feature-alignment--top--center">Top Center</option>
-			<option value="feature-alignment--middle--left">Middle Left</option>
-			<option value="feature-alignment--middle--right">Middle Right</option>
-			<option value="feature-alignment--middle--center" selected="selected">Middle Center</option>
-			<option value="feature-alignment--bottom--left">Bottom Left</option>
-			<option value="feature-alignment--bottom--right">Bottom Right</option>
-			<option value="feature-alignment--bottom--center">Bottom Center</option>
-		</select>
-	</li>
-
-	<li class="feature-options-item">
-		<h4>Parallax</h4>
-		<select class="feature-parallax">
-			<option value="feature-parallax--on" selected="selected">On</option>
-			<option value="feature-parallax--off">Off</option>
-		</select>
-	</li>
-
-	<li class="feature-options-item">
-		<h4>Overlay Type</h4>
-		<select class="feature-overlay-type">
-			<option value="feature-overlay-type--full">Full</option>
-			<option value="feature-overlay-type--typography" selected="selected">Typography</option>
-		</select>
-	</li>
-
-	<li class="feature-options-item">
-		<h4>Overlay Opacity</h4>
-		<select class="feature-overlay-opacity">
-			<option value="feature-overlay-opacity--100">100%</option>
-			<option value="feature-overlay-opacity--75">75%</option>
-			<option value="feature-overlay-opacity--50" selected="selected">50%</option>
-			<option value="feature-overlay-opacity--25">25%</option>
-			<option value="feature-overlay-opacity--10">10%</option>
-			<option value="feature-overlay-opacity--0">0</option>
-		</select>
-	</li>
-
-</ul>
+{% include "includes/feature-options.twig" %}
 
 {% endblock %}
 
+
+
 {% block scripts %}
 
-	<script>
-
-		var headerPosition = "";
-		var activeHeaderPosition = "";
-
-		$( ".header-position" )
-			.change(function () {
-
-				$( ".template-header" ).removeClass( activeHeaderPosition );
-
-			    $( this ).children("option:selected").each(function() {
-			    	headerPosition = $( this ).val();
-			    });
-
-			    activeHeaderPosition = headerPosition;
-
-		    	$( ".template-header" ).addClass( headerPosition );
-
-			}).change();
-
-
-		var headerLayout = "";
-		var activeHeaderLayout = "";
-
-		$( ".header-layout" )
-			.change(function () {
-
-				$( ".template-header" ).removeClass( activeHeaderLayout );
-
-			    $( this ).children("option:selected").each(function() {
-			    	headerLayout = $( this ).val();
-			    });
-
-			    activeHeaderLayout = headerLayout;
-
-		    	$( ".template-header" ).addClass( headerLayout );
-
-			}).change();
-
-
-		var featureHeight = "";
-		var activeFeatureHeight = "";
-
-		$( ".feature-height" )
-			.change(function () {
-
-				$( ".content-inner-wrap" ).removeClass( activeFeatureHeight );
-
-			    $( this ).children("option:selected").each(function() {
-			    	featureHeight = $( this ).val();
-			    });
-
-			    activeFeatureHeight = featureHeight;
-
-		    	$( ".content-inner-wrap" ).addClass( featureHeight );
-
-		    	featureParallaxEffect();
-
-			}).change();
-
-
-		var featureAlignment = "";
-		var activeFeatureAlignment = "";
-
-		$( ".feature-alignment" )
-			.change(function () {
-
-				$( ".content-inner-wrap" ).removeClass( activeFeatureAlignment );
-
-			    $( this ).children("option:selected").each(function() {
-			    	featureAlignment = $( this ).val();
-			    });
-
-			    activeFeatureAlignment = featureAlignment;
-
-		    	$( ".content-inner-wrap" ).addClass( featureAlignment );
-
-			}).change();
-
-
-		var featureOverlayType = "";
-		var activeFeatureOverlayType = "";
-
-		$( ".feature-overlay-type" )
-			.change(function () {
-
-				$( ".content-inner-wrap" ).removeClass( activeFeatureOverlayType );
-
-			    $( this ).children("option:selected").each(function() {
-			    	featureOverlayType = $( this ).val();
-			    });
-
-			    activeFeatureOverlayType = featureOverlayType;
-
-		    	$( ".content-inner-wrap" ).addClass( featureOverlayType );
-
-			}).change();
-
-
-		var featureOverlayOpacity = "";
-		var activeFeatureOverlayOpacity = "";
-
-		$( ".feature-overlay-opacity" )
-			.change(function () {
-
-				$( ".content-inner-wrap" ).removeClass( activeFeatureOverlayOpacity );
-
-			    $( this ).children("option:selected").each(function() {
-			    	featureOverlayOpacity = $( this ).val();
-			    });
-
-			    activeFeatureOverlayOpacity = featureOverlayOpacity;
-
-		    	$( ".content-inner-wrap" ).addClass( featureOverlayOpacity );
-
-			}).change();
-
-
-		var featureParallax = "";
-		var activeFeatureParallax = "";
-
-		$( ".feature-parallax" )
-			.change(function () {
-
-				$( ".content-inner-wrap" ).removeClass( activeFeatureParallax );
-
-			    $( this ).children("option:selected").each(function() {
-			    	featureParallax = $( this ).val();
-			    });
-
-			    activeFeatureParallax = featureParallax;
-
-		    	$( ".content-inner-wrap" ).addClass( featureParallax );
-
-			}).change();
-
-
-	</script>
-
+	<script src="{{asset('js/main.js')}}"></script>
 
 
 {% endblock %}
