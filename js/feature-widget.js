@@ -67,7 +67,7 @@ var featureParallaxEffect = function (param) {
 
         var backgroundScrollEffect = function (scrollProgress) {
 
-            var bgPosition = backgroundPosition + ( ( 100 - backgroundPosition ) * scrollProgress );
+            var bgPosition = Math.max(backgroundPosition, backgroundPosition + ( ( 100 - backgroundPosition ) * scrollProgress ) );
             widgetBackground.css('background-position', '50%' + bgPosition +'%');
 
         };
@@ -83,7 +83,7 @@ var featureParallaxEffect = function (param) {
                 positionOffset = widgetBottomCoordinate - windowHeight;
             }
 
-            var topOffset = windowOffset - positionOffset;
+            var topOffset = Math.max(0, windowOffset - positionOffset);
             widget.css('transform', 'translate(0px, ' + topOffset +'px )');
 
         };
