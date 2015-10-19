@@ -67,7 +67,7 @@ var featureParallaxEffect = function (param) {
 
         var backgroundScrollEffect = function (scrollProgress) {
 
-            var bgPosition = Math.max(backgroundPosition, backgroundPosition + ( ( 100 - backgroundPosition ) * scrollProgress ) );
+            var bgPosition = Math.max(backgroundPosition, backgroundPosition + ( ( 100 - backgroundPosition ) * scrollProgress ) ).toFixed( 2 );
             widgetBackground.css('background-position', '50%' + bgPosition +'%');
 
         };
@@ -93,7 +93,7 @@ var featureParallaxEffect = function (param) {
 
         var fadeOutEffect = function (scrollProgress) {
 
-            opacity = 1 - scrollProgress;
+            opacity = Math.min(1, ( 1 - scrollProgress ).toFixed( 2 ) );
             widget.find(".content-inner-wrap").css('opacity', opacity);
 
         };
