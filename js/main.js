@@ -81,6 +81,25 @@ $( ".header-layout" )
 	}).change();
 
 
+var headerSpacing = "";
+var activeHeaderSpacing = "";
+
+$( ".header-spacing" )
+	.change(function () {
+
+		$( ".template-header" ).removeClass( activeHeaderSpacing );
+
+	    $( this ).children("option:selected").each(function() {
+	    	headerSpacing = $( this ).val();
+	    });
+
+	    activeHeaderSpacing = headerSpacing;
+
+    	$( ".template-header" ).addClass( headerSpacing );
+
+	}).change();
+
+
 var featureHeight = "";
 var activeFeatureHeight = "";
 
@@ -184,11 +203,23 @@ $( ".feature-parallax" )
 	}).change();
 
 
+var mainSpacing = "";
+var activeMainSpacing = "";
 
+$( ".main-spacing" )
+	.change(function () {
 
+		$( ".main-content" ).removeClass( activeMainSpacing );
 
+	    $( this ).children("option:selected").each(function() {
+	    	mainSpacing = $( this ).val();
+	    });
 
+	    activeMainSpacing = mainSpacing;
 
+    	$( ".main-content" ).addClass( mainSpacing );
+
+	}).change();
 
 
 // Accordion

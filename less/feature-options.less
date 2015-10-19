@@ -42,7 +42,7 @@
 	margin-right: auto;
 
 	.template-header,
-	.main {
+	.main-content {
 		padding-left: @value__site--spacing;
 		padding-right: @value__site--spacing;
 	}
@@ -60,12 +60,9 @@
 
 
 
-
 // -----------------------------
 // #Header Options
 // -----------------------------
-
-@value__header--spacing:  20px;  // Header spacing
 
 
 // Header Layout
@@ -118,7 +115,7 @@
 	padding-bottom: 0!important;
 
 	.navigation-list {
-		padding-top: @value__header--spacing;
+		padding-top: 30px;
 		text-align: center;
 	}
 	.company-link {
@@ -186,6 +183,25 @@
 			color: @color__navigation--text;
 		}
 	}
+}
+
+
+// Header Spacing
+// --------------
+
+// Small
+.header-spacing--small {
+	padding: 16px 0;
+}
+
+// Medium
+.header-spacing--medium {
+	padding: 30px 0;
+}
+
+// Large
+.header-spacing--large {
+	padding: 50px 0;
 }
 
 
@@ -391,4 +407,31 @@
 
 
 
+// -----------------------------
+// #Main Content Options
+// -----------------------------
 
+
+// Main Spacing
+// ------------
+
+// Small
+.main-spacing--small {
+	.site-content {
+		padding: 3%;
+	}
+}
+
+// Medium
+.main-spacing--medium {
+	.site-content {
+		padding: 6%;
+	}
+}
+
+// Large
+.main-spacing--large {
+	.site-content {
+		padding: 8%;
+	}
+}
