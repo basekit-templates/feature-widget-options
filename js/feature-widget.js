@@ -1,105 +1,202 @@
-var featureParallaxEffect = function () {
-    var widget                  = $(".feature"),
-        widgetHeight            = widget.height(),
-        widgetPosition          = widget.offset(),
-        widgetBottomCoordinate  = widgetPosition.top + widgetHeight,
-        widgetBackground        = widget.find(".feature__parallax-background-image"),
-        backgroundPosition      = parseFloat( widgetBackground.css("background-position").split(' ')[1] ),
-        windowHeight            = $(window).height(),
-        windowOffset            = $(window).scrollTop(),
-        scrollProgress          = 0,
-        backgroundScrollEffect  = false,
-        backgroundScrollEffectThreshold = 90,
-        featureStuck            = true;
+var featureParallaxEffect = function (param) {
 
 
-        // Set top position of background element, so it cover space
-        // occupied by the header
+
+
+
+        // ===============================================================
+        // Initial settings
+        // ===============================================================
+
+        var
+            // Element to apply the effects
+            widget                  = $(".feature"),
+
+            // Element properties
+            widgetHeight            = widget.height(),
+            widgetPosition          = widget.offset(),
+            widgetBottomCoordinate  = widgetPosition.top + widgetHeight,
+            widgetViewportOverflow  = false;
+
+            // Background element
+            widgetBackground        = widget.find(".feature__parallax-background-image"),
+
+            // Background position setting
+            backgroundPosition      = parseFloat( widgetBackground.css("background-position").split(' ')[1] ),
+            bgScrollEffectThreshold = 90, // Allows background scroll effect only when background-position-y is set below this value
+
+            // Window properties
+            windowHeight            = $(window).height(),
+            windowOffset            = $(window).scrollTop(),
+
+            // Effects initial settings
+            bgScrollEffectEnabled   = false,
+            featureStuckEnabled     = true,
+            fadeOutEffectEnabled    = true,
+
+            // Scroll progress initial value
+            scrollProgress          = 0;
+
+
+        // Set top position of background element holder, so it covers space occupied by the header
         widgetBackground.css({ top: -widgetPosition.top });
 
-        // Check if  background image can be moved further down
-        if ( backgroundPosition < 100 && backgroundPosition < backgroundScrollEffectThreshold ) {
-            console.log("BG scroll effect enabled");
-            backgroundScrollEffect = true;
+        // Check if background image can be moved further down
+        if ( backgroundPosition < 100 && backgroundPosition < bgScrollEffectThreshold ) {
+
+            bgScrollEffectEnabled = true;
+
         }
 
-        console.log("BG POS: "+backgroundPosition);
+        // Check if widget is taller than the viewport
 
-        console.log("BG BOTT C: "+ widgetBottomCoordinate);
+        if ( widgetBottomCoordinate > windowHeight ) {
 
-    // Scroll Effect
+            widgetViewportOverflow = true;
 
-    var backgroundScrollEffect = function (offset, scrollProgress) {
+        }
 
-        console.log(scrollProgress);
 
+        // ===============================================================
+        // Effects
+        // ===============================================================
+
+
+        // ===============================================================
         // Background Scroll Effect
 
+        var backgroundScrollEffect = function (scrollProgress) {
 
             var bgPosition = backgroundPosition + ( ( 100 - backgroundPosition ) * scrollProgress );
             widgetBackground.css('background-position', '50%' + bgPosition +'%');
 
+        };
 
-
-    };
-
-    // Stuck Effect
-
-    var stuckEffect = function (offset, scrollProgress) {
-
-        console.log(scrollProgress);
-
+        // ===============================================================
         // Stuck Effect
 
+        var stuckEffect = function (scrollProgress) {
 
-            var topOffset = windowOffset;
+            var positionOffset = 0;
+
+            if ( widgetViewportOverflow ) {
+                positionOffset = widgetBottomCoordinate - windowHeight;
+            }
+
+            var topOffset = windowOffset - positionOffset;
             widget.css('transform', 'translate(0px, ' + topOffset +'px )');
-            // widget.css('top', topOffset +'px');
 
-    };
+        };
 
-    // Text Fade Out Effect
+        // ===============================================================
+        // Text Fade Out Effect
 
-    var fadeOutEffect = function (offset, scrollProgress) {
+        var fadeOutEffect = function (scrollProgress) {
 
-        console.log(scrollProgress);
+            opacity = 1 - scrollProgress;
+            widget.find(".content-inner-wrap").css('opacity', opacity);
 
-        // Stuck Effect
-
-
-            var topOffset = windowOffset;
-            widget.css('transform', 'translate(0px, ' + topOffset +'px )');
-            // widget.css('top', topOffset +'px');
-
-    };
-
-    // When the user scrolls
-
-    window.onscroll = function(e) {
-        windowOffset = $(window).scrollTop();
-        scrollProgress = Math.max(0, parseFloat(0+(1/widgetBottomCoordinate*windowOffset)).toFixed(4));
-
-        // Prevents code from running when widget is no longer visible
-
-
-        if ( windowOffset < widgetBottomCoordinate && backgroundScrollEffect ) {
-            backgroundScrollEffect(windowOffset, scrollProgress);
-        }
-
-        if ( featureStuck ) {
-            stuckEffect(windowOffset, scrollProgress);
-        }
-
-    };
-}
+        };
 
 
 
-$(document).ready(function() {
+        // ===============================================================
+        // When user scrolls
+        // ===============================================================
+
+        window.onscroll = function(e) {
+
+            windowOffset = $(window).scrollTop();
+
+            // Prevents code from running when widget is no longer visible
+
+            if ( windowOffset < widgetBottomCoordinate ) {
+
+                var scrollProgressOffset = 0; // Can start scrollProgress immediately
+                var scrollLength = widgetBottomCoordinate; // Effect last while scrolling the lenght of the widget
+
+                // ===============================================================
+                // When widget is taller than viewport
+
+                if ( widgetViewportOverflow ) {
+                    // Disable effects  untill bottom of the widget reaches the viewport
+                    fadeOutEffectEnabled = false;
+                    featureStuckEnabled = false;
+
+                    // When bottom of the widget reaches the viewport
+
+                    if ( windowOffset > ( widgetBottomCoordinate  - windowHeight ) ) {
+                        // Enable effects
+                        featureStuckEnabled = true;
+                        fadeOutEffectEnabled = true;
+
+                        // Scroll effect ajdustments
+                        scrollProgressOffset = widgetBottomCoordinate - windowHeight; // Remove scroll amount needed to reach the bottom of the widget
+                        scrollLength = windowHeight; // Scroll effect last while scrolling the height of the viewport
+
+                    }
+
+                }
+
+                // ===============================================================
+                // Scroll progress, value 0 on the top, value 1 when bottom of the widget passed the viewport
+
+                scrollProgress = Math.min( 1 , parseFloat( 0 + ( 1 / ( scrollLength ) * ( windowOffset -  scrollProgressOffset ) ) ).toFixed( 4 ) );
+
+
+                // ===============================================================
+                // Apply effects
+
+                if ( bgScrollEffectEnabled ) {
+                    backgroundScrollEffect(scrollProgress);
+                }
+
+                if ( featureStuckEnabled ) {
+                    stuckEffect(scrollProgress);
+                }
+
+                if ( fadeOutEffectEnabled ) {
+                    fadeOutEffect(scrollProgress);
+                }
+
+                            // ===============================================================
+                            // Demo Only
+                            // ===============================================================
+
+                            if ( param == "destroy" ) {
+                                widget.find(".content-inner-wrap").css('opacity', 1);
+                                widget.css('transform', 'translate(0px, 0px )');
+                                widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
+                            }
+
+
+            }
+
+        }; //  window.onscroll
+
+
+                            // ===============================================================
+                            // Demo Only
+                            // ===============================================================
+
+                            if ( param == "destroy" ) {
+                                widget.find(".content-inner-wrap").css('opacity', 1);
+                                widget.css('transform', 'translate(0px, 0px )');
+                                widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
+                            }
+
+
+
+}; //featureParallaxEffect
+
+
+
+
+
+// ===============================================================
+// Initialization
+// ===============================================================
+
+$(window).on("load resize",function(e){
     featureParallaxEffect();
 });
-
-
-/*
-
-*/

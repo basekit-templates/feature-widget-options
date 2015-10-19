@@ -347,6 +347,38 @@
 // On
 .feature-parallax--on {
 
+	.feature__parallax-background-image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-size: cover;
+		z-index: 1;
+
+	}
+
+	&.header-position--standard {
+		.template-header {
+			background-color: #fff;
+		    position: relative;
+		    z-index: 10;
+		}
+	}
+
+	&.header-position--overlap {
+		.feature__parallax-background-image {
+			top: 0!important;
+		}
+	}
+
+
+
+	.feature__content-wrap {
+		z-index: 2;
+		position: relative;
+
+	}
 
 }
 
@@ -357,32 +389,6 @@
 
 
 
-.template-header {
-	background-color: #fff;
-    position: relative;
-    z-index: 10;
-}
 
-.feature {
-
-
-}
-
-.feature__parallax-background-image {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background-size: cover;
-	z-index: 1;
-
-}
-
-.feature__content-wrap {
-	z-index: 2;
-	position: relative;
-
-}
 
 

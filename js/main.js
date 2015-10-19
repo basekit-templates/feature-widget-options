@@ -49,7 +49,7 @@ var activeHeaderPosition = "";
 $( ".header-position" )
 	.change(function () {
 
-		$( ".template-header" ).removeClass( activeHeaderPosition );
+		$( ".template-header, body" ).removeClass( activeHeaderPosition );
 
 	    $( this ).children("option:selected").each(function() {
 	    	headerPosition = $( this ).val();
@@ -57,7 +57,7 @@ $( ".header-position" )
 
 	    activeHeaderPosition = headerPosition;
 
-    	$( ".template-header" ).addClass( headerPosition );
+    	$( ".template-header, body" ).addClass( headerPosition );
 
 	}).change();
 
@@ -96,6 +96,8 @@ $( ".feature-height" )
 	    activeFeatureHeight = featureHeight;
 
     	$( ".content-inner-wrap" ).addClass( featureHeight );
+
+        featureParallaxEffect();
 
 	}).change();
 
@@ -163,7 +165,7 @@ var activeFeatureParallax = "";
 $( ".feature-parallax" )
 	.change(function () {
 
-		$( ".content-inner-wrap" ).removeClass( activeFeatureParallax );
+		$( "body" ).removeClass( activeFeatureParallax );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureParallax = $( this ).val();
@@ -171,32 +173,22 @@ $( ".feature-parallax" )
 
 	    activeFeatureParallax = featureParallax;
 
-    	$( ".content-inner-wrap" ).addClass( featureParallax );
+    	$( "body" ).addClass( featureParallax );
+
+        if (featureParallax == "feature-parallax--on") {
+            featureParallaxEffect();
+        } else {
+            featureParallaxEffect("destroy");
+        }
 
 	}).change();
 
 
-// Parallax
-// ----------
 
-// Fixed position and fade out when scrolling
-var scrollEffect = function (elem) {
 
-	// How high the window is
-	var window_height = window.innerHeight;
 
-	// Apply styles as user scrolls
-	elem.setAttribute(
-		"style", "opacity:" + Math.max(0, parseFloat(1-(1.8/window_height*window.pageYOffset)).toFixed(2)) + "; -webkit-transform: translateY(" + window.pageYOffset + "px)"
-	);
 
-};
 
-var elem = document.querySelector('.content-inner-wrap');
-
-window.onscroll = function(e) {
-	scrollEffect(elem);
-};
 
 
 // Accordion
