@@ -106,7 +106,7 @@ var activeFeatureHeight = "";
 $( ".feature-height" )
 	.change(function () {
 
-		$( ".content-inner-wrap" ).removeClass( activeFeatureHeight );
+		$( ".feature" ).removeClass( activeFeatureHeight );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureHeight = $( this ).val();
@@ -114,7 +114,7 @@ $( ".feature-height" )
 
 	    activeFeatureHeight = featureHeight;
 
-    	$( ".content-inner-wrap" ).addClass( featureHeight );
+    	$( ".feature" ).addClass( featureHeight );
 
         featureParallaxEffect();
 
@@ -127,7 +127,7 @@ var activeFeatureAlignment = "";
 $( ".feature-alignment" )
 	.change(function () {
 
-		$( ".content-inner-wrap" ).removeClass( activeFeatureAlignment );
+		$( ".feature" ).removeClass( activeFeatureAlignment );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureAlignment = $( this ).val();
@@ -135,7 +135,7 @@ $( ".feature-alignment" )
 
 	    activeFeatureAlignment = featureAlignment;
 
-    	$( ".content-inner-wrap" ).addClass( featureAlignment );
+    	$( ".feature" ).addClass( featureAlignment );
 
 	}).change();
 
@@ -146,7 +146,7 @@ var activeFeatureOverlayType = "";
 $( ".feature-overlay-type" )
 	.change(function () {
 
-		$( ".content-inner-wrap" ).removeClass( activeFeatureOverlayType );
+		$( ".feature" ).removeClass( activeFeatureOverlayType );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureOverlayType = $( this ).val();
@@ -154,7 +154,7 @@ $( ".feature-overlay-type" )
 
 	    activeFeatureOverlayType = featureOverlayType;
 
-    	$( ".content-inner-wrap" ).addClass( featureOverlayType );
+    	$( ".feature" ).addClass( featureOverlayType );
 
 	}).change();
 
@@ -165,7 +165,7 @@ var activeFeatureOverlayOpacity = "";
 $( ".feature-overlay-opacity" )
 	.change(function () {
 
-		$( ".content-inner-wrap" ).removeClass( activeFeatureOverlayOpacity );
+		$( ".feature" ).removeClass( activeFeatureOverlayOpacity );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureOverlayOpacity = $( this ).val();
@@ -173,7 +173,7 @@ $( ".feature-overlay-opacity" )
 
 	    activeFeatureOverlayOpacity = featureOverlayOpacity;
 
-    	$( ".content-inner-wrap" ).addClass( featureOverlayOpacity );
+    	$( ".feature" ).addClass( featureOverlayOpacity );
 
 	}).change();
 
