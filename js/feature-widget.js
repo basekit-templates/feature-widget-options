@@ -84,7 +84,7 @@ var featureParallaxEffect = function (param) {
             }
 
             var topOffset = Math.max(0, windowOffset - positionOffset);
-            widget.css('transform', 'translate(0px, ' + topOffset +'px )');
+            widget.css('transform', 'translate3d(0px, ' + topOffset +'px, 0 )');
 
         };
 
