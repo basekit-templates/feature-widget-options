@@ -3,7 +3,6 @@ var featureParallaxEffect = function (param) {
 
 
 
-
         // ===============================================================
         // Initial settings
         // ===============================================================
@@ -84,7 +83,7 @@ var featureParallaxEffect = function (param) {
             }
 
             var topOffset = Math.max(0, windowOffset - positionOffset);
-            widget.css('transform', 'translate3d(0px, ' + topOffset +'px, 0 )');
+            widget.css('transform', 'translate(0px, ' + topOffset +'px)');
 
         };
 
@@ -111,6 +110,23 @@ var featureParallaxEffect = function (param) {
             // Prevents code from running when widget is no longer visible
 
             if ( windowOffset < widgetBottomCoordinate ) {
+                applyEffects();
+            }
+
+        }; //  window.onscroll
+
+
+
+
+
+        // ===============================================================
+        // Apply effects
+        // ===============================================================
+
+        var applyEffects = function () {
+
+            console.log("eagle");
+
 
                 var scrollProgressOffset = 0; // Can start scrollProgress immediately
                 var scrollLength = widgetBottomCoordinate; // Effect last while scrolling the lenght of the widget
@@ -159,31 +175,27 @@ var featureParallaxEffect = function (param) {
                     fadeOutEffect(scrollProgress);
                 }
 
-                            // ===============================================================
-                            // Demo Only
-                            // ===============================================================
-
-                            if ( param == "destroy" ) {
-                                widget.find(".content-inner-wrap").css('opacity', 1);
-                                widget.css('transform', 'translate(0px, 0px )');
-                                widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
-                            }
 
 
+
+
+            // ===============================================================
+            // Demo Only
+            // ===============================================================
+
+            if ( param == "destroy" ) {
+                widget.find(".content-inner-wrap").css('opacity', 1);
+                widget.css('transform', 'translate(0px, 0px )');
+                widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
             }
 
-        }; //  window.onscroll
 
 
-                            // ===============================================================
-                            // Demo Only
-                            // ===============================================================
 
-                            if ( param == "destroy" ) {
-                                widget.find(".content-inner-wrap").css('opacity', 1);
-                                widget.css('transform', 'translate(0px, 0px )');
-                                widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
-                            }
+
+        } // applyEffects
+
+
 
 
 
@@ -200,3 +212,5 @@ var featureParallaxEffect = function (param) {
 $(window).on("load resize",function(e){
     featureParallaxEffect();
 });
+
+
