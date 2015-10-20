@@ -49,7 +49,7 @@ var activeHeaderPosition = "";
 $( ".header-position" )
 	.change(function () {
 
-		$( ".template-header, body" ).removeClass( activeHeaderPosition );
+		$( "body" ).removeClass( activeHeaderPosition );
 
 	    $( this ).children("option:selected").each(function() {
 	    	headerPosition = $( this ).val();
@@ -57,7 +57,7 @@ $( ".header-position" )
 
 	    activeHeaderPosition = headerPosition;
 
-    	$( ".template-header, body" ).addClass( headerPosition );
+    	$( "body" ).addClass( headerPosition );
 
 	}).change();
 
@@ -68,7 +68,7 @@ var activeHeaderLayout = "";
 $( ".header-layout" )
 	.change(function () {
 
-		$( ".template-header" ).removeClass( activeHeaderLayout );
+		$( "body" ).removeClass( activeHeaderLayout );
 
 	    $( this ).children("option:selected").each(function() {
 	    	headerLayout = $( this ).val();
@@ -76,7 +76,7 @@ $( ".header-layout" )
 
 	    activeHeaderLayout = headerLayout;
 
-    	$( ".template-header" ).addClass( headerLayout );
+    	$( "body" ).addClass( headerLayout );
 
 	}).change();
 
@@ -87,7 +87,7 @@ var activeHeaderSpacing = "";
 $( ".header-spacing" )
 	.change(function () {
 
-		$( ".template-header" ).removeClass( activeHeaderSpacing );
+		$( "body" ).removeClass( activeHeaderSpacing );
 
 	    $( this ).children("option:selected").each(function() {
 	    	headerSpacing = $( this ).val();
@@ -95,7 +95,7 @@ $( ".header-spacing" )
 
 	    activeHeaderSpacing = headerSpacing;
 
-    	$( ".template-header" ).addClass( headerSpacing );
+    	$( "body" ).addClass( headerSpacing );
 
 	}).change();
 
@@ -106,7 +106,7 @@ var activeFeatureHeight = "";
 $( ".feature-height" )
 	.change(function () {
 
-		$( ".feature" ).removeClass( activeFeatureHeight );
+		$( "body" ).removeClass( activeFeatureHeight );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureHeight = $( this ).val();
@@ -114,7 +114,7 @@ $( ".feature-height" )
 
 	    activeFeatureHeight = featureHeight;
 
-    	$( ".feature" ).addClass( featureHeight );
+    	$( "body" ).addClass( featureHeight );
 
         featureParallaxEffect();
 
@@ -127,7 +127,7 @@ var activeFeatureAlignment = "";
 $( ".feature-alignment" )
 	.change(function () {
 
-		$( ".feature" ).removeClass( activeFeatureAlignment );
+		$( "body" ).removeClass( activeFeatureAlignment );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureAlignment = $( this ).val();
@@ -135,7 +135,7 @@ $( ".feature-alignment" )
 
 	    activeFeatureAlignment = featureAlignment;
 
-    	$( ".feature" ).addClass( featureAlignment );
+    	$( "body" ).addClass( featureAlignment );
 
 	}).change();
 
@@ -146,7 +146,7 @@ var activeFeatureOverlayType = "";
 $( ".feature-overlay-type" )
 	.change(function () {
 
-		$( ".feature" ).removeClass( activeFeatureOverlayType );
+		$( "body" ).removeClass( activeFeatureOverlayType );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureOverlayType = $( this ).val();
@@ -154,7 +154,7 @@ $( ".feature-overlay-type" )
 
 	    activeFeatureOverlayType = featureOverlayType;
 
-    	$( ".feature" ).addClass( featureOverlayType );
+    	$( "body" ).addClass( featureOverlayType );
 
 	}).change();
 
@@ -165,7 +165,7 @@ var activeFeatureOverlayOpacity = "";
 $( ".feature-overlay-opacity" )
 	.change(function () {
 
-		$( ".feature" ).removeClass( activeFeatureOverlayOpacity );
+		$( "body" ).removeClass( activeFeatureOverlayOpacity );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureOverlayOpacity = $( this ).val();
@@ -173,7 +173,7 @@ $( ".feature-overlay-opacity" )
 
 	    activeFeatureOverlayOpacity = featureOverlayOpacity;
 
-    	$( ".feature" ).addClass( featureOverlayOpacity );
+    	$( "body" ).addClass( featureOverlayOpacity );
 
 	}).change();
 
@@ -209,7 +209,7 @@ var activeMainSpacing = "";
 $( ".main-spacing" )
 	.change(function () {
 
-		$( ".main-content" ).removeClass( activeMainSpacing );
+		$( "body" ).removeClass( activeMainSpacing );
 
 	    $( this ).children("option:selected").each(function() {
 	    	mainSpacing = $( this ).val();
@@ -217,9 +217,11 @@ $( ".main-spacing" )
 
 	    activeMainSpacing = mainSpacing;
 
-    	$( ".main-content" ).addClass( mainSpacing );
+    	$( "body" ).addClass( mainSpacing );
 
 	}).change();
+
+
 
 
 // Accordion
