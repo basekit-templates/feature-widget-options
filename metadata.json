@@ -1,5 +1,6 @@
 {
-    "name": "Variable Template",
+    "name": "Feature Widget Options",
+    "preprocessor": "sass",
     "thumbnail": "thumbnail.png",
     "screenshot" : "screenshot.jpg",
     "widgetVersion": 2,
