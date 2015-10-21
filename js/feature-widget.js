@@ -1,3 +1,72 @@
+/*! jQuery requestAnimationFrame - v0.1.3pre - 2014-02-07
+* https://github.com/gnarf37/jquery-requestAnimationFrame
+* Copyright (c) 2014 Corey Frang; Licensed MIT */
+
+(function( jQuery ) {
+
+// requestAnimationFrame polyfill adapted from Erik Möller
+// fixes from Paul Irish and Tino Zijdel
+// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+
+
+var animating,
+    lastTime = 0,
+    vendors = ['webkit', 'moz'],
+    requestAnimationFrame = window.requestAnimationFrame,
+    cancelAnimationFrame = window.cancelAnimationFrame;
+
+for(; lastTime < vendors.length && !requestAnimationFrame; lastTime++) {
+    requestAnimationFrame = window[ vendors[lastTime] + "RequestAnimationFrame" ];
+    cancelAnimationFrame = cancelAnimationFrame ||
+        window[ vendors[lastTime] + "CancelAnimationFrame" ] ||
+        window[ vendors[lastTime] + "CancelRequestAnimationFrame" ];
+}
+
+function raf() {
+    if ( animating ) {
+        requestAnimationFrame( raf );
+        jQuery.fx.tick();
+    }
+}
+
+if ( requestAnimationFrame ) {
+    // use rAF
+    window.requestAnimationFrame = requestAnimationFrame;
+    window.cancelAnimationFrame = cancelAnimationFrame;
+    jQuery.fx.timer = function( timer ) {
+        if ( timer() && jQuery.timers.push( timer ) && !animating ) {
+            animating = true;
+            raf();
+        }
+    };
+
+    jQuery.fx.stop = function() {
+        animating = false;
+    };
+} else {
+    // polyfill
+    window.requestAnimationFrame = function( callback, element ) {
+        var currTime = new Date().getTime(),
+            timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) ),
+            id = window.setTimeout( function() {
+                callback( currTime + timeToCall );
+            }, timeToCall );
+        lastTime = currTime + timeToCall;
+        return id;
+    };
+
+    window.cancelAnimationFrame = function(id) {
+        clearTimeout(id);
+    };
+
+}
+
+}( jQuery ));
+
+
+
+
 var featureParallaxEffect = function (param) {
 
 
@@ -34,7 +103,8 @@ var featureParallaxEffect = function (param) {
             fadeOutEffectEnabled    = true,
 
             // Scroll progress initial value
-            scrollProgress          = 0;
+            scrollProgress          = 0,
+            scrolling               = false;
 
 
         // Set top position of background element holder, so it covers space occupied by the header
@@ -83,7 +153,11 @@ var featureParallaxEffect = function (param) {
             }
 
             var topOffset = Math.max(0, windowOffset - positionOffset);
+
+            widget.css('-webkit-transform', 'translate3d(0px, ' + topOffset +'px, 0)');
+            widget.css('-moz-transform', 'translate(0px, ' + topOffset +'px)');
             widget.css('transform', 'translate(0px, ' + topOffset +'px)');
+
 
         };
 
@@ -104,19 +178,27 @@ var featureParallaxEffect = function (param) {
         // ===============================================================
 
         window.onscroll = function(e) {
-
-            windowOffset = $(window).scrollTop();
-
-            // Prevents code from running when widget is no longer visible
-
-            if ( windowOffset < widgetBottomCoordinate ) {
-                applyEffects();
-            }
-
+            scrolling = true;
+            windowOffset = Math.max(0, $(window).scrollTop() );
+            console.log($(window).scrollTop());
         }; //  window.onscroll
 
 
 
+
+        var animate = function () {
+
+                requestAnimationFrame( animate );
+
+                // Prevents code from running when widget is no longer visible
+
+                if ( windowOffset < widgetBottomCoordinate && scrolling ) {
+                    applyEffects();
+                }
+
+                scrolling = false;
+
+        }
 
 
         // ===============================================================
@@ -125,7 +207,7 @@ var featureParallaxEffect = function (param) {
 
         var applyEffects = function () {
 
-            console.log("eagle");
+
 
 
                 var scrollProgressOffset = 0; // Can start scrollProgress immediately
@@ -194,6 +276,9 @@ var featureParallaxEffect = function (param) {
 
 
         } // applyEffects
+
+
+        requestAnimationFrame( animate );
 
 
 
