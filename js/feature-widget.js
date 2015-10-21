@@ -133,9 +133,6 @@ var featureParallaxEffect = function (param) {
             windowHeight            = $(window).height();
 
 
-            console.log("resizing");
-
-
             // Check if widget is taller than the viewport
 
             if ( widgetBottomCoordinate > windowHeight ) {
