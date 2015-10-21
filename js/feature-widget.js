@@ -67,9 +67,24 @@ if ( requestAnimationFrame ) {
 
 
 
+
+
+
+
 var featureParallaxEffect = function (param) {
 
 
+        // ===============================================================
+        // Elements
+        // ===============================================================
+        var
+            widget                  = $(".feature"),
+            widgetWrapper           = "featureWrapper";
+
+
+
+        widget.wrap("<div class='"+widgetWrapper+"'></div>");
+        widget.append("<div class='feature__parallax-background-image'></div>");
 
 
         // ===============================================================
@@ -77,24 +92,25 @@ var featureParallaxEffect = function (param) {
         // ===============================================================
 
         var
-            // Element to apply the effects
-            widget                  = $(".feature"),
+
 
             // Element properties
-            widgetHeight            = widget.height(),
-            widgetPosition          = widget.offset(),
-            widgetBottomCoordinate  = widgetPosition.top + widgetHeight,
+            widgetWidth             = 0,
+            widgetHeight            = 0,
+            widgetPosition          = 0,
+            widgetBottomCoordinate  = 0,
             widgetViewportOverflow  = false;
 
             // Background element
             widgetBackground        = widget.find(".feature__parallax-background-image"),
+            backgroundImage  =        widget.find(".feature__background-image").css("background-image");
 
             // Background position setting
             backgroundPosition      = parseFloat( widgetBackground.css("background-position").split(' ')[1] ),
             bgScrollEffectThreshold = 90, // Allows background scroll effect only when background-position-y is set below this value
 
             // Window properties
-            windowHeight            = $(window).height(),
+            windowHeight            = 0,
             windowOffset            = $(window).scrollTop(),
 
             // Effects initial settings
@@ -105,6 +121,33 @@ var featureParallaxEffect = function (param) {
             // Scroll progress initial value
             scrollProgress          = 0,
             scrolling               = false;
+
+
+
+
+        var calcDimension = function () {
+            // Get dimensions
+            widgetWidth             = $(".featureWrapper").width();
+            widgetHeight            = widget.height();
+            widgetPosition          = widget.offset();
+            widgetBottomCoordinate  = widgetPosition.top + widgetHeight;
+            windowHeight            = $(window).height();
+
+            // Set dimensions
+
+            widget.width(widgetWidth);
+            $("."+widgetWrapper).height(widgetHeight);
+        };
+
+
+        $(".feature__parallax-background-image").css({ 'background-image':  backgroundImage  });
+
+
+
+        calcDimension();
+
+
+
 
 
         // Set top position of background element holder, so it covers space occupied by the header
@@ -124,6 +167,12 @@ var featureParallaxEffect = function (param) {
             widgetViewportOverflow = true;
 
         }
+
+
+
+
+
+
 
 
         // ===============================================================
@@ -154,9 +203,8 @@ var featureParallaxEffect = function (param) {
 
             var topOffset = Math.max(0, windowOffset - positionOffset);
 
-            widget.css('-webkit-transform', 'translate3d(0px, ' + topOffset +'px, 0)');
-            widget.css('-moz-transform', 'translate(0px, ' + topOffset +'px)');
-            widget.css('transform', 'translate(0px, ' + topOffset +'px)');
+            // widget.css('-webkit-transform', 'translate3d(0px, ' + topOffset +'px, 0)');
+
 
 
         };
@@ -180,8 +228,15 @@ var featureParallaxEffect = function (param) {
         window.onscroll = function(e) {
             scrolling = true;
             windowOffset = Math.max(0, $(window).scrollTop() );
-            console.log($(window).scrollTop());
-        }; //  window.onscroll
+
+        };
+
+
+         $(window).on("resize",function(e){
+            calcDimension();
+         });
+
+
 
 
 
@@ -290,12 +345,11 @@ var featureParallaxEffect = function (param) {
 
 
 
+
 // ===============================================================
 // Initialization
 // ===============================================================
 
-$(window).on("load resize",function(e){
+$(window).on("load",function(e){
     featureParallaxEffect();
 });
-
-

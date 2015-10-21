@@ -116,7 +116,9 @@ $( ".feature-height" )
 
     	$( "body" ).addClass( featureHeight );
 
-        featureParallaxEffect();
+        window.dispatchEvent(new Event('resize'));
+
+
 
 	}).change();
 
@@ -195,7 +197,8 @@ $( ".feature-parallax" )
     	$( "body" ).addClass( featureParallax );
 
         if (featureParallax == "feature-parallax--on") {
-            featureParallaxEffect();
+            window.dispatchEvent(new Event('resize'));
+
         } else {
             featureParallaxEffect("destroy");
         }
@@ -222,6 +225,12 @@ $( ".main-spacing" )
 	}).change();
 
 
+$( "select" )
+    .change(function () {
+
+    window.dispatchEvent(new Event('resize'));
+
+    }).change();
 
 
 // Accordion
