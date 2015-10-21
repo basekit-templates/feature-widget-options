@@ -70,7 +70,6 @@ if ( requestAnimationFrame ) {
 
 
 
-
 var featureParallaxEffect = function (param) {
 
 
@@ -117,18 +116,33 @@ var featureParallaxEffect = function (param) {
 
             // Scroll progress initial value
             scrollProgress          = 0,
-            scrolling               = false;
+            scrolling               = false,
+            resizing                = false,
+            resizeTimer             = 0;
 
 
 
 
         var calcDimension = function () {
+            resizing = false;
             // Get dimensions
             widgetWidth             = $(".featureWrapper").width();
             widgetHeight            = widget.height();
             widgetPosition          = widget.offset();
             widgetBottomCoordinate  = widgetPosition.top + widgetHeight;
             windowHeight            = $(window).height();
+
+
+            console.log("resizing");
+
+
+            // Check if widget is taller than the viewport
+
+            if ( widgetBottomCoordinate > windowHeight ) {
+                widgetViewportOverflow = true;
+            } else {
+                widgetViewportOverflow = false;
+            }
 
             // Set dimensions
 
@@ -157,13 +171,7 @@ var featureParallaxEffect = function (param) {
 
         }
 
-        // Check if widget is taller than the viewport
 
-        if ( widgetBottomCoordinate > windowHeight ) {
-
-            widgetViewportOverflow = true;
-
-        }
 
 
 
@@ -185,6 +193,7 @@ var featureParallaxEffect = function (param) {
             var bgPosition = Math.max(backgroundPosition, backgroundPosition + ( ( 100 - backgroundPosition ) * scrollProgress ) ).toFixed( 2 );
             widgetBackground.css('background-position', '50%' + bgPosition +'%');
 
+
         };
 
         // ===============================================================
@@ -199,8 +208,9 @@ var featureParallaxEffect = function (param) {
                 positionOffset = widgetBottomCoordinate - widgetPosition.top - windowHeight;
             }
 
-            // Stuck it
-            if ( featureStuckEnabled ) {
+            // Stuck it when bottom of the widget reached the bottom of the viewport
+            // and when the top of the top of the widget passed above the viewport
+            if ( featureStuckEnabled && windowOffset > widgetPosition.top ) {
                 widget.addClass("stuck");
 
                 // Stuck when larger the than viewport
@@ -209,7 +219,7 @@ var featureParallaxEffect = function (param) {
                 }
                 // Stuck when smaller than the viewport
                 else {
-                    widget.css('top', widgetPosition.top +'px');
+                    widget.css('top', '0px');
                 }
             // Unstuck the widget
             } else {
@@ -238,15 +248,22 @@ var featureParallaxEffect = function (param) {
         window.onscroll = function(e) {
             scrolling = true;
             windowOffset = Math.max(0, $(window).scrollTop() );
-
         };
 
 
-         $(window).on("resize",function(e){
-            calcDimension();
-         });
+        // ===============================================================
+        // When viewport is resized
+        // ===============================================================
 
 
+        $(window).on('resize', function(e) {
+
+              clearTimeout(resizeTimer);
+              resizeTimer = setTimeout(function() {
+                resizing = true;
+                calcDimension();
+              }, 250);
+        });
 
 
 
@@ -258,8 +275,10 @@ var featureParallaxEffect = function (param) {
                 // Prevents code from running when widget is no longer visible
 
                 if ( windowOffset < widgetBottomCoordinate && scrolling ) {
-                    applyEffects();
+
                 }
+
+                applyEffects();
 
                 scrolling = false;
 
@@ -272,9 +291,6 @@ var featureParallaxEffect = function (param) {
 
         var applyEffects = function () {
 
-
-
-
                 var scrollProgressOffset = 0; // Can start scrollProgress immediately
                 var scrollLength = widgetBottomCoordinate; // Effect last while scrolling the lenght of the widget
 
@@ -285,14 +301,16 @@ var featureParallaxEffect = function (param) {
                     // Disable effects  untill bottom of the widget reaches the viewport
                     fadeOutEffectEnabled = false;
                     featureStuckEnabled = false;
+                    bgScrollEffectEnabled = false;
 
 
                     // When bottom of the widget reaches the viewport
 
-                    if ( windowOffset > ( widgetBottomCoordinate  - windowHeight ) ) {
+                    if ( windowOffset > ( widgetBottomCoordinate  - windowHeight )  ) {
                         // Enable effects
                         featureStuckEnabled = true;
                         fadeOutEffectEnabled = true;
+                        bgScrollEffectEnabled = true;
 
                         // Scroll effect ajdustments
                         scrollProgressOffset = widgetBottomCoordinate - windowHeight; // Remove scroll amount needed to reach the bottom of the widget
@@ -311,13 +329,15 @@ var featureParallaxEffect = function (param) {
                 // ===============================================================
                 // Apply effects
 
-                if ( bgScrollEffectEnabled ) {
+                if ( bgScrollEffectEnabled && resizing == false ) {
                     backgroundScrollEffect(scrollProgress);
                 }
 
+                if ( resizing == false ) {
                 stuckEffect(scrollProgress);
+                }
 
-                if ( fadeOutEffectEnabled ) {
+                if ( fadeOutEffectEnabled && resizing == false ) {
                     fadeOutEffect(scrollProgress);
                 }
 
