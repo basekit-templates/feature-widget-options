@@ -207,19 +207,17 @@ var featureParallaxEffect = function (param) {
 
             // Stuck it when bottom of the widget reached the bottom of the viewport
             // and when the top of the top of the widget passed above the viewport
-            if ( featureStuckEnabled && windowOffset > widgetPosition.top ) {
+            if ( featureStuckEnabled && windowOffset > widgetPosition.top && widgetViewportOverflow == true ) {
                 widget.addClass("stuck");
+                widget.css('top', -(Math.max(0, positionOffset)) +'px');
 
-                // Stuck when larger the than viewport
-                if ( widgetViewportOverflow ) {
-                     widget.css('top', -(Math.max(0, positionOffset)) +'px');
-                }
-                // Stuck when smaller than the viewport
-                else {
-                    widget.css('top', '0px');
-                }
+            } else if (featureStuckEnabled && widgetViewportOverflow == false) {
+                widget.addClass("stuck");
+                widget.css('top', widgetPosition.top +'px');
+            }
+
             // Unstuck the widget
-            } else {
+             else {
                 widget.removeClass("stuck");
                 widget.css('top','0px');
             }
