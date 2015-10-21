@@ -75,13 +75,11 @@ var featureParallaxEffect = function (param) {
 
 
         // ===============================================================
-        // Elements
+        // Set Up Elements
         // ===============================================================
         var
             widget                  = $(".feature"),
             widgetWrapper           = "featureWrapper";
-
-
 
         widget.wrap("<div class='"+widgetWrapper+"'></div>");
         widget.append("<div class='feature__parallax-background-image'></div>");
@@ -92,7 +90,6 @@ var featureParallaxEffect = function (param) {
         // ===============================================================
 
         var
-
 
             // Element properties
             widgetWidth             = 0,
@@ -141,7 +138,7 @@ var featureParallaxEffect = function (param) {
 
 
         $(".feature__parallax-background-image").css({ 'background-image':  backgroundImage  });
-
+        widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
 
 
         calcDimension();
@@ -198,16 +195,24 @@ var featureParallaxEffect = function (param) {
             var positionOffset = 0;
 
             if ( widgetViewportOverflow ) {
-                positionOffset = widgetBottomCoordinate - windowHeight;
+                positionOffset = widgetBottomCoordinate - widgetPosition.top - windowHeight;
+
             }
 
-            var topOffset = Math.max(0, windowOffset - positionOffset);
+            if ( featureStuckEnabled ) {
+                widget.addClass("stuck");
 
-            // widget.css('-webkit-transform', 'translate3d(0px, ' + topOffset +'px, 0)');
-
-
-
+                if ( widgetViewportOverflow ) {
+                     widget.css('top', -(Math.max(0, positionOffset)) +'px');
+                } else {
+                    widget.css('top', widgetPosition.top +'px');
+                }
+            } else {
+                widget.removeClass("stuck");
+                widget.css('top','0px');
+            }
         };
+
 
         // ===============================================================
         // Text Fade Out Effect
@@ -276,6 +281,7 @@ var featureParallaxEffect = function (param) {
                     fadeOutEffectEnabled = false;
                     featureStuckEnabled = false;
 
+
                     // When bottom of the widget reaches the viewport
 
                     if ( windowOffset > ( widgetBottomCoordinate  - windowHeight ) ) {
@@ -304,9 +310,7 @@ var featureParallaxEffect = function (param) {
                     backgroundScrollEffect(scrollProgress);
                 }
 
-                if ( featureStuckEnabled ) {
-                    stuckEffect(scrollProgress);
-                }
+                stuckEffect(scrollProgress);
 
                 if ( fadeOutEffectEnabled ) {
                     fadeOutEffect(scrollProgress);
