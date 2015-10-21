@@ -194,19 +194,24 @@ var featureParallaxEffect = function (param) {
 
             var positionOffset = 0;
 
+            // When widget is taller than the viewport a negative top position will be set when stuck
             if ( widgetViewportOverflow ) {
                 positionOffset = widgetBottomCoordinate - widgetPosition.top - windowHeight;
-
             }
 
+            // Stuck it
             if ( featureStuckEnabled ) {
                 widget.addClass("stuck");
 
+                // Stuck when larger the than viewport
                 if ( widgetViewportOverflow ) {
                      widget.css('top', -(Math.max(0, positionOffset)) +'px');
-                } else {
+                }
+                // Stuck when smaller than the viewport
+                else {
                     widget.css('top', widgetPosition.top +'px');
                 }
+            // Unstuck the widget
             } else {
                 widget.removeClass("stuck");
                 widget.css('top','0px');
