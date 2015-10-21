@@ -116,7 +116,7 @@ $( ".feature-height" )
 
     	$( "body" ).addClass( featureHeight );
 
-        window.dispatchEvent(new Event('resize'));
+
 
 
 
@@ -197,7 +197,7 @@ $( ".feature-parallax" )
     	$( "body" ).addClass( featureParallax );
 
         if (featureParallax == "feature-parallax--on") {
-            window.dispatchEvent(new Event('resize'));
+
 
         } else {
             featureParallaxEffect("destroy");
@@ -228,7 +228,8 @@ $( ".main-spacing" )
 $( "select" )
     .change(function () {
 
-    window.dispatchEvent(new Event('resize'));
+
+    jQuery(window).trigger("resize");
 
     }).change();
 
