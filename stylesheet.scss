@@ -165,13 +165,6 @@ body {
     background-color: $color__body--background;
 }
 
-// Site Canvas
-.site-canvas {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-}
-
 // Site Links
 a {
     color: $color__link--text;
@@ -382,15 +375,6 @@ a {
 
     @media #{$tablet} {
         margin-top: 20px;
-    }
-}
-
-// Company link
-.company-link {
-    color: $color__companyname--text;
-
-    &:hover {
-        text-decoration: none;
     }
 }
 
