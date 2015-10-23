@@ -1,450 +1,442 @@
-// // ----------------------------------------------
-// // Feature Widget Options: SCSS > Feature Options
-// // ----------------------------------------------
-
-// // -----------------------------
-// // #Site Options
-// // -----------------------------
-
-// $value__site--width:          100%;  // Site width
-// $value__site-content--width:  90%;   // Content width (wrapper)
-// $value__site--spacing:  	  30px;  // Site spacing
-// $value__feature-content--opacity: 0.6;
-
-
-// // Site Layout
-// // -----------
-
-// // Full
-// .site-layout--full {
-// 	width: 100%;
-
-// 	.site-content {
-// 		padding: 0 5%;
-// 	}
-// }
-
-// // Contained
-// .site-layout--contained {
-// 	width: 1100px;
-// }
-
-
-// // Site Position
-// // -------------
-
-// // Center
-// .site-position--center {
-// 	margin: 0 auto;
-// }
-
-// // Left
-// .site-position--left {
-// 	margin-right: auto;
-
-// 	.template-header,
-// 	.main-content {
-// 		padding-left: $value__site--spacing;
-// 		padding-right: $value__site--spacing;
-// 	}
-// }
-
-// // Right
-// .site-position--right {
-// 	margin-left: auto;
-
-// 	.template-header {
-// 		padding-right: $value__site--spacing;
-// 	}
-// }
-
-
-
-
-// // -----------------------------
-// // #Header Options
-// // -----------------------------
-
-
-// // Header Layout
-// // -------------
-
-// // Left
-// .header-layout--left {
-// 	.template-header .flex-container {
-// 		@include flexbox;
-// 		@include justify-content(center);
-
-// 		@media #{$tablet} {
-// 			display: block;
-// 		}
-
-// 		.flex-item:first-child {
-// 			margin-right: 20px;
-// 		}
-// 		.flex-item:last-child {
-// 			@include flex(1 1 auto);
-// 		}
-// 	}
-// 	.navigation-list {
-// 		text-align: right;
-// 	}
-// }
-
-// // Right
-// .header-layout--right {
-// 	.template-header .flex-container {
-// 		@include flexbox;
-// 		@include flex-direction(row-reverse);
-// 		@include justify-content(center);
-// 	}
-// 	.flex-item:nth-child(2) {
-// 		margin: 0 20px;
-// 	}
-// 	.flex-item:last-child {
-// 		@include flex(1 1 auto);
-// 	}
-// 	.navigation-list {
-// 		text-align: left;
-// 	}
-// }
-
-// // Center
-// .header-layout--center .template-header {
-// 	display: block;
-// 	text-align: center;
-// 	padding-bottom: 0!important;
-
-// 	.navigation-list {
-// 		padding-top: 30px;
-// 		text-align: center;
-// 	}
-// 	.company-link {
-// 		display: block;
-// 		margin-top: 20px;
-// 	}
-// }
-
-
-// // Header Position
-// // ---------------
-
-// // Standard
-// .header-position--standard {
-// 	.template-header {
-// 		position: relative;
-// 	}
-// }
-
-// // Overlap
-// .header-position--overlap {
-// 	.template-header {
-// 		position: absolute;
-// 		z-index: 7000;
-
-// 		.navigation-item .item-name {
-// 			color: $color__body--background;
-// 		}
-// 		.item-name--parent:after {
-// 			border-top-color: $color__body--background;
-// 		}
-// 		.navigation-item .item-name:hover,
-// 		.navigation-item.selected .item-name {
-// 			color: $color__body--background;
-// 		}
-// 		.navigation-item.folder:hover .item-name {
-// 			color: $color__h1--text;
-// 		}
-
-// 		.company-link {
-// 			color: $color__body--background;
-// 		}
-
-// 		.logo-image {
-// 			box-shadow: 0 0 10px rgba(0,0,0,0.1);
-// 		}
-
-// 		+ .widget .headline {
-// 			margin-top: 110px;
-// 		}
-
-// 		@media #{$tablet} {
-// 			.navigation-toggle {
-// 				color: $color__body--background;
-// 			}
-// 			.navigation-body {
-// 				background-color: $color__header--background;
-// 			}
-// 			.navigation-list {
-// 				position: relative;
-// 				padding: 0 20px;
-// 			}
-// 			.navigation-item .item-name:hover,
-// 			.navigation-item.selected .item-name {
-// 				color: $color__navigation--text;
-// 			}
-// 			.navigation-item.folder .item-name:hover {
-// 				color: $color__navigation--text;
-// 			}
-// 		}
-// 	}
-// }
-
-
-// // Header Spacing
-// // --------------
-
-// .template-header {
-
-// 	// Small
-// 	.header-spacing--small & {
-// 		padding: 16px 0;
-// 	}
-
-// 	// Medium
-// 	.header-spacing--medium & {
-// 		padding: 30px 0;
-// 	}
-
-// 	// Large
-// 	.header-spacing--large & {
-// 		padding: 50px 0;
-// 	}
-// }
-
-
-
-// // -----------------------------
-// // #Feature Options
-// // -----------------------------
-
-
-// // Feature Height
-// // --------------
-
-// .feature__content-inner-wrap {
-
-// 	// Fullscreen
-// 	.feature-height--fullscreen & {
-// 		min-height: calc(100vh - 110px);
-// 	}
-
-// 	// Medium
-// 	.feature-height--medium & {
-// 		min-height: 600px;
-
-// 		@media #{$tablet} {
-// 			min-height: 500px;
-// 		}
-// 		@media #{$mobile} {
-// 			min-height: 400px;
-// 		}
-// 	}
-
-// 	// Small
-// 	.feature-height--small & {
-// 		min-height: 400px;
-
-// 		@media #{$tablet} {
-// 			min-height: 300px;
-// 		}
-// 	}
-// }
-
-
-// // Feature Alignment
-// // -----------------
-
-// .feature__content-inner-wrap {
-
-// 	// Top
-// 	.feature-alignment--top--left & {
-// 		@include justify-content(flex-start);
-// 		@include align-items(flex-start);
-// 		text-align: left;
-// 	}
-// 	.feature-alignment--top--center & {
-// 		@include justify-content(flex-start);
-// 		@include align-items(center);
-// 		text-align: center;
-// 	}
-// 	.feature-alignment--top--right & {
-// 		@include justify-content(flex-start);
-// 		@include align-items(flex-end);
-// 		text-align: right;
-// 	}
-
-// 	// Middle
-// 	.feature-alignment--middle--left & {
-// 		@include justify-content(center);
-// 		@include align-items(flex-start);
-// 		text-align: left;
-// 	}
-// 	.feature-alignment--middle--center & {
-// 		@include justify-content(center);
-// 		@include align-items(center);
-// 		text-align: center;
-// 	}
-// 	.feature-alignment--middle--right & {
-// 		@include justify-content(center);
-// 		@include align-items(flex-end);
-// 		text-align: right;
-// 	}
-
-// 	// Bottom
-// 	.feature-alignment--bottom--left & {
-// 		@include justify-content(flex-end);
-// 		@include align-items(flex-start);
-// 		text-align: left;
-// 	}
-// 	.feature-alignment--bottom--center & {
-// 		@include justify-content(flex-end);
-// 		@include align-items(center);
-// 		text-align: center;
-// 	}
-// 	.feature-alignment--bottom--right & {
-// 		@include justify-content(flex-end);
-// 		@include align-items(flex-end);
-// 		text-align: right;
-// 	}
-
-// }
-
-
-// // Feature Overlay Type
-// // --------------------
-
-// // Full
-// .feature-overlay-type--full .feature__parallax-background-image:after {
-// 	content: "";
-// 	display: block;
-// 	position: absolute;
-// 	top: 0;
-// 	right: 0;
-// 	bottom: 0;
-// 	left: 0;
-// 	background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), $value__feature-content--opacity);
-// }
-
-// // Typography
-// .feature-overlay-type--typography {
-// 	.feature {
-// 		background-color: transparent!important;
-
-
-// 		.headline {
-// 	        display: inline-block;
-// 	        padding: 14px 20px;
-// 	        background-color: hsla(hue($color__feature-headline--background), saturation($color__feature-headline--background), lightness($color__feature-headline--background), $value__feature-content--opacity);
-// 	    }
-// 	    .strapline {
-// 	        display: inline-block;
-// 	        margin-bottom: 10px;
-// 	        padding: 7px 20px;
-// 	        background-color: hsla(hue($color__feature-strapline--background), saturation($color__feature-strapline--background), lightness($color__feature-strapline--background), $value__feature-content--opacity);
-// 	    }
-//     }
-// }
-
-
-// // Feature Overlay Opacity
-// // -----------------------
-
-// .feature__parallax-background-image:after {
-
-// 	.feature-overlay-opacity--100 & {
-// 		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), 1);
-// 	}
-// 	.feature-overlay-opacity--75 & {
-// 		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), .75);
-// 	}
-// 	.feature-overlay-opacity--50 & {
-// 		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), .5);
-// 	}
-// 	.feature-overlay-opacity--25 & {
-// 		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), .25);
-// 	}
-// 	.feature-overlay-opacity--10 & {
-// 		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), .1);
-// 	}
-// 	.feature-overlay-opacity--0 & {
-// 		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), 0);
-// 	}
-
-// }
-
-
-// // Feature Parallax
-// // ----------------
-
-// // On
-// .feature-parallax--on {
-
-// 	.feature__parallax-background-image {
-// 		position: absolute;
-// 		top: 0;
-// 		right: 0;
-// 		bottom: 0;
-// 		left: 0;
-// 		background-size: cover;
-// 		z-index: 1;
-
-// 	}
-
-// 	&.header-position--standard {
-// 		.template-header {
-// 			background-color: #fff;
-// 		    position: relative;
-// 		    z-index: 10;
-// 		}
-// 	}
-
-// 	&.header-position--overlap {
-// 		.feature__parallax-background-image {
-// 			top: 0!important;
-// 		}
-// 	}
-
-// 	.feature__content-wrap {
-// 		z-index: 2;
-// 		position: relative;
-
-// 	}
-
-// }
-
-
-
-
-// // -----------------------------
-// // #Main Content Options
-// // -----------------------------
-
-
-// // Main Spacing
-// // ------------
-
-// .main-content {
-// 	// Small
-// 	.main-x-spacing--small &{
-// 		padding: 3%;
-// 	}
-
-// 	// Medium
-// 	.main-x-spacing--medium &{
-// 		padding: 6%;
-// 	}
-
-// 	// Large
-// 	.main-x-spacing--large &{
-// 		padding: 8%;
-// 	}
-// }
-
-
-
-
-
-
-
-
+// ----------------------------------------------
+// Feature Widget Options: SCSS > Feature Options
+// ----------------------------------------------
+
+// -----------------------------
+// #Site Options
+// -----------------------------
+
+$value__site--width:          100%;  // Site width
+$value__site-content--width:  90%;   // Content width (wrapper)
+$value__site--spacing:  	  30px;  // Site spacing
+$value__feature-content--opacity: 0.6;
+
+
+// Site Layout
+// -----------
+
+// Full
+.site-layout--full {
+	width: 100%;
+
+	.site-content {
+		padding: 0 5%;
+	}
+}
+
+// Contained
+.site-layout--contained {
+	width: 1100px;
+}
+
+
+// Site Position
+// -------------
+
+// Center
+.site-position--center {
+	margin: 0 auto;
+}
+
+// Left
+.site-position--left {
+	margin-right: auto;
+
+	.template-header,
+	.main-content {
+		padding-left: $value__site--spacing;
+		padding-right: $value__site--spacing;
+	}
+}
+
+// Right
+.site-position--right {
+	margin-left: auto;
+
+	.template-header {
+		padding-right: $value__site--spacing;
+	}
+}
+
+
+
+
+// -----------------------------
+// #Header Options
+// -----------------------------
+
+
+// Header Layout
+// -------------
+
+// Left
+.header-layout--left {
+	.template-header .flex-container {
+		@include flexbox;
+		@include justify-content(center);
+
+		@media #{$tablet} {
+			display: block;
+		}
+
+		.flex-item:first-child {
+			margin-right: 20px;
+		}
+		.flex-item:last-child {
+			@include flex(1 1 auto);
+		}
+	}
+	.navigation-list {
+		text-align: right;
+	}
+}
+
+// Right
+.header-layout--right {
+	.template-header .flex-container {
+		@include flexbox;
+		@include flex-direction(row-reverse);
+		@include justify-content(center);
+	}
+	.flex-item:nth-child(2) {
+		margin: 0 20px;
+	}
+	.flex-item:last-child {
+		@include flex(1 1 auto);
+	}
+	.navigation-list {
+		text-align: left;
+	}
+}
+
+// Center
+.header-layout--center .template-header {
+	display: block;
+	text-align: center;
+	padding-bottom: 0!important;
+
+	.navigation-list {
+		padding-top: 30px;
+		text-align: center;
+	}
+	.company-link {
+		display: block;
+		margin-top: 20px;
+	}
+}
+
+
+// Header Position
+// ---------------
+
+// Standard
+.header-position--standard {
+	.template-header {
+		position: relative;
+	}
+}
+
+// Overlap
+.header-position--overlap {
+	.template-header {
+		position: absolute;
+		z-index: 7000;
+
+		.navigation-item .item-name {
+			color: $color__body--background;
+		}
+		.item-name--parent:after {
+			border-top-color: $color__body--background;
+		}
+		.navigation-item .item-name:hover,
+		.navigation-item.selected .item-name {
+			color: $color__body--background;
+		}
+		.navigation-item.folder:hover .item-name {
+			color: $color__h1--text;
+		}
+
+		.company-link {
+			color: $color__body--background;
+		}
+
+		.logo-image {
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		}
+
+		+ .widget .headline {
+			margin-top: 110px;
+		}
+
+		@media #{$tablet} {
+			.navigation-toggle {
+				color: $color__body--background;
+			}
+			.navigation-body {
+				background-color: $color__header--background;
+			}
+			.navigation-list {
+				position: relative;
+				padding: 0 20px;
+			}
+			.navigation-item .item-name:hover,
+			.navigation-item.selected .item-name {
+				color: $color__navigation--text;
+			}
+			.navigation-item.folder .item-name:hover {
+				color: $color__navigation--text;
+			}
+		}
+	}
+}
+
+
+// Header Spacing
+// --------------
+
+.template-header {
+
+	// Small
+	.header-spacing--small & {
+		padding: 16px 0;
+	}
+
+	// Medium
+	.header-spacing--medium & {
+		padding: 30px 0;
+	}
+
+	// Large
+	.header-spacing--large & {
+		padding: 50px 0;
+	}
+}
+
+
+
+// -----------------------------
+// #Feature Options
+// -----------------------------
+
+
+// Feature Height
+// --------------
+
+.feature__content-inner-wrap {
+
+	// Fullscreen
+	.feature-height--fullscreen & {
+		min-height: calc(100vh - 110px);
+	}
+
+	// Medium
+	.feature-height--medium & {
+		min-height: 600px;
+
+		@media #{$tablet} {
+			min-height: 500px;
+		}
+		@media #{$mobile} {
+			min-height: 400px;
+		}
+	}
+
+	// Small
+	.feature-height--small & {
+		min-height: 400px;
+
+		@media #{$tablet} {
+			min-height: 300px;
+		}
+	}
+}
+
+
+// Feature Alignment
+// -----------------
+
+.feature__content-inner-wrap {
+
+	// Top
+	.feature-alignment--top--left & {
+		@include justify-content(flex-start);
+		@include align-items(flex-start);
+		text-align: left;
+	}
+	.feature-alignment--top--center & {
+		@include justify-content(flex-start);
+		@include align-items(center);
+		text-align: center;
+	}
+	.feature-alignment--top--right & {
+		@include justify-content(flex-start);
+		@include align-items(flex-end);
+		text-align: right;
+	}
+
+	// Middle
+	.feature-alignment--middle--left & {
+		@include justify-content(center);
+		@include align-items(flex-start);
+		text-align: left;
+	}
+	.feature-alignment--middle--center & {
+		@include justify-content(center);
+		@include align-items(center);
+		text-align: center;
+	}
+	.feature-alignment--middle--right & {
+		@include justify-content(center);
+		@include align-items(flex-end);
+		text-align: right;
+	}
+
+	// Bottom
+	.feature-alignment--bottom--left & {
+		@include justify-content(flex-end);
+		@include align-items(flex-start);
+		text-align: left;
+	}
+	.feature-alignment--bottom--center & {
+		@include justify-content(flex-end);
+		@include align-items(center);
+		text-align: center;
+	}
+	.feature-alignment--bottom--right & {
+		@include justify-content(flex-end);
+		@include align-items(flex-end);
+		text-align: right;
+	}
+
+}
+
+
+// Feature Overlay Type
+// --------------------
+
+// Full
+.feature-overlay-type--full .feature__parallax-background-image:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), $value__feature-content--opacity);
+}
+
+// Typography
+.feature-overlay-type--typography {
+	.feature {
+		background-color: transparent!important;
+
+
+		.headline {
+	        display: inline-block;
+	        padding: 14px 20px;
+	        background-color: hsla(hue($color__feature-headline--background), saturation($color__feature-headline--background), lightness($color__feature-headline--background), $value__feature-content--opacity);
+	    }
+	    .strapline {
+	        display: inline-block;
+	        margin-bottom: 10px;
+	        padding: 7px 20px;
+	        background-color: hsla(hue($color__feature-strapline--background), saturation($color__feature-strapline--background), lightness($color__feature-strapline--background), $value__feature-content--opacity);
+	    }
+    }
+}
+
+
+// Feature Overlay Opacity
+// -----------------------
+
+.feature__parallax-background-image:after {
+
+	.feature-overlay-opacity--100 & {
+		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), 1);
+	}
+	.feature-overlay-opacity--75 & {
+		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), .75);
+	}
+	.feature-overlay-opacity--50 & {
+		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), .5);
+	}
+	.feature-overlay-opacity--25 & {
+		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), .25);
+	}
+	.feature-overlay-opacity--10 & {
+		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), .1);
+	}
+	.feature-overlay-opacity--0 & {
+		background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), 0);
+	}
+
+}
+
+
+// Feature Parallax
+// ----------------
+
+// On
+.feature-parallax--on {
+
+	.feature__parallax-background-image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-size: cover;
+		z-index: 1;
+
+	}
+
+	&.header-position--standard {
+		.template-header {
+			background-color: #fff;
+		    position: relative;
+		    z-index: 10;
+		}
+	}
+
+	&.header-position--overlap {
+		.feature__parallax-background-image {
+			top: 0!important;
+		}
+	}
+
+	.feature__content-wrap {
+		z-index: 2;
+		position: relative;
+
+	}
+
+}
+
+
+
+
+// -----------------------------
+// #Main Content Options
+// -----------------------------
+
+
+// Main Spacing
+// ------------
+
+.main-content {
+	// Small
+	.main-x-spacing--small & {
+		padding: 3%;
+	}
+
+	// Medium
+	.main-x-spacing--medium & {
+		padding: 6%;
+	}
+
+	// Large
+	.main-x-spacing--large & {
+		padding: 8%;
+	}
+}
