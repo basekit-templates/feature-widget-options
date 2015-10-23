@@ -385,6 +385,11 @@
 	.main-content, .template-header {
 		z-index: 50 !important;
 		position: relative;
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		-moz-transform: translate3d(0px, 0px, 0px);
+		-o-transform: translate3d(0px, 0px, 0px);
+		-ms-transform: translate3d(0px, 0px, 0px);
+		transform: translate3d(0px, 0px, 0px);
 	}
 
 
@@ -393,9 +398,14 @@
 		position: relative;
 	}
 
+	.feature {
+		z-index: 30;
+		-webkit-backface-visibility: hidden;
+
+	}
+
 	.feature.stuck {
 		position: fixed;
-		z-index: 30;
 		width: 100%;
 	}
 
