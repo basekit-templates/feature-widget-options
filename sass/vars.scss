@@ -1,0 +1,101 @@
+$color-swatch1:#ffffff;
+$color-swatch2:#4a7491;
+$color-swatch3:#c26b57;
+$color-swatch4:#111111;
+$color-swatch5:#bcbcbc;
+$color-swatch6:#ffffff;
+$color-swatch7:#235071;
+
+
+$color__primary: $color-swatch1;
+$color__secondary: $color-swatch2;
+
+$color__body--background: $color-swatch1;
+$color__link--text: $color-swatch2;
+
+$font__h1--font-family: 'Helvetica, arial';
+$font__h1--font-size:36px;
+$font__h1--font-weight:inherit;
+$font__h1--line-height:36px;
+$font__h1--letter-spacing:inherit;
+$color__h1--text:$color-swatch4;
+
+$font__h2--font-family: 'Helvetica, arial';
+$font__h2--font-size:24px;
+$font__h2--font-weight:inherit;
+$font__h2--line-height:inherit;
+$font__h2--letter-spacing:inherit;
+$color__h2--text:$color-swatch4;
+
+$font__h3--font-family:'Helvetica, arial';
+$font__h3--font-size:18px;
+$font__h3--font-weight:inherit;
+$font__h3--line-height:inherit;
+$font__h3--letter-spacing:inherit;
+$color__h3--text:$color-swatch4;
+
+$font__h4--font-family:Helvetica, arial;
+$font__h4--font-size:16px;
+$font__h4--font-weight:inherit;
+$font__h4--line-height:inherit;
+$font__h4--letter-spacing:inherit;
+$color__h4--text:$color-swatch4;
+
+$font__p--font-family:'Helvetica, arial';
+$font__p--font-size:14px;
+$font__p--font-weight:inherit;
+$font__p--line-height:28px;
+$font__p--letter-spacing:inherit;
+$color__p--text:$color-swatch5;
+
+$font__navigation--font-family:'Helvetica, arial';
+$font__navigation--font-size:15px;
+$font__navigation--font-weight:inherit;
+$font__navigation--line-height:inherit;
+$font__navigation--letter-spacing:inherit;
+$color__navigation--text:$color-swatch6;
+$color__navigation--text--hover:$color-swatch2;
+
+
+$font__button--font-family:'Helvetica, arial';
+$font__button--font-size:14px;
+$font__button--font-weight:inherit;
+$font__button--line-height:inherit;
+$font__button--letter-spacing:inherit;
+$color__button--text:$color-swatch1;
+$color__button--background:$color-swatch3;
+$color__button--background--hover:darken($color-swatch3, 20%);
+
+
+$font__feature-headline--font-family:'Helvetica, arial';
+$font__feature-headline--font-size:40px;
+$font__feature-headline--font-weight:inherit;
+$font__feature-headline--line-height:50px;
+$font__feature-headline--letter-spacing:inherit;
+$color__feature-headline--text:$color-swatch1;
+
+$font__feature-strapline--font-family:'Helvetica, arial';
+$font__feature-strapline--font-size:22px;
+$font__feature-strapline--font-weight:inherit;
+$font__feature-strapline--line-height:50px;
+$font__feature-strapline--letter-spacing:inherit;
+$color__feature-strapline--text:$color-swatch1;
+
+$font__companyname--font-family:'Helvetica, arial';
+$font__companyname--font-size:24px;
+$font__companyname--font-weight:inherit;
+$font__companyname--line-height:50px;
+$font__companyname--letter-spacing:inherit;
+$color__companyname--text:$color-swatch4;
+
+$siteBackgroundColor:transparent;
+$siteBackgroundGradientType:vertical;
+$siteBackgroundGradientFrom:transparent;
+$siteBackgroundGradientTo:transparent;
+$siteBackgroundImageScale:original;
+$siteBackgroundImage:none;
+$siteBackgroundPositionX:center;
+$siteBackgroundPositionY:top;
+$siteBackgroundRepeat:no-repeat;
+
+
