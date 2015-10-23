@@ -23,10 +23,10 @@
 // #Imports
 // -----------------------------
 
-@import "sass/bk-sass-framework.scss"; // BK Sass Framework
-@import "sass/color-variables.scss";
-@import "sass/feature-options.scss";
-@import "sass/demo.scss";
+@import 'sass/bk-sass-framework';
+@import 'sass/color-variables';
+@import 'sass/feature-options';
+@import 'sass/demo';
 
 
 
@@ -179,7 +179,7 @@ a {
 // ----------
 
 .site-container {
-    max-width: @value__site--width;
+    max-width: $value__site--width;
 }
 
 // Main
@@ -206,7 +206,7 @@ a {
     }
 
     .flex-container {
-        align-items: center;
+        @include align-items(center);
 
         @media #{$tablet} {
             .flex-item:first-child,
@@ -401,7 +401,7 @@ a {
     .content-inner-wrap {
         @include flexbox;
         @include flex-direction(column);
-        align-items: center;
+        @include align-items(center);
         @include justify-content;
         min-height: 600px;
         margin: 0 auto;
@@ -413,11 +413,11 @@ a {
         text-transform: uppercase;
 
         @media #{$tablet} {
-            font-size: bkscale(@font-swatch8-font-size, 0.8);
+            font-size: bkscale($font__feature-headline--font-size, 0.8);
         }
         @media #{$mobile} {
-            font-size: bkscale(@font-swatch8-font-size, 0.65);
-            line-height: bkscale(@font-swatch8-line-height, 0.7);
+            font-size: bkscale($font__feature-headline--font-size, 0.65);
+            line-height: bkscale($font__feature-headline--line-height, 0.7);
         }
     }
     .strapline {
@@ -425,11 +425,11 @@ a {
         color: $color__feature-strapline--text;
 
         @media #{$tablet} {
-            font-size: bkscale(@font-swatch9-font-size, 0.8);
+            font-size: bkscale($font__feature-strapline--font-size, 0.8);
         }
         @media #{$mobile} {
             margin: 10px 0;
-            font-size: bkscale(@font-swatch9-font-size, 0.7);
+            font-size: bkscale($font__feature-strapline--font-size, 0.7);
         }
     }
 
