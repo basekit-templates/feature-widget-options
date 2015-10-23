@@ -5,8 +5,8 @@
 // Custom
 // ----------
 
-$color__primary:											#ff8264; // Orange
-$color__secondary:											#0080fa; // Blue
+// $color__primary:											#ff8264; // Orange
+// $color__secondary:											#0080fa; // Blue
 
 
 // Site
@@ -30,16 +30,16 @@ $color__header--border:										#ddd;
 // --------------------
 
 // Headings
-$color__h1--text:											#333;
-$color__h2--text:											#333;
-$color__h3--text:											#333;
-$color__h4--text:											#333;
-$color__p--text:											#999;
+// $color__h1--text:											#333;
+// $color__h2--text:											#333;
+// $color__h3--text:											#333;
+// $color__h4--text:											#333;
+// $color__p--text:											#999;
 
 // Buttons
-$color__button--background:									$color__primary;
-$color__button--background--hover:							darken($color__button--background, 15%);
-$color__button--text:										#fff;
+// $color__button--background:									$color__primary;
+// $color__button--background--hover:							darken($color__button--background, 15%);
+// $color__button--text:										#fff;
 
 
 // Navigation
@@ -49,8 +49,8 @@ $color__navigation--background:								#f8f8f8;
 $color__navigation-list--background:						#fff;
 $color__navigation--border:									darken($color__navigation--background, 15%);
 
-$color__navigation--text:									#333;
-$color__navigation--text--hover:							$color__secondary;
+// $color__navigation--text:									#333;
+// $color__navigation--text--hover:							$color__secondary;
 $color__navigation--text--selected:							$color__secondary;
 
 $color__navigation-item--background:						#fff;
@@ -64,9 +64,9 @@ $color__navigation-item--background--selected:				#333;
 $color__feature--background:								#333;
 $color__feature-content--background:						#333;
 
-$color__feature-headline--text:								$color__primary;
+// $color__feature-headline--text:								$color__primary;
 $color__feature-headline--background:						$color__feature-content--background;
-$color__feature-strapline--text:							#fff;
+// $color__feature-strapline--text:							#fff;
 $color__feature-strapline--background:						$color__feature-content--background;
 
 $color__feature-button--background:							$color__secondary;

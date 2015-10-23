@@ -101,7 +101,7 @@
   .header-position--overlap .template-header .navigation-item.selected .item-name {
     color: #fff; }
   .header-position--overlap .template-header .navigation-item.folder:hover .item-name {
-    color: #333; }
+    color: #111111; }
   .header-position--overlap .template-header .company-link {
     color: #fff; }
   .header-position--overlap .template-header .logo-image {
@@ -118,9 +118,9 @@
       padding: 0 20px; }
     .header-position--overlap .template-header .navigation-item .item-name:hover,
     .header-position--overlap .template-header .navigation-item.selected .item-name {
-      color: #333; }
+      color: #ffffff; }
     .header-position--overlap .template-header .navigation-item.folder .item-name:hover {
-      color: #333; } }
+      color: #ffffff; } }
 
 .header-spacing--small .template-header {
   padding: 16px 0; }
