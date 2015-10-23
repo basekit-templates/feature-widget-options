@@ -9,6 +9,7 @@
 $value__site--width:          100%;  // Site width
 $value__site-content--width:  90%;   // Content width (wrapper)
 $value__site--spacing:  	  30px;  // Site spacing
+$value__feature-content--opacity: 0.6;
 
 
 // Site Layout
@@ -348,8 +349,6 @@ $value__site--spacing:  	  30px;  // Site spacing
 
 // Feature Overlay Opacity
 // -----------------------
-
-$value__feature-content--opacity: 0.6;
 
 .feature__parallax-background-image:after {
 
