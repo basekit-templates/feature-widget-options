@@ -25,7 +25,7 @@
 // #Imports
 // -----------------------------
 
-@import 'sass/bk-sass-framework';
+@import 'sass/bk-sass-framework/bk-scss-precompiled';
 @import 'sass/vars';
 @import 'sass/color-variables';
 @import 'sass/mixins';
@@ -268,7 +268,7 @@ a {
 
 .feature {
     position: relative;
-    // background-color: $color__feature--background;
+    background-color: $color__feature--background;
 
     .background-image {
         height: 100%;
@@ -291,7 +291,7 @@ a {
         height: 100%;
     }
     .headline {
-        // color: $color__feature-headline--text;
+        color: $color__feature-headline--text;
         text-transform: uppercase;
 
         // @media #{$tablet} {
