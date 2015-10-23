@@ -144,44 +144,5 @@
             "color": "@color-swatch4",
             "letter-spacing": "inherit"
         }
-    },
-    "styles": {
-        "colors": {
-            "color__primary": "@color-swatch1",
-            "color__secondary": "@color-swatch4"
-        },
-        "site": {
-            "color__body--background": "#fff",
-            "color__link--text": "@color__secondary",
-            "color__companyname--text": "@color__secondary"
-        },
-        "typography": {
-            "color__h1--text": "#333",
-            "color__h2--text": "#333",
-            "color__h3--text": "#333",
-            "color__h4--text": "#333",
-            "color__p--text": "#333"
-        },
-        "button": {
-            "color__button--background": "@color__secondary",
-            "color__button--background--hover":"@color__secondary",
-            "color__button--text": "#fff",
-            "color__button--border": "#fff"
-        },
-        "header": {
-            "color__header--background": "#fff"
-        },
-        "navigation": {
-            "color__navigation--text": "#333",
-            "color__navigation--text--hover": "@color__primary",
-            "color__navigation--text--selected": "@color__primary"
-        },
-        "feature": {
-            "color__feature-content--background": "#333",
-            "color__feature-headline--text": "@color__primary",
-            "color__feature-strapline--text": "#fff",
-            "color__feature-button--text": "#fff",
-            "color__feature-button--background": "@color__primary"
-        }
     }
 }
