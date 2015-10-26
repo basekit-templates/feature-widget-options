@@ -208,7 +208,10 @@ var featureParallaxEffect = function (param) {
 
             var bgPosition = Math.max(backgroundPosition, backgroundPosition + ( ( 100 - backgroundPosition ) * scrollProgress ) ).toFixed( 2 );
 
-            widgetBackground.css('transform', 'translate(0px, ' + -bgPosition*0.5 +'%)');
+            // widgetBackground.css('transform', 'translate(0px, ' + -bgPosition*0.5 +'%)');
+
+            widgetBackground.css('background-position', '50%' + bgPosition +'%');
+
 
         };
 
