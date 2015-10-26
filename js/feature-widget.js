@@ -200,7 +200,7 @@ var featureParallaxEffect = function (param) {
 
         var backgroundScrollEffect = function (scrollProgress) {
 
-            var bgPosition = - widgetHeight * scrollProgress * 0.3 ;
+            var bgPosition = - widgetHeight  * 0.3 * Math.pow(scrollProgress,2);
 
             widgetBackground.css('transform', 'translate3d(0px, ' + bgPosition +'px,0)');
 
@@ -320,7 +320,7 @@ var featureParallaxEffect = function (param) {
 
                     // When bottom of the widget reaches the viewport
 
-                    if ( windowOffset >= ( widgetBottomCoordinate  - windowHeight )  ) {
+                    if ( windowOffset-1 >= ( widgetBottomCoordinate  - windowHeight )  ) {
                         // Enable effects
                         featureStuckEnabled = true;
                         fadeOutEffectEnabled = true;
