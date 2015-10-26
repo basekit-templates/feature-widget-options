@@ -2,8 +2,8 @@
 // CORE: Resets
 // --------------------
 
-@import 'normalize'; // Normalize
-@import 'typeset';   // Typeset
+@import "core/reset/normalize.scss"; // Normalize
+@import "core/reset/typeset.scss";   // Typeset
 
 
 // General Resets
