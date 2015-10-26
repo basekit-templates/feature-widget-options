@@ -2,163 +2,36 @@
 // WIDGETS: Feature
 // ---------------------
 
-
-// ---------------------
-// #Feature Options
-// ---------------------
-
-$option__feature--height: medium;
-$option__feature--alignment: middie-center;
-$option__feature--overlay-type: type-overlay;
-$color__feature-content--background: #ddd;
-$value__feature-overlay--opacity: 0.6;
-
-
-.feature__content-inner-wrap {
-
-
-    // Feature Height
-    // --------------
-
-    @if $option__feature--height == small {
-        min-height: 400px;
-
-        @media #{$tablet} {
-            min-height: 300px;
-        }
-    } @else if $option__feature--height == medium {
-        min-height: 600px;
-
-        @media #{$tablet} {
-            min-height: 500px;
-        }
-        @media #{$mobile} {
-            min-height: 400px;
-        }
-    } @else if $option__feature--height == fullscreen {
-        min-height: calc(100vh - 110px);
-    } @else {
-        min-height: 400px;
-    }
-
-
-    // Feature Alignment
-    // -----------------
-
-    @if $option__feature--alignment == top-left {
-        @include justify-content(flex-start);
-        @include align-items(flex-start);
-        text-align: left;
-    } @else if $option__feature--alignment == top-center {
-        @include justify-content(flex-start);
-        @include align-items(center);
-        text-align: center;
-    } @else if $option__feature--alignment == top-right {
-        @include justify-content(flex-start);
-        @include align-items(flex-end);
-        text-align: right;
-    } @else if $option__feature--alignment == middle-left {
-        @include justify-content(center);
-        @include align-items(flex-start);
-        text-align: left;
-    } @else if $option__feature--alignment == middle-center {
-        @include justify-content(center);
-        @include align-items(center);
-        text-align: center;
-    } @else if $option__feature--alignment == middle-right {
-        @include justify-content(center);
-        @include align-items(flex-end);
-        text-align: right;
-    } @else if $option__feature--alignment == bottom-left {
-        @include justify-content(flex-end);
-        @include align-items(flex-start);
-        text-align: left;
-    } @else if $option__feature--alignment == bottom-center {
-        @include justify-content(flex-end);
-        @include align-items(center);
-        text-align: center;
-    } @else if $option__feature--alignment == bottom-right {
-        @include justify-content(flex-end);
-        @include align-items(flex-end);
-        text-align: right;
-    } @else {
-        @include justify-content(center);
-        @include align-items(center);
-        text-align: center;
-    }
-
-
-    // Feature Overlay Type
-    // --------------------
-
-    @if $option__feature--overlay-type == full-overlay {
-        background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), $value__feature-overlay--opacity);
-    } @else if $option__feature--overlay-type == text-overlay {
-        background-color: transparent;
-        .feature__headline {
-            display: inline-block;
-            padding: 14px 20px;
-            background-color: hsla(hue($color__feature-headline--background), saturation($color__feature-headline--background), lightness($color__feature-headline--background), $value__feature-overlay--opacity);
-        }
-        .feature__strapline {
-            display: inline-block;
-            padding: 7px 20px;
-            background-color: hsla(hue($color__feature-strapline--background), saturation($color__feature-strapline--background), lightness($color__feature-strapline--background), $value__feature-overlay--opacity);
-        }
-    } @else {
-        background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), $value__feature-overlay--opacity);
-    }
-
-
-    // Feature Overlay Opacity
-    // -----------------------
-
-    // @if $value__feature-overlay--opacity == 0 {
-    //     background-color: hsla(hue($color__feature-content--background), saturation($color__feature-content--background), lightness($color__feature-content--background), 0);
-    // } @else if $value__feature-overlay--opacity == top-center {
-        
-    // } @else {
-       
-    // }
-}
-
-
-
-
-// ----------------------
-// Default Feature Styles
-// ----------------------
-
 // Feature Content Wrap
 .feature__content-wrap {
-    padding: 30px;
+	padding: 30px;
 }
 
 // Feature Headline
 .feature__headline {
-    font-family: $font__feature-headline--font-family;
-    font-size: $font__feature-headline--font-size;
-    font-weight: $font__feature-headline--font-weight;
-    line-height: $font__feature-headline--line-height;
-    letter-spacing: $font__feature-headline--letter-spacing;
+	font-family: $font__feature-headline--font-family;
+	font-size: $font__feature-headline--font-size;
+	font-weight: $font__feature-headline--font-weight;
+	line-height: $font__feature-headline--line-height;
+	letter-spacing: $font__feature-headline--letter-spacing;
     color: $color__feature-headline--text;
 }
 
 // Feature Strapline
 .feature__strapline {
-    font-family: $font__feature-strapline--font-family;
-    font-size: $font__feature-strapline--font-size;
-    font-weight: $font__feature-strapline--font-weight;
-    line-height: $font__feature-strapline--line-height;
-    letter-spacing: $font__feature-strapline--letter-spacing;
+	font-family: $font__feature-strapline--font-family;
+	font-size: $font__feature-strapline--font-size;
+	font-weight: $font__feature-strapline--font-weight;
+	line-height: $font__feature-strapline--line-height;
+	letter-spacing: $font__feature-strapline--letter-spacing;
     color: $color__feature-strapline--text;
 }
 
 // Feature Button
 .feature__button {
-    padding: 9px 12px;
+	padding: 9px 12px;
     text-decoration: none;
     &:hover {
-        text-decoration: none;
+    	text-decoration: none;
     }
 }
