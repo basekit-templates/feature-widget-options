@@ -329,7 +329,7 @@ var featureParallaxEffect = function (param) {
 
                     // When bottom of the widget reaches the viewport
 
-                    if ( windowOffset > ( widgetBottomCoordinate  - windowHeight )  ) {
+                    if ( windowOffset >= ( widgetBottomCoordinate  - windowHeight )  ) {
                         // Enable effects
                         featureStuckEnabled = true;
                         fadeOutEffectEnabled = true;
