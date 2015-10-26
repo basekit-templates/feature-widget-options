@@ -220,7 +220,7 @@ var featureParallaxEffect = function (param) {
 
             // Stuck it when bottom of the widget reached the bottom of the viewport
             // and when the top of the top of the widget passed above the viewport
-            if ( featureStuckEnabled && windowOffset > widgetPosition.top && widgetViewportOverflow == true ) {
+            if ( featureStuckEnabled && windowOffset +1 >= widgetPosition.top && widgetViewportOverflow == true ) {
                 widget.addClass("stuck");
                 widget.css('top', -(Math.max(0, positionOffset)) +'px');
 
@@ -320,7 +320,7 @@ var featureParallaxEffect = function (param) {
 
                     // When bottom of the widget reaches the viewport
 
-                    if ( windowOffset-1 >= ( widgetBottomCoordinate  - windowHeight )  ) {
+                    if ( windowOffset  >= ( widgetBottomCoordinate  - windowHeight )  ) {
                         // Enable effects
                         featureStuckEnabled = true;
                         fadeOutEffectEnabled = true;
