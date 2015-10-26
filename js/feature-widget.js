@@ -124,6 +124,9 @@ var featureParallaxEffect = function (param) {
 
 
         var calcDimension = function () {
+            widget.removeClass("stuck");
+            widget.css('top','0px');
+
             resizing = false;
             // Get dimensions
             widgetWidth             = $(".featureWrapper").width();
@@ -145,7 +148,23 @@ var featureParallaxEffect = function (param) {
 
             widget.width(widgetWidth);
             $("."+widgetWrapper).height(widgetHeight);
+
+
+
+
+            console.log("widgetWidth: " + widgetWidth);
+            console.log("widgetHeight: " + widgetHeight);
+            console.log("widgetPosTop: " + widgetPosition.top );
+            console.log("widgetBottomCoordinate: " + widgetBottomCoordinate);
+            console.log("windowHeight: " + windowHeight);
+            console.log("widgetViewportOverflow: " + widgetViewportOverflow);
+            console.log("------------------------------------------------------------");
+
+
+
         };
+
+        console.log(backgroundPosition);
 
 
         $(".feature__parallax-background-image").css({ 'background-image':  backgroundImage  });
@@ -188,8 +207,8 @@ var featureParallaxEffect = function (param) {
         var backgroundScrollEffect = function (scrollProgress) {
 
             var bgPosition = Math.max(backgroundPosition, backgroundPosition + ( ( 100 - backgroundPosition ) * scrollProgress ) ).toFixed( 2 );
-            widgetBackground.css('background-position', '50%' + bgPosition +'%');
 
+            widgetBackground.css('transform', 'translate(0px, ' + -bgPosition*0.5 +'%)');
 
         };
 
@@ -217,10 +236,11 @@ var featureParallaxEffect = function (param) {
             }
 
             // Unstuck the widget
-             else {
+            else {
                 widget.removeClass("stuck");
                 widget.css('top','0px');
             }
+
         };
 
 
@@ -231,6 +251,7 @@ var featureParallaxEffect = function (param) {
 
             opacity = Math.min(1, ( 1 - scrollProgress ).toFixed( 2 ) );
             widget.find(".content-inner-wrap").css('opacity', opacity);
+
 
         };
 
@@ -257,7 +278,9 @@ var featureParallaxEffect = function (param) {
               resizeTimer = setTimeout(function() {
                 resizing = true;
                 calcDimension();
+                applyEffects();
               }, 250);
+
         });
 
 
@@ -265,17 +288,18 @@ var featureParallaxEffect = function (param) {
 
         var animate = function () {
 
+            requestAnimationFrame( animate );
+
+            // Prevents code from running when widget is no longer visible
+
+            if ( windowOffset < widgetBottomCoordinate && scrolling ) {
+                applyEffects();
                 requestAnimationFrame( animate );
 
-                // Prevents code from running when widget is no longer visible
+            }
 
-                if ( windowOffset < widgetBottomCoordinate && scrolling ) {
 
-                }
-
-                applyEffects();
-
-                scrolling = false;
+            scrolling = false;
 
         }
 
@@ -285,6 +309,7 @@ var featureParallaxEffect = function (param) {
         // ===============================================================
 
         var applyEffects = function () {
+
 
                 var scrollProgressOffset = 0; // Can start scrollProgress immediately
                 var scrollLength = widgetBottomCoordinate; // Effect last while scrolling the lenght of the widget
@@ -313,6 +338,10 @@ var featureParallaxEffect = function (param) {
 
                     }
 
+                } else {
+                    featureStuckEnabled = true;
+                    fadeOutEffectEnabled = true;
+                    bgScrollEffectEnabled = true;
                 }
 
                 // ===============================================================
@@ -349,10 +378,6 @@ var featureParallaxEffect = function (param) {
                 widget.css('transform', 'translate(0px, 0px )');
                 widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
             }
-
-
-
-
 
         } // applyEffects
 
