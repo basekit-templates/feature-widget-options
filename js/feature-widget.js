@@ -99,10 +99,10 @@ var featureParallaxEffect = function (param) {
 
             // Background element
             widgetBackground        = widget.find(".feature__parallax-background-image"),
-            backgroundImage  =        widget.find(".feature__background-image").css("background-image");
+            backgroundImage         = widget.find(".feature__background-image").css("background-image");
 
             // Background position setting
-            backgroundPosition      = parseFloat( widgetBackground.css("background-position").split(' ')[1] ),
+            backgroundPosition      = parseFloat( widget.find(".feature__background-image").css("background-position").split(' ')[1] ),
             bgScrollEffectThreshold = 90, // Allows background scroll effect only when background-position-y is set below this value
 
             // Window properties
@@ -155,6 +155,7 @@ var featureParallaxEffect = function (param) {
             console.log("widgetWidth: " + widgetWidth);
             console.log("widgetHeight: " + widgetHeight);
             console.log("widgetPosTop: " + widgetPosition.top );
+            console.log("backgroundPosition: " + backgroundPosition );
             console.log("widgetBottomCoordinate: " + widgetBottomCoordinate);
             console.log("windowHeight: " + windowHeight);
             console.log("widgetViewportOverflow: " + widgetViewportOverflow);
@@ -199,9 +200,9 @@ var featureParallaxEffect = function (param) {
 
         var backgroundScrollEffect = function (scrollProgress) {
 
-            var bgPosition = Math.max(backgroundPosition, backgroundPosition + ( ( 100 - backgroundPosition ) * scrollProgress ) ).toFixed( 2 );
+            var bgPosition = - widgetHeight * scrollProgress * 0.3 ;
 
-            widgetBackground.css('transform', 'translate3d(0px, ' + -bgPosition*0.5 +'%,0)');
+            widgetBackground.css('transform', 'translate3d(0px, ' + bgPosition +'px,0)');
 
         };
 

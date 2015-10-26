@@ -409,6 +409,11 @@
 	.feature.stuck {
 		position: fixed;
 		width: 100%;
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		-moz-transform: translate3d(0px, 0px, 0px);
+		-o-transform: translate3d(0px, 0px, 0px);
+		-ms-transform: translate3d(0px, 0px, 0px);
+		transform: translate3d(0px, 0px, 0px);
 	}
 
 	.feature__parallax-background-image {
@@ -419,6 +424,7 @@
 		left: 0;
 		background-size: cover;
 		z-index: 1;
+		-webkit-backface-visibility: hidden;
 
 	}
 
