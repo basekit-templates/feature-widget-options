@@ -1896,33 +1896,33 @@ body {
   position: absolute;
   z-index: 7000; }
   .header-position--overlap .template-header .navigation-item .item-name {
-    color: #fff; }
+    color: red; }
   .header-position--overlap .template-header .item-name--parent:after {
-    border-top-color: #fff; }
+    border-top-color: red; }
   .header-position--overlap .template-header .navigation-item .item-name:hover,
   .header-position--overlap .template-header .navigation-item.selected .item-name {
-    color: #fff; }
+    color: red; }
   .header-position--overlap .template-header .navigation-item.folder:hover .item-name {
-    color: #333; }
+    color: red; }
   .header-position--overlap .template-header .company-link {
-    color: #fff; }
+    color: red; }
   .header-position--overlap .template-header .logo-image {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
   .header-position--overlap .template-header + .widget .headline {
     margin-top: 110px; }
   @media only screen and (max-width: 769px) {
     .header-position--overlap .template-header .navigation-toggle {
-      color: #fff; }
+      color: red; }
     .header-position--overlap .template-header .navigation-body {
-      background-color: #fff; }
+      background-color: red; }
     .header-position--overlap .template-header .navigation-list {
       position: relative;
       padding: 0 20px; }
     .header-position--overlap .template-header .navigation-item .item-name:hover,
     .header-position--overlap .template-header .navigation-item.selected .item-name {
-      color: #333; }
+      color: red; }
     .header-position--overlap .template-header .navigation-item.folder .item-name:hover {
-      color: #333; } }
+      color: red; } }
 
 .header-spacing--small .template-header {
   padding: 16px 0; }
@@ -2064,32 +2064,32 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(51, 51, 51, 0.6); }
+  background-color: rgba(255, 0, 0, 0.6); }
 
 .feature-overlay-type--typography .feature {
   background-color: transparent !important; }
   .feature-overlay-type--typography .feature .headline {
     display: inline-block;
     padding: 14px 20px;
-    background-color: rgba(51, 51, 51, 0.6); }
+    background-color: rgba(255, 0, 0, 0.6); }
   .feature-overlay-type--typography .feature .strapline {
     display: inline-block;
     margin-bottom: 10px;
     padding: 7px 20px;
-    background-color: rgba(51, 51, 51, 0.6); }
+    background-color: rgba(255, 0, 0, 0.6); }
 
 .feature-overlay-opacity--100 .feature__parallax-background-image:after {
-  background-color: #333333; }
+  background-color: red; }
 .feature-overlay-opacity--75 .feature__parallax-background-image:after {
-  background-color: rgba(51, 51, 51, 0.75); }
+  background-color: rgba(255, 0, 0, 0.75); }
 .feature-overlay-opacity--50 .feature__parallax-background-image:after {
-  background-color: rgba(51, 51, 51, 0.5); }
+  background-color: rgba(255, 0, 0, 0.5); }
 .feature-overlay-opacity--25 .feature__parallax-background-image:after {
-  background-color: rgba(51, 51, 51, 0.25); }
+  background-color: rgba(255, 0, 0, 0.25); }
 .feature-overlay-opacity--10 .feature__parallax-background-image:after {
-  background-color: rgba(51, 51, 51, 0.1); }
+  background-color: rgba(255, 0, 0, 0.1); }
 .feature-overlay-opacity--0 .feature__parallax-background-image:after {
-  background-color: rgba(51, 51, 51, 0); }
+  background-color: rgba(255, 0, 0, 0); }
 
 .feature-parallax--on .feature__parallax-background-image {
   position: absolute;
@@ -2168,18 +2168,18 @@ body {
   padding: 20px 20px 24px; }
 
 body {
-  background-color: #fff; }
+  background-color: red; }
 
 a {
-  color: #ff8264; }
+  color: red; }
   a:hover {
-    color: #ff4418; }
+    color: #b30000; }
 
 .site-container {
   max-width: 100%; }
 
 .main-content {
-  background-color: #fff;
+  background-color: red;
   position: relative;
   z-index: 20; }
 
@@ -2205,7 +2205,7 @@ a {
 @media only screen and (max-width: 769px) {
   .template-navigation {
     margin-top: 20px;
-    border-top: 1px solid #d2d2d2; } }
+    border-top: 1px solid red; } }
 
 .navigation-list {
   margin: 0; }
@@ -2225,31 +2225,31 @@ a {
       display: block; }
       .navigation-item:first-child {
         padding-top: 10px;
-        border-top: 1px solid #d2d2d2; } }
+        border-top: 1px solid red; } }
   .navigation-item .item-name {
     padding-left: 30px;
-    color: #333;
+    color: red;
     text-transform: uppercase; }
     @media only screen and (max-width: 769px) {
       .navigation-item .item-name {
         padding-left: 0; } }
     .navigation-item .item-name:hover {
-      color: #0080fa; }
+      color: red; }
     .navigation-item .item-name.item-name--parent {
       padding-right: 0; }
   .navigation-item.selected .item-name {
-    color: #0080fa; }
+    color: red; }
   .navigation-item:last-child .item-name {
     padding-right: 0; }
 
 .navigation-item.folder .navigation-list {
   position: absolute;
   min-width: 150px;
-  background-color: #fff; }
+  background-color: red; }
   .navigation-item.folder .navigation-list .navigation-item {
     display: block;
     width: 100%;
-    background-color: #fff; }
+    background-color: red; }
   .navigation-item.folder .navigation-list .navigation-item--child {
     padding: 0 10px; }
     .navigation-item.folder .navigation-list .navigation-item--child .item-name {
@@ -2261,7 +2261,7 @@ a {
   content: "";
   margin-left: 4px;
   border: 5px solid transparent;
-  border-top-color: #333; }
+  border-top-color: red; }
 
 .navigation-toggle {
   display: none; }
@@ -2271,7 +2271,7 @@ a {
       width: 100%;
       padding: 12px 0;
       background-color: transparent;
-      color: #333;
+      color: red;
       text-align: left;
       text-transform: uppercase; }
       .navigation-toggle:hover {
@@ -2283,10 +2283,10 @@ a {
 
 .button {
   padding: 6px 16px;
-  background-color: #ff8264;
-  color: #fff; }
+  background-color: red;
+  color: red; }
   .button:hover {
-    background-color: #ff4418; }
+    background-color: red; }
 
 .companyname {
   display: block; }
@@ -2296,7 +2296,7 @@ a {
 
 .feature {
   position: relative;
-  background-color: #333; }
+  background-color: red; }
   .feature .background-image {
     height: 100%;
     background-repeat: no-repeat;
