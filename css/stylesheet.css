@@ -1903,7 +1903,7 @@ body {
   .header-position--overlap .template-header .navigation-item.selected .item-name {
     color: #fff; }
   .header-position--overlap .template-header .navigation-item.folder:hover .item-name {
-    color: red; }
+    color: #333; }
   .header-position--overlap .template-header .company-link {
     color: #fff; }
   .header-position--overlap .template-header .logo-image {
@@ -2171,9 +2171,9 @@ body {
   background-color: #fff; }
 
 a {
-  color: red; }
+  color: #ff8264; }
   a:hover {
-    color: #b30000; }
+    color: #ff4418; }
 
 .site-container {
   max-width: 100%; }
@@ -2238,7 +2238,7 @@ a {
     .navigation-item .item-name.item-name--parent {
       padding-right: 0; }
   .navigation-item.selected .item-name {
-    color: red; }
+    color: #0080fa; }
   .navigation-item:last-child .item-name {
     padding-right: 0; }
 
@@ -2271,7 +2271,7 @@ a {
       width: 100%;
       padding: 12px 0;
       background-color: transparent;
-      color: red;
+      color: #333;
       text-align: left;
       text-transform: uppercase; }
       .navigation-toggle:hover {
@@ -2283,10 +2283,10 @@ a {
 
 .button {
   padding: 6px 16px;
-  background-color: red;
-  color: red; }
+  background-color: #ff8264;
+  color: #fff; }
   .button:hover {
-    background-color: red; }
+    background-color: #ff4418; }
 
 .companyname {
   display: block; }
