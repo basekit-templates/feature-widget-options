@@ -1,3 +1,7 @@
+// ===============================================================
+// jQuery Request Animation Frame Polyfill
+// ===============================================================
+
 /*! jQuery requestAnimationFrame - v0.1.3pre - 2014-02-07
 * https://github.com/gnarf37/jquery-requestAnimationFrame
 * Copyright (c) 2014 Corey Frang; Licensed MIT */
@@ -67,7 +71,9 @@ if ( requestAnimationFrame ) {
 
 
 
-
+// ===============================================================
+// Feature Parallax Effect Function
+// ===============================================================
 
 
 var featureParallaxEffect = function (param) {
@@ -85,7 +91,7 @@ var featureParallaxEffect = function (param) {
 
 
         // ===============================================================
-        // Initial settings
+        // Initial variables
         // ===============================================================
 
         var
@@ -110,7 +116,7 @@ var featureParallaxEffect = function (param) {
             windowOffset            = $(window).scrollTop(),
 
             // Effects initial settings
-            bgScrollEffectEnabled   = false,
+            bgScrollEffectEnabled   = true,
             featureStuckEnabled     = true,
             fadeOutEffectEnabled    = true,
 
@@ -118,9 +124,13 @@ var featureParallaxEffect = function (param) {
             scrollProgress          = 0,
             scrolling               = false,
             resizing                = false,
-            resizeTimer             = 0;
+            resizeTimer             = 0,
+            mobileDevice            = false;
 
 
+        // ===============================================================
+        // Calc sizes
+        // ===============================================================
 
 
         var calcDimension = function () {
@@ -152,41 +162,35 @@ var featureParallaxEffect = function (param) {
 
 
 
-            console.log("widgetWidth: " + widgetWidth);
-            console.log("widgetHeight: " + widgetHeight);
-            console.log("widgetPosTop: " + widgetPosition.top );
-            console.log("backgroundPosition: " + backgroundPosition );
-            console.log("widgetBottomCoordinate: " + widgetBottomCoordinate);
-            console.log("windowHeight: " + windowHeight);
-            console.log("widgetViewportOverflow: " + widgetViewportOverflow);
-            console.log("------------------------------------------------------------");
-
-
-
         };
 
-        console.log(backgroundPosition);
+        // ===============================================================
+        // Mobile device test
+        // ===============================================================
+
+        if (navigator.userAgent.match(/(iPod|iPhone|iPad|android)/)) {
+            mobileDevice = true;
+        }
+
+        // ===============================================================
+        // Create elements
+        // ===============================================================
 
 
         $(".feature__parallax-background-image").css({ 'background-image':  backgroundImage  });
         widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
 
 
+
+        // ===============================================================
+        // Initial Dimensions Check
+        // ===============================================================
+
         calcDimension();
-
-
-
-
 
         // Set top position of background element holder, so it covers space occupied by the header
         widgetBackground.css({ top: -widgetPosition.top });
 
-        // Check if background image can be moved further down
-        if ( backgroundPosition < 100 && backgroundPosition < bgScrollEffectThreshold ) {
-
-            bgScrollEffectEnabled = true;
-
-        }
 
 
 
@@ -200,9 +204,13 @@ var featureParallaxEffect = function (param) {
 
         var backgroundScrollEffect = function (scrollProgress) {
 
-            var bgPosition = - widgetHeight  * 0.3 * Math.pow(scrollProgress,2);
+            if ( mobileDevice == false ) {
 
-            widgetBackground.css('transform', 'translate3d(0px, ' + bgPosition +'px,0)');
+                var bgPosition = - widgetHeight  * 0.3 * Math.pow(scrollProgress,2);
+
+                widgetBackground.css('transform', 'translate3d(0px, ' + bgPosition +'px,0)');
+
+            }
 
         };
 
@@ -242,10 +250,8 @@ var featureParallaxEffect = function (param) {
         // Text Fade Out Effect
 
         var fadeOutEffect = function (scrollProgress) {
-
             opacity = Math.min(1, ( 1 - scrollProgress ).toFixed( 2 ) );
             widget.find(".content-inner-wrap").css('opacity', opacity);
-
 
         };
 
@@ -268,16 +274,21 @@ var featureParallaxEffect = function (param) {
 
         $(window).on('resize', function(e) {
 
-              clearTimeout(resizeTimer);
-              resizeTimer = setTimeout(function() {
+            clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
                 resizing = true;
                 calcDimension();
                 applyEffects();
-              }, 250);
+            }, 250);
 
         });
 
 
+        // ===============================================================
+        // Run animation
+        // ===============================================================
+
+        // Run only when user is scrolling and feature is within the viewport
 
 
         var animate = function () {
@@ -308,7 +319,7 @@ var featureParallaxEffect = function (param) {
                 var scrollProgressOffset = 0; // Can start scrollProgress immediately
                 var scrollLength = widgetBottomCoordinate; // Effect last while scrolling the lenght of the widget
 
-                // ===============================================================
+
                 // When widget is taller than viewport
 
                 if ( widgetViewportOverflow ) {
@@ -332,6 +343,8 @@ var featureParallaxEffect = function (param) {
 
                     }
 
+                // When widget height fits within the viewport
+
                 } else {
                     featureStuckEnabled = true;
                     fadeOutEffectEnabled = true;
@@ -352,7 +365,7 @@ var featureParallaxEffect = function (param) {
                 }
 
                 if ( resizing == false ) {
-                stuckEffect(scrollProgress);
+                    stuckEffect(scrollProgress);
                 }
 
                 if ( fadeOutEffectEnabled && resizing == false ) {
@@ -376,9 +389,8 @@ var featureParallaxEffect = function (param) {
         } // applyEffects
 
 
+
         requestAnimationFrame( animate );
-
-
 
 
 
