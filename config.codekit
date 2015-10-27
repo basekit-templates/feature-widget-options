@@ -157,22 +157,6 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/sass\/bk-sass-framework.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 1,
-		"decimalPrecision": 10,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/sass\/bk-sass-framework.scss",
-		"outputAbbreviatedPath": "\/css\/bk-sass-framework.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 0
-		},
 	"\/sass\/color-variables.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
