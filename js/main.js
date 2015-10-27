@@ -1,6 +1,6 @@
-// ------------------------------------
-// Feature Widget Options: JS > Main JS
-// ------------------------------------
+// -----------------------------
+// Main JS
+// -----------------------------
 
 // Feature Option Selects
 // ----------------------
@@ -9,219 +9,229 @@ var siteLayout = "";
 var activeSiteLayout = "";
 
 $( ".site-layout" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeSiteLayout );
+        $( "body" ).removeClass( activeSiteLayout );
 
-	    $( this ).children("option:selected").each(function() {
-	    	siteLayout = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            siteLayout = $( this ).val();
+        });
 
-	    activeSiteLayout = siteLayout;
+        activeSiteLayout = siteLayout;
 
-    	$( "body" ).addClass( siteLayout );
+        $( "body" ).addClass( siteLayout );
 
-	}).change();
+    }).change();
 
 
 var sitePosition = "";
 var activeSitePosition = "";
 
 $( ".site-position" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeSitePosition );
+        $( "body" ).removeClass( activeSitePosition );
 
-	    $( this ).children("option:selected").each(function() {
-	    	sitePosition = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            sitePosition = $( this ).val();
+        });
 
-	    activeSitePosition = sitePosition;
+        activeSitePosition = sitePosition;
 
-    	$( "body" ).addClass( sitePosition );
+        $( "body" ).addClass( sitePosition );
 
-	}).change();
+    }).change();
 
 
 var headerPosition = "";
 var activeHeaderPosition = "";
 
 $( ".header-position" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeHeaderPosition );
+        $( "body" ).removeClass( activeHeaderPosition );
 
-	    $( this ).children("option:selected").each(function() {
-	    	headerPosition = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            headerPosition = $( this ).val();
+        });
 
-	    activeHeaderPosition = headerPosition;
+        activeHeaderPosition = headerPosition;
 
-    	$( "body" ).addClass( headerPosition );
+        $( "body" ).addClass( headerPosition );
 
-	}).change();
+    }).change();
 
 
 var headerLayout = "";
 var activeHeaderLayout = "";
 
 $( ".header-layout" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeHeaderLayout );
+        $( "body" ).removeClass( activeHeaderLayout );
 
-	    $( this ).children("option:selected").each(function() {
-	    	headerLayout = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            headerLayout = $( this ).val();
+        });
 
-	    activeHeaderLayout = headerLayout;
+        activeHeaderLayout = headerLayout;
 
-    	$( "body" ).addClass( headerLayout );
+        $( "body" ).addClass( headerLayout );
 
-	}).change();
+    }).change();
 
 
 var headerSpacing = "";
 var activeHeaderSpacing = "";
 
 $( ".header-spacing" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeHeaderSpacing );
+        $( "body" ).removeClass( activeHeaderSpacing );
 
-	    $( this ).children("option:selected").each(function() {
-	    	headerSpacing = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            headerSpacing = $( this ).val();
+        });
 
-	    activeHeaderSpacing = headerSpacing;
+        activeHeaderSpacing = headerSpacing;
 
-    	$( "body" ).addClass( headerSpacing );
+        $( "body" ).addClass( headerSpacing );
 
-	}).change();
+    }).change();
 
 
 var featureHeight = "";
 var activeFeatureHeight = "";
 
 $( ".feature-height" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeFeatureHeight );
+        $( "body" ).removeClass( activeFeatureHeight );
 
-	    $( this ).children("option:selected").each(function() {
-	    	featureHeight = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            featureHeight = $( this ).val();
+        });
 
-	    activeFeatureHeight = featureHeight;
+        activeFeatureHeight = featureHeight;
 
-    	$( "body" ).addClass( featureHeight );
+        $( "body" ).addClass( featureHeight );
 
-        featureParallaxEffect();
 
-	}).change();
+
+
+
+    }).change();
 
 
 var featureAlignment = "";
 var activeFeatureAlignment = "";
 
 $( ".feature-alignment" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeFeatureAlignment );
+        $( "body" ).removeClass( activeFeatureAlignment );
 
-	    $( this ).children("option:selected").each(function() {
-	    	featureAlignment = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            featureAlignment = $( this ).val();
+        });
 
-	    activeFeatureAlignment = featureAlignment;
+        activeFeatureAlignment = featureAlignment;
 
-    	$( "body" ).addClass( featureAlignment );
+        $( "body" ).addClass( featureAlignment );
 
-	}).change();
+    }).change();
 
 
 var featureOverlayType = "";
 var activeFeatureOverlayType = "";
 
 $( ".feature-overlay-type" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeFeatureOverlayType );
+        $( "body" ).removeClass( activeFeatureOverlayType );
 
-	    $( this ).children("option:selected").each(function() {
-	    	featureOverlayType = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            featureOverlayType = $( this ).val();
+        });
 
-	    activeFeatureOverlayType = featureOverlayType;
+        activeFeatureOverlayType = featureOverlayType;
 
-    	$( "body" ).addClass( featureOverlayType );
+        $( "body" ).addClass( featureOverlayType );
 
-	}).change();
+    }).change();
 
 
 var featureOverlayOpacity = "";
 var activeFeatureOverlayOpacity = "";
 
 $( ".feature-overlay-opacity" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeFeatureOverlayOpacity );
+        $( "body" ).removeClass( activeFeatureOverlayOpacity );
 
-	    $( this ).children("option:selected").each(function() {
-	    	featureOverlayOpacity = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            featureOverlayOpacity = $( this ).val();
+        });
 
-	    activeFeatureOverlayOpacity = featureOverlayOpacity;
+        activeFeatureOverlayOpacity = featureOverlayOpacity;
 
-    	$( "body" ).addClass( featureOverlayOpacity );
+        $( "body" ).addClass( featureOverlayOpacity );
 
-	}).change();
+    }).change();
 
 
 var featureParallax = "";
 var activeFeatureParallax = "";
 
 $( ".feature-parallax" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeFeatureParallax );
+        $( "body" ).removeClass( activeFeatureParallax );
 
-	    $( this ).children("option:selected").each(function() {
-	    	featureParallax = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            featureParallax = $( this ).val();
+        });
 
-	    activeFeatureParallax = featureParallax;
+        activeFeatureParallax = featureParallax;
 
-    	$( "body" ).addClass( featureParallax );
+        $( "body" ).addClass( featureParallax );
 
         if (featureParallax == "feature-parallax--on") {
-            featureParallaxEffect();
+
+
         } else {
             featureParallaxEffect("destroy");
         }
 
-	}).change();
+    }).change();
 
 
 var mainSpacing = "";
 var activeMainSpacing = "";
 
 $( ".main-spacing" )
-	.change(function () {
+    .change(function () {
 
-		$( "body" ).removeClass( activeMainSpacing );
+        $( "body" ).removeClass( activeMainSpacing );
 
-	    $( this ).children("option:selected").each(function() {
-	    	mainSpacing = $( this ).val();
-	    });
+        $( this ).children("option:selected").each(function() {
+            mainSpacing = $( this ).val();
+        });
 
-	    activeMainSpacing = mainSpacing;
+        activeMainSpacing = mainSpacing;
 
-    	$( "body" ).addClass( mainSpacing );
+        $( "body" ).addClass( mainSpacing );
 
-	}).change();
+    }).change();
 
 
+$( "select" )
+    .change(function () {
+
+
+    jQuery(window).trigger("resize");
+
+    }).change();
 
 
 // Accordion
