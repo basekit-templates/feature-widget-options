@@ -49,7 +49,7 @@ var activeHeaderPosition = "";
 $( ".header-position" )
 	.change(function () {
 
-		$( "body" ).removeClass( activeHeaderPosition );
+		$( ".template-header" ).removeClass( activeHeaderPosition );
 
 	    $( this ).children("option:selected").each(function() {
 	    	headerPosition = $( this ).val();
@@ -57,7 +57,7 @@ $( ".header-position" )
 
 	    activeHeaderPosition = headerPosition;
 
-    	$( "body" ).addClass( headerPosition );
+    	$( ".template-header" ).addClass( headerPosition );
 
 	}).change();
 
@@ -68,7 +68,7 @@ var activeHeaderLayout = "";
 $( ".header-layout" )
 	.change(function () {
 
-		$( "body" ).removeClass( activeHeaderLayout );
+		$( ".template-header" ).removeClass( activeHeaderLayout );
 
 	    $( this ).children("option:selected").each(function() {
 	    	headerLayout = $( this ).val();
@@ -76,7 +76,7 @@ $( ".header-layout" )
 
 	    activeHeaderLayout = headerLayout;
 
-    	$( "body" ).addClass( headerLayout );
+    	$( ".template-header" ).addClass( headerLayout );
 
 	}).change();
 
@@ -87,7 +87,7 @@ var activeHeaderSpacing = "";
 $( ".header-spacing" )
 	.change(function () {
 
-		$( "body" ).removeClass( activeHeaderSpacing );
+		$( ".template-header" ).removeClass( activeHeaderSpacing );
 
 	    $( this ).children("option:selected").each(function() {
 	    	headerSpacing = $( this ).val();
@@ -95,7 +95,7 @@ $( ".header-spacing" )
 
 	    activeHeaderSpacing = headerSpacing;
 
-    	$( "body" ).addClass( headerSpacing );
+    	$( ".template-header" ).addClass( headerSpacing );
 
 	}).change();
 
@@ -106,7 +106,7 @@ var activeFeatureHeight = "";
 $( ".feature-height" )
 	.change(function () {
 
-		$( "body" ).removeClass( activeFeatureHeight );
+		$( ".content-inner-wrap" ).removeClass( activeFeatureHeight );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureHeight = $( this ).val();
@@ -114,11 +114,7 @@ $( ".feature-height" )
 
 	    activeFeatureHeight = featureHeight;
 
-    	$( "body" ).addClass( featureHeight );
-
-
-
-
+    	$( ".content-inner-wrap" ).addClass( featureHeight );
 
 	}).change();
 
@@ -129,7 +125,7 @@ var activeFeatureAlignment = "";
 $( ".feature-alignment" )
 	.change(function () {
 
-		$( "body" ).removeClass( activeFeatureAlignment );
+		$( ".content-inner-wrap" ).removeClass( activeFeatureAlignment );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureAlignment = $( this ).val();
@@ -137,7 +133,7 @@ $( ".feature-alignment" )
 
 	    activeFeatureAlignment = featureAlignment;
 
-    	$( "body" ).addClass( featureAlignment );
+    	$( ".content-inner-wrap" ).addClass( featureAlignment );
 
 	}).change();
 
@@ -148,7 +144,7 @@ var activeFeatureOverlayType = "";
 $( ".feature-overlay-type" )
 	.change(function () {
 
-		$( "body" ).removeClass( activeFeatureOverlayType );
+		$( ".content-inner-wrap" ).removeClass( activeFeatureOverlayType );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureOverlayType = $( this ).val();
@@ -156,7 +152,7 @@ $( ".feature-overlay-type" )
 
 	    activeFeatureOverlayType = featureOverlayType;
 
-    	$( "body" ).addClass( featureOverlayType );
+    	$( ".content-inner-wrap" ).addClass( featureOverlayType );
 
 	}).change();
 
@@ -167,7 +163,7 @@ var activeFeatureOverlayOpacity = "";
 $( ".feature-overlay-opacity" )
 	.change(function () {
 
-		$( "body" ).removeClass( activeFeatureOverlayOpacity );
+		$( ".content-inner-wrap" ).removeClass( activeFeatureOverlayOpacity );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureOverlayOpacity = $( this ).val();
@@ -175,7 +171,7 @@ $( ".feature-overlay-opacity" )
 
 	    activeFeatureOverlayOpacity = featureOverlayOpacity;
 
-    	$( "body" ).addClass( featureOverlayOpacity );
+    	$( ".content-inner-wrap" ).addClass( featureOverlayOpacity );
 
 	}).change();
 
@@ -186,7 +182,7 @@ var activeFeatureParallax = "";
 $( ".feature-parallax" )
 	.change(function () {
 
-		$( "body" ).removeClass( activeFeatureParallax );
+		$( ".content-inner-wrap" ).removeClass( activeFeatureParallax );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureParallax = $( this ).val();
@@ -194,7 +190,7 @@ $( ".feature-parallax" )
 
 	    activeFeatureParallax = featureParallax;
 
-    	$( "body" ).addClass( featureParallax );
+    	$( ".content-inner-wrap" ).addClass( featureParallax );
 
         if (featureParallax == "feature-parallax--on") {
 
@@ -212,7 +208,7 @@ var activeMainSpacing = "";
 $( ".main-spacing" )
 	.change(function () {
 
-		$( "body" ).removeClass( activeMainSpacing );
+		$( ".main-content" ).removeClass( activeMainSpacing );
 
 	    $( this ).children("option:selected").each(function() {
 	    	mainSpacing = $( this ).val();
@@ -220,7 +216,7 @@ $( ".main-spacing" )
 
 	    activeMainSpacing = mainSpacing;
 
-    	$( "body" ).addClass( mainSpacing );
+    	$( ".main-content" ).addClass( mainSpacing );
 
 	}).change();
 

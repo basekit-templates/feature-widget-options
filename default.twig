@@ -6,19 +6,7 @@
 <div class="page  page--default">
 	<div class="site-container">
 
-		{% include "includes/header.twig" %}
-
-		{{widget('feature', 'feature', {
-		  'header': 'profile',
-		  'strapline': 'profile',
-		  'defaultBgImg': asset('images/feature-image1.jpg'),
-		  'positionTopPercentage': '50',
-		  'showBtn': true,
-		  'buttonText': 'Button',
-		  'action': 'external',
-		  'url': 'http://docs.basekit.com',
-		  'target': '_blank'
-		})|raw}}
+		{% include "includes/hero-widget.twig" %}
 
 		<div class="main-content">
 			<div class="site-content">
@@ -59,16 +47,14 @@
 	</div>
 </div>
 
-
-
-{% include "includes/feature-options.twig" %}
+{% include "includes/demo.twig" %}
 
 {% endblock %}
 
 
-
 {% block scripts %}
 
-	<script src="{{asset('js/main.js')}}"></script>
+	<script src="{{asset('js/demo.js')}}"></script>
+	<!-- <script src="{{asset('js/hero-widget.js')}}"></script> -->
 
 {% endblock %}

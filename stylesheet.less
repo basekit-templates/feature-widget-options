@@ -1,5 +1,5 @@
 // -------------------------------------
-// Variable Template: Stylesheet
+// Feature Widget Options: Stylesheet
 // -------------------------------------
 
 
@@ -7,176 +7,38 @@
 // Table of Contents
 // -----------------------------
 
-//  #LESS Includes
+//  #Imports
 //  #Mixins
 //  #Feature Option Selects (for demo)
 //  #Site
-//  #Typography
 //  #Header
 //  #Navigation
 //  #Buttons
+//  #Widgets
+//    -- #Logo & Company Name
+//    -- #Company Name
+//    -- #Feature
 
 
 // -----------------------------
-// #LESS Includes
+// #Imports
 // -----------------------------
 
-
-// BK LESS Framework Include
-// -------------------------
-
-@import "@{templateCommon}/bk-less-framework.less";
-
-
-// Template Includes
-// -----------------
-
-@import "@{templateLocal}/less/widgets.less";           // Widgets
+@import "@{templateCommon}/bk-less-framework.less";     // LESS Framework
 @import "@{templateLocal}/less/color-variables.less";   // Variables
+@import "@{templateLocal}/less/mixins.less";            // Mixins
 @import "@{templateLocal}/less/feature-options.less";   // Feature options
-
-
-
-
-// -----------------------------
-// #Mixins
-// -----------------------------
-
-// Flexbox Mixins
-// --------------
-
-// Flexbox Display
-.flex--display(@display: flex) {
-    display: ~"-webkit-@{display}";
-    display: ~"-moz-@{display}";
-    display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
-    display: ~"-ms-@{display}";    // IE11
-    display: @display;
-}
-
-// Flex
-.flex--flex(@columns: initial) {
-    -webkit-flex: @columns;
-    -moz-flex: @columns;
-    -ms-flex: @columns;
-    flex: @columns;
-}
-
-// Flex Direction
-.flex--flex-direction(@direction: row) {
-    -webkit-flex-direction: @direction;
-    -moz-flex-direction: @direction;
-    -ms-flex-direction: @direction;
-    flex-direction: @direction;
-}
-
-// Justify Content
-.flex--justify-content(@justify: flex-start) {
-    -webkit-justify-content: @justify;
-    -moz-justify-content: @justify;
-    -ms-justify-content: @justify;
-    -ms-flex-pack: @justify;
-    justify-content: @justify;
-}
-
-// Align Content
-.flex--align-content(@align: stretch) {
-    -webkit-align-content: @align;
-    -moz-align-content: @align;
-    -ms-align-content: @align;
-    align-content: @align;
-}
-
-// Align Items
-.flex--align-items(@align: stretch) {
-    -webkit-align-items: @align;
-    -moz-align-items: @align;
-    -ms-align-items: @align;
-    align-items: @align;
-}
-
-
-
-
-// ----------------------------------
-// #Feature Option Selects (for demo)
-// ----------------------------------
-
-// Accordion
-// ----------
-
-.acc-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99999;
-    display: block;
-    min-width: 250px;
-    margin: 0;
-    border-radius: 5px;
-
-    .open {
-        height: auto;
-    }
-
-    h2 {
-        padding-bottom: 0;
-        font-size: 18px;
-        font-weight: normal;
-        color: #ddd;
-
-        &.selected {
-            color: #fff;
-        }
-    }
-    h4 {
-        font-family: @font-swatch1-font-family;
-        font-size: 10px;
-        font-weight: normal;
-        color: #BFBFBF;
-        line-height: 20px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-    }
-    select {
-        min-width: 120px;
-        margin-bottom: 20px;
-
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-}
-
-.acc-btn {
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px 20px;
-    cursor:pointer;
-    background-color: rgba(51, 51, 51, 1);
-    border-bottom: 1px solid #424242;
-
-    &.last {
-        border-bottom: 0;
-    }
-}
-.acc-content {
-    height:0px;
-    width:100%;
-    margin:0 auto;
-    overflow:hidden;
-    background-color: rgba(51, 51, 51, 0.9);
-}
-.acc-content-inner {
-    padding: 20px 20px 24px;
-}
+@import "@{templateLocal}/less/demo.less";              // Demo
 
 
 
 
 // -----------------------------
 // #Site
+// -----------------------------
+
+
+// Site Styles
 // -----------------------------
 
 body {
@@ -201,7 +63,7 @@ a {
 
 
 // Layout
-// ----------
+// -----------------------------
 
 .site-container {
     max-width: @value__site--width;
@@ -216,7 +78,7 @@ a {
 
 
 // Inner Pages
-// -----------
+// -----------------------------
 
 .page {
     overflow: hidden;
@@ -230,28 +92,6 @@ a {
 
 
 
-// -----------------------------
-// #Typography
-// -----------------------------
-
-h1 {
-    color: @color__h1--text;
-}
-h2 {
-    color: @color__h2--text;
-}
-h3 {
-    color: @color__h3--text;
-}
-h4 {
-    color: @color__h4--text;
-}
-p {
-    color: @color__p--text;
-}
-
-
-
 
 // -----------------------------
 // #Header
@@ -260,14 +100,17 @@ p {
 .template-header {
     width: 100%;
     max-width: 100%;
+    background-color: @color__header--background;
 
     @media @tablet {
         padding-bottom: 0!important;
         margin-bottom: 0;
     }
 
+    // Flex Container
     .flex-container {
-        align-items: center;
+        .flexbox;
+        .align-items(center);
 
         @media @tablet {
             .flex-item:first-child,
@@ -277,6 +120,10 @@ p {
             }
         }
     }
+}
+
+.basket-toggle {
+    margin-bottom: 0;
 }
 
 
@@ -423,8 +270,112 @@ p {
 
 
 
+// -----------------------------
+// #Widgets
+// -----------------------------
+
+
+// #Logo & Company Name
+// -----------------------------
+
+.logo-companyname-item {
+    display: inline-block;
+    vertical-align: middle;
+
+    &--logo {
+        margin-right: 10px;
+    }
+}
+
+
+// #Logo
+// -----------------------------
+
+.logo {
+    line-height: 0;
+    font-size: 0;
+}
 
 
 
 
+// #Company Name
+// -----------------------------
 
+.companyname {
+    display: block;
+
+    @media @tablet {
+        margin-top: 20px;
+    }
+}
+
+// Company link
+.company-link {
+    color: @color__companyname--text;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+
+
+
+// #Feature
+// -----------------------------
+
+.feature {
+    position: relative;
+    background-color: @color__feature--background;
+
+    .background-image {
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .content-wrap {
+        width: 100%;
+        height: 100%;
+    }
+    .content-inner-wrap {
+        .flexbox;
+        .flex-direction(column);
+        // .align-items(center);
+        // .justify-content(center);
+        // min-height: 600px;
+        margin: 0 auto;
+        padding: 30px 5%;
+        height: 100%;
+    }
+    .headline {
+        color: @color__feature-headline--text;
+        text-transform: uppercase;
+
+        @media @tablet {
+            font-size: bkscale(@font-swatch8-font-size, 0.8);
+        }
+        @media @mobile {
+            font-size: bkscale(@font-swatch8-font-size, 0.65);
+            line-height: bkscale(@font-swatch8-line-height, 0.7);
+        }
+    }
+    .strapline {
+        margin: 10px 0 20px;
+        color: @color__feature-strapline--text;
+
+        @media @tablet {
+            font-size: bkscale(@font-swatch9-font-size, 0.8);
+        }
+        @media @mobile {
+            margin: 10px 0;
+            font-size: bkscale(@font-swatch9-font-size, 0.7);
+        }
+    }
+
+}
+
+.feature__content-wrap {
+    padding: 0;
+}

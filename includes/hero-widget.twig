@@ -1,0 +1,15 @@
+<div class="bk-hero  hero  widget__hero">
+    {% include "includes/header.twig" %}
+
+    {{widget('feature', 'feature', {
+        'header': 'profile',
+        'strapline': 'profile',
+        'defaultBgImg': asset('images/feature-image1.jpg'),
+        'positionTopPercentage': '50',
+        'showBtn': true,
+        'buttonText': 'Button',
+        'action': 'external',
+        'url': 'http://docs.basekit.com',
+        'target': '_blank'
+    })|raw}}
+</div>

@@ -1,15 +1,16 @@
 <header class="template-header">
 	<div class="site-content  flex-container">
 		<div class="flex-item">
-			{{widget('logo', 'header-logo', {"defaultlogo": asset('images/logo.png')})|raw}}
-		</div>
-		<div class="flex-item">
-			{{widget('companyname', 'companyname', {"business": "profile" })|raw}}
+			{% include "includes/logo-companyname-widget.twig" %}
 		</div>
 		<div class="flex-item">
 			<nav class="template-navigation">
-				{{widget('extendednavigation', 'header-nav', {"align":"right"})|raw}}
+				{{widget('extendednavigation', 'header-navigation', {"align":"right"})|raw}}
 			</nav>
+		</div>
+		<div class="flex-item">
+			{{widget('ecombasket', 'header-basket', {})|raw}}
+			{# {{widget('ecombasket', 'header-basket', {})|raw}} #}
 		</div>
 	</div>
 </header>
