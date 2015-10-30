@@ -129,6 +129,18 @@ a {
                 // vertical-align: middle;
             }
         }
+
+        .flex-item:last-child {
+            @media @tablet {
+                position: absolute;
+                z-index: 9999;
+                top: @value__header--spacing;
+                right: 0;
+            }
+            @media @mobile {
+                top: -5px;
+            }
+        }
     }
 }
 
@@ -156,9 +168,10 @@ a {
         display: none;
         text-align: left;
     }
-}
-.navigation-list.open {
-    display: block;
+
+    &.open {
+        display: block;
+    }
 }
 
 // Navigation Item
@@ -168,10 +181,14 @@ a {
 
     @media @tablet {
         display: block;
+        padding: 5px 0;
 
         &:first-child {
-            padding-top: 10px;
+            padding-top: 14px;
             border-top: 1px solid @color__navigation--border;
+        }
+        &:last-child {
+            padding-bottom: 14px;
         }
     }
 
@@ -209,7 +226,7 @@ a {
 }
 
 // Dropdown Menu
-.navigation-item.folder .navigation-list {
+.navigation-list--children {
     position: absolute;
     min-width: 150px;
     background-color: @color__navigation-list--background;
@@ -217,16 +234,24 @@ a {
     .navigation-item {
         display: block;
         width: 100%;
-        background-color: @color__body--background;
-    }
-    .navigation-item--child {
         padding: 0 10px;
+        background-color: @color__body--background;
+
+        @media @tablet {
+            &:first-child {
+                padding-top: 6px;
+            }
+            &:last-child {
+                padding-bottom: 6px;
+            }
+        }
 
         .item-name {
             padding: 4px 10px;
         }
     }
 }
+
 // Folder arrow
 .item-name--parent:after {
     display: inline-block;
@@ -310,6 +335,11 @@ a {
         @media @tablet {
             font-size: 15px;
         }
+        @media @mobile {
+            min-width: inherit;
+            padding: 5px;
+            background-color: @color__header--background;
+        }
 
         &:before {
             margin-right: 0;
@@ -328,8 +358,17 @@ a {
     display: inline-block;
     vertical-align: middle;
 
+    @media @mobile {
+        display: block;
+        text-align: center;
+    }
+
     &--logo {
         margin-right: 10px;
+
+        @media @mobile {
+            margin-right: 0;
+        }
     }
 }
 
@@ -353,7 +392,7 @@ a {
     margin: 10px 0;
 
     @media @tablet {
-        margin-top: 20px;
+        margin-bottom: 0;
     }
 }
 
