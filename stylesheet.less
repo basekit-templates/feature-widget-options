@@ -125,8 +125,8 @@ a {
         @media @tablet {
             .flex-item:first-child,
             .flex-item:nth-child(2) {
-                display: inline-block;
-                vertical-align: middle;
+                // display: inline-block;
+                // vertical-align: middle;
             }
         }
     }
@@ -292,9 +292,10 @@ a {
 
 .hero {
 
-    // Resets button styles
+    // Baseket Toggle
     .basket-toggle {
-        margin: 0 0 0 30px;
+        min-width: 50px;
+        margin: 0;
         padding: 0;
         background-color: transparent;
         font-family: @font__navigation--font-family;
@@ -303,7 +304,12 @@ a {
         line-height: @font__navigation--line-height;
         letter-spacing: @font__navigation--letter-spacing;
         color: @color__navigation--text;
+        text-align: right;
         text-transform: uppercase;
+
+        @media @tablet {
+            font-size: 15px;
+        }
 
         &:before {
             margin-right: 0;
