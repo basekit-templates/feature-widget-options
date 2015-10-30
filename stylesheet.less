@@ -115,8 +115,8 @@ a {
     background-color: @color__header--background;
 
     @media @tablet {
-        padding-bottom: 0!important;
         margin-bottom: 0;
+        padding-bottom: 0!important;
     }
 
     // Flex Container
@@ -124,23 +124,28 @@ a {
         .align-items(center);
 
         @media @tablet {
-            .flex-item:first-child,
-            .flex-item:nth-child(2) {
-                // display: inline-block;
-                // vertical-align: middle;
-            }
+            position: relative;
+            display: block;
         }
+    }
 
-        .flex-item:last-child {
-            @media @tablet {
-                position: absolute;
-                z-index: 9999;
-                top: @value__header--spacing;
-                right: 0;
-            }
-            @media @mobile {
-                top: -5px;
-            }
+    .flex-item:last-child {
+        @media @tablet {
+            position: absolute;
+            z-index: 9999;
+            top: @value__header--spacing;
+        }
+        @media @mobile {
+            top: -5px;
+        }
+    }
+
+    .flex-item:first-child {
+        .flex(1 1 auto);
+        min-width: 350px;
+
+        @media @tablet {
+            min-width: inherit;
         }
     }
 }
@@ -187,7 +192,6 @@ a {
         line-height: @font__navigation--line-height;
         letter-spacing: @font__navigation--letter-spacing;
         color: @color__navigation--text;
-        text-align: right;
         text-transform: uppercase;
 
         @media @tablet {

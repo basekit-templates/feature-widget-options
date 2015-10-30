@@ -75,34 +75,33 @@
 	.flex-container {
 		.flexbox;
 		.justify-content(center);
-
+	}
+	.flex-item:last-child {
 		@media @tablet {
-			position: relative;
-			display: block;
+			right: 0;
 		}
-
-		.flex-item:first-child {
-			.flex(1 1 auto);
-			min-width: 350px;
-
-			@media @tablet {
-				min-width: inherit;
-			}
-		}
+	}
+	.basket-toggle {
+		text-align: right;
 	}
 }
 
 // Right
 .header-layout--right {
-	.flexbox;
 	.flex-container {
+		.flexbox;
 		.flex-direction(row-reverse);
 		.justify-content(center);
 	}
-	.flex-item:nth-child(2) {
-		.flex(1 1 auto);
+	.flex-item:first-child {
+		text-align: right;
 	}
-	.navigation-list {
+	.flex-item:last-child {
+		@media @tablet {
+			left: 0;
+		}
+	}
+	.basket-toggle {
 		text-align: left;
 	}
 }
