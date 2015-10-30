@@ -19,7 +19,7 @@
 	width: 100%;
 
 	.site-content {
-		padding: 0 5%;
+		// padding: 0 5%;
 	}
 }
 
@@ -64,6 +64,8 @@
 // #Header Options
 // -----------------------------
 
+@value__header--spacing: 20px;  // Header spacing
+
 
 // Header Layout
 // -------------
@@ -71,6 +73,7 @@
 // Left
 .header-layout--left {
 	.flex-container {
+		.flexbox;
 		.justify-content(center);
 
 		@media @tablet {
@@ -78,28 +81,26 @@
 		}
 
 		.flex-item:first-child {
-			margin-right: 30px;
+			// margin-right: 30px;
 		}
 		.flex-item:nth-child(2) {
 			.flex(1 1 auto);
 		}
 		.flex-item:last-child {
-			margin-left: 30px;
+			// margin-left: 30px;
 		}
 	}
 }
 
 // Right
 .header-layout--right {
+	.flexbox;
 	.flex-container {
 		.flex-direction(row-reverse);
 		.justify-content(center);
 	}
 	.flex-item:nth-child(2) {
 		.flex(1 1 auto);
-	}
-	.flex-item:last-child {
-		
 	}
 	.navigation-list {
 		text-align: left;
@@ -108,17 +109,36 @@
 
 // Center
 .header-layout--center {
-	display: block;
-	text-align: center;
 	padding-bottom: 0!important;
 
-	.navigation-list {
-		padding-top: 30px;
-		text-align: center;
+	// Logo & Company Name
+	.logo-companyname-item {
+	    display: block;
+
+	    &--logo {
+	    	margin-right: 0;
+	    }
 	}
-	.company-link {
+
+	// Layout
+	.flex-container {
 		display: block;
-		margin-top: 20px;
+		text-align: center;
+		padding-bottom: 0!important;
+
+		.flex-item:last-child {
+			position: absolute;
+		    top: @value__header--spacing;
+		    right: @value__header--spacing;
+		}
+		.navigation-list {
+			padding-top: @value__header--spacing;
+			text-align: center;
+		}
+		.company-link {
+			display: block;
+			margin-top: 20px;
+		}
 	}
 }
 
@@ -188,20 +208,20 @@
 // Header Spacing
 // --------------
 
-// Small
-.header-spacing--small {
-	padding: 16px 0;
-}
+// // Small
+// .header-spacing--small {
+// 	padding: 16px 0;
+// }
 
-// Medium
-.header-spacing--medium {
-	padding: 30px 0;
-}
+// // Medium
+// .header-spacing--medium {
+// 	padding: 30px 0;
+// }
 
-// Large
-.header-spacing--large {
-	padding: 50px 0;
-}
+// // Large
+// .header-spacing--large {
+// 	padding: 50px 0;
+// }
 
 
 

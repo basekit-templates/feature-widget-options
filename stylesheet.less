@@ -2,6 +2,13 @@
 // Feature Widget Options: Stylesheet
 // -------------------------------------
 
+#tdk-toolbar {
+    display: none!important;
+}
+
+@templateCommon: "../../templates/common/";
+@templateLocal: "";
+
 
 // -----------------------------
 // Table of Contents
@@ -25,7 +32,10 @@
 // -----------------------------
 
 @import "@{templateCommon}/bk-less-framework.less";     // LESS Framework
-@import "@{templateLocal}/less/color-variables.less";   // Variables
+@import "@{templateLocal}/validation.less";             // Validation
+
+
+@import "@{templateLocal}/less/variables.less";         // Variables
 @import "@{templateLocal}/less/mixins.less";            // Mixins
 @import "@{templateLocal}/less/feature-options.less";   // Feature options
 @import "@{templateLocal}/less/demo.less";              // Demo
@@ -100,6 +110,7 @@ a {
 .template-header {
     width: 100%;
     max-width: 100%;
+    padding: @value__header--spacing;
     background-color: @color__header--background;
 
     @media @tablet {
@@ -109,7 +120,6 @@ a {
 
     // Flex Container
     .flex-container {
-        .flexbox;
         .align-items(center);
 
         @media @tablet {
@@ -120,10 +130,6 @@ a {
             }
         }
     }
-}
-
-.basket-toggle {
-    margin-bottom: 0;
 }
 
 
@@ -169,29 +175,35 @@ a {
         }
     }
 
-    .item-name {
-        padding-left: 30px;
-        color: @color__navigation--text;
-        text-transform: uppercase;
-
-        @media @tablet {
-            padding-left: 0;
-        }
-
-        &:hover {
-            color: @color__navigation--text--hover;
-        }
-
-        &.item-name--parent {
-            padding-right: 0;
-        }
-    }
-
     &.selected .item-name {
         color: @color__navigation--text--selected;
     }
 
     &:last-child .item-name {
+        padding-right: 0;
+    }
+}
+
+// Navigation Link
+.navigation-item .item-name {
+    padding: 0 20px;
+    font-family: @font__navigation--font-family;
+    font-size: @font__navigation--font-size;
+    font-weight: @font__navigation--font-weight;
+    line-height: @font__navigation--line-height;
+    letter-spacing: @font__navigation--letter-spacing;
+    color: @color__navigation--text;
+    text-transform: uppercase;
+
+    @media @tablet {
+        padding-left: 0;
+    }
+
+    &:hover {
+        color: @color__navigation--text--hover;
+    }
+
+    &.item-name--parent {
         padding-right: 0;
     }
 }
@@ -275,6 +287,34 @@ a {
 // -----------------------------
 
 
+// Hero
+// -----------------------------
+
+.hero {
+
+    // Resets button styles
+    .basket-toggle {
+        margin: 0 0 0 30px;
+        padding: 0;
+        background-color: transparent;
+        font-family: @font__navigation--font-family;
+        font-size: 13px;
+        font-weight: @font__navigation--font-weight;
+        line-height: @font__navigation--line-height;
+        letter-spacing: @font__navigation--letter-spacing;
+        color: @color__navigation--text;
+        text-transform: uppercase;
+
+        &:before {
+            margin-right: 0;
+        }
+    }
+    .basket-text {
+        display: none;
+    }
+}
+
+
 // #Logo & Company Name
 // -----------------------------
 
@@ -304,6 +344,7 @@ a {
 
 .companyname {
     display: block;
+    margin: 10px 0;
 
     @media @tablet {
         margin-top: 20px;
