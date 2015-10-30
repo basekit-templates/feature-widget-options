@@ -127,16 +127,20 @@
 
 		.flex-item:last-child {
 			position: absolute;
-		    top: @value__header--spacing;
-		    right: @value__header--spacing;
+			top: @value__header--spacing;
+			right: @value__header--spacing;
+
+			@media @tablet {
+				top: -5px;
+				right: 0;
+			}
 		}
 		.navigation-list {
-			padding-top: @value__header--spacing;
+			padding: @value__header--spacing;
 			text-align: center;
 		}
 		.company-link {
 			display: block;
-			margin-top: 20px;
 		}
 	}
 }
