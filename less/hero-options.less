@@ -372,74 +372,68 @@
 		background-color: hsla(hue(@color__feature-content--background), saturation(@color__feature-content--background), lightness(@color__feature-content--background), 0);
 	}
 
+}
 
-	// Feature Parallax
-	// ----------------
 
-	// On
-	.feature-parallax--on & {
+// Feature Parallax
+// ----------------
 
-		.main-content, .template-header {
-			z-index: 50 !important;
-			position: relative;
-			-webkit-transform: translate3d(0px, 0px, 0px);
-			-moz-transform: translate3d(0px, 0px, 0px);
-			-o-transform: translate3d(0px, 0px, 0px);
-			-ms-transform: translate3d(0px, 0px, 0px);
-			transform: translate3d(0px, 0px, 0px);
-		}
+// On
+.feature-parallax--on {
 
-		.featureWrapper {
-			position: relative;
-		}
+	// Template header
 
-		.feature {
-			z-index: 30;
-			-webkit-backface-visibility: hidden;
-		}
-
-		.feature.stuck {
-			position: fixed;
-			width: 100%;
-			-webkit-transform: translate3d(0px, 0px, 0px);
-			-moz-transform: translate3d(0px, 0px, 0px);
-			-o-transform: translate3d(0px, 0px, 0px);
-			-ms-transform: translate3d(0px, 0px, 0px);
-			transform: translate3d(0px, 0px, 0px);
-		}
-
-		.feature__parallax-background-image {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background-size: cover;
-			z-index: 1;
-			-webkit-backface-visibility: hidden;
-
-		}
-
-		&.header-position--standard  {
-			.template-header {
-				background-color: #fff;
-			    position: relative;
-			    z-index: 10;
-			}
-		}
-
-		&.header-position--overlap {
-			.feature__parallax-background-image {
-
-			}
-		}
-
-		.feature__content-wrap {
-			z-index: 2;
-			position: relative;
-
-		}
-
+	.template-header {
+		position: relative;
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		-moz-transform: translate3d(0px, 0px, 0px);
+		-o-transform: translate3d(0px, 0px, 0px);
+		-ms-transform: translate3d(0px, 0px, 0px);
+		transform: translate3d(0px, 0px, 0px);
 	}
 
+	// Standard header + Standard position
+
+	&.header-position--standard  {
+		.template-header {
+			background-color: #fff;
+
+		}
+	}
+
+	// Feature
+
+	.feature {
+		z-index: -1;
+		-webkit-backface-visibility: hidden;
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		-moz-transform: translate3d(0px, 0px, 0px);
+		-o-transform: translate3d(0px, 0px, 0px);
+		-ms-transform: translate3d(0px, 0px, 0px);
+		transform: translate3d(0px, 0px, 0px);
+		width: 100%;
+		&.stuck {
+			position: fixed;
+		}
+	}
+
+	.feature__parallax-background-image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-size: cover;
+		z-index: 1;
+		-webkit-backface-visibility: hidden;
+	}
+
+	.feature__content-wrap {
+		z-index: 2;
+		position: relative;
+	}
+}
+
+.feature-parallax--on + .main-content {
+	background-color: #fff;
 }
