@@ -76,7 +76,7 @@ if ( requestAnimationFrame ) {
 // ===============================================================
 
 
-var featureParallaxEffect = function (param) {
+var featureParallaxEffect = function () {
 
 
         // ===============================================================
@@ -372,19 +372,6 @@ var featureParallaxEffect = function (param) {
                     fadeOutEffect(scrollProgress);
                 }
 
-
-
-
-
-            // ===============================================================
-            // Demo Only
-            // ===============================================================
-
-            if ( param == "destroy" ) {
-                widget.find(".content-inner-wrap").css('opacity', 1);
-                widget.css('transform', 'translate(0px, 0px )');
-                widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
-            }
 
         } // applyEffects
 
