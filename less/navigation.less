@@ -16,7 +16,6 @@
 
     @media @tablet {
         display: none;
-        text-align: left;
     }
 
     &.open {
@@ -45,10 +44,6 @@
     &.selected .item-name {
         color: @color__navigation--text--selected;
     }
-
-    &:last-child .item-name {
-        padding-right: 0;
-    }
 }
 
 // Navigation Link
@@ -60,7 +55,6 @@
     line-height: @font__navigation--line-height;
     letter-spacing: @font__navigation--letter-spacing;
     color: @color__navigation--text;
-    text-transform: uppercase;
 
     @media @tablet {
         padding-left: 0;
@@ -119,7 +113,7 @@
     @media @tablet {
         display: block;
         width: 100%;
-        padding: 12px 0;
+        padding: 6px 0;
         background-color: transparent;
         color: @color__h1--text;
         text-align: left;
