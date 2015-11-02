@@ -383,96 +383,67 @@
 // ----------------
 
 // On
-// .feature-parallax--on {
+.feature-parallax--on {
 
-// 	.main-content, .template-header {
-// 		z-index: 50 !important;
-// 		position: relative;
-// 		-webkit-transform: translate3d(0px, 0px, 0px);
-// 		-moz-transform: translate3d(0px, 0px, 0px);
-// 		-o-transform: translate3d(0px, 0px, 0px);
-// 		-ms-transform: translate3d(0px, 0px, 0px);
-// 		transform: translate3d(0px, 0px, 0px);
-// 	}
-
-// 	.featureWrapper {
-// 		position: relative;
-// 	}
-
-// 	.feature {
-// 		z-index: 30;
-// 		-webkit-backface-visibility: hidden;
-// 	}
-
-// 	.feature.stuck {
-// 		position: fixed;
-// 		width: 100%;
-// 		-webkit-transform: translate3d(0px, 0px, 0px);
-// 		-moz-transform: translate3d(0px, 0px, 0px);
-// 		-o-transform: translate3d(0px, 0px, 0px);
-// 		-ms-transform: translate3d(0px, 0px, 0px);
-// 		transform: translate3d(0px, 0px, 0px);
-// 	}
-
-// 	.feature__parallax-background-image {
-// 		position: absolute;
-// 		top: 0;
-// 		right: 0;
-// 		bottom: 0;
-// 		left: 0;
-// 		background-size: cover;
-// 		z-index: 1;
-// 		-webkit-backface-visibility: hidden;
-
-// 	}
-
-// 	&.header-position--standard  {
-// 		.template-header {
-// 			background-color: #fff;
-// 		    position: relative;
-// 		    z-index: 10;
-// 		}
-// 	}
-
-// 	&.header-position--overlap {
-// 		.feature__parallax-background-image {
-
-// 		}
-// 	}
-
-// 	.feature__content-wrap {
-// 		z-index: 2;
-// 		position: relative;
-
-// 	}
-
-// }
-
-
-
-
-// -----------------------------
-// #Main Content Options
-// -----------------------------
-
-
-// Main Spacing
-// ------------
-
-.main-content {
-	// Small
-	.main-x-spacing--small &{
-		padding: 3%;
+	.main-content, .template-header {
+		z-index: 50 !important;
+		position: relative;
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		-moz-transform: translate3d(0px, 0px, 0px);
+		-o-transform: translate3d(0px, 0px, 0px);
+		-ms-transform: translate3d(0px, 0px, 0px);
+		transform: translate3d(0px, 0px, 0px);
 	}
 
-	// Medium
-	.main-x-spacing--medium &{
-		padding: 6%;
+	.featureWrapper {
+		position: relative;
 	}
 
-	// Large
-	.main-x-spacing--large &{
-		padding: 8%;
+	.feature {
+		z-index: 30;
+		-webkit-backface-visibility: hidden;
 	}
+
+	.feature.stuck {
+		position: fixed;
+		width: 100%;
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		-moz-transform: translate3d(0px, 0px, 0px);
+		-o-transform: translate3d(0px, 0px, 0px);
+		-ms-transform: translate3d(0px, 0px, 0px);
+		transform: translate3d(0px, 0px, 0px);
+	}
+
+	.feature__parallax-background-image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-size: cover;
+		z-index: 1;
+		-webkit-backface-visibility: hidden;
+
+	}
+
+	&.header-position--standard  {
+		.template-header {
+			background-color: #fff;
+		    position: relative;
+		    z-index: 10;
+		}
+	}
+
+	&.header-position--overlap {
+		.feature__parallax-background-image {
+
+		}
+	}
+
+	.feature__content-wrap {
+		z-index: 2;
+		position: relative;
+
+	}
+
 }
-
