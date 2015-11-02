@@ -11,7 +11,7 @@ var activeSiteLayout = "";
 $( ".site-layout" )
 	.change(function () {
 
-		$( "body" ).removeClass( activeSiteLayout );
+		$( ".site-container" ).removeClass( activeSiteLayout );
 
 	    $( this ).children("option:selected").each(function() {
 	    	siteLayout = $( this ).val();
@@ -19,7 +19,7 @@ $( ".site-layout" )
 
 	    activeSiteLayout = siteLayout;
 
-    	$( "body" ).addClass( siteLayout );
+    	$( ".site-container" ).addClass( siteLayout );
 
 	}).change();
 
