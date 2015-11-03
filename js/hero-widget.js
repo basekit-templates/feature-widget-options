@@ -139,7 +139,7 @@ var featureParallaxEffect = function () {
 
             resizing = false;
             // Get dimensions
-            widgetWidth             = $(".featureWrapper").width();
+            widgetWidth             = $(".site-container").width();
             widgetHeight            = widget.height();
             widgetPosition          = widget.offset();
             widgetBottomCoordinate  = widgetPosition.top + widgetHeight;

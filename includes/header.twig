@@ -9,7 +9,9 @@
 			</nav>
 		</div>
 		<div class="flex-item">
-			{{widget('ecombasket', 'shopbasket', {})|raw}}
+			{% if plugins.ecommerce.store.live %}
+				{{widget('ecombasket', 'shopbasket', {})|raw}}
+			{% endif %}
 		</div>
 	</div>
 </header>
