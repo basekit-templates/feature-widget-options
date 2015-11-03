@@ -2,10 +2,6 @@
 // Feature Widget Options: Stylesheet
 // -------------------------------------
 
-#tdk-toolbar {
-    display: none!important;
-}
-
 @templateCommon: "../../templates/common/";
 @templateLocal: "";
 
@@ -56,13 +52,6 @@ body {
     background-color: @color__body--background;
 }
 
-// Site Canvas
-.site-canvas {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-}
-
 // Site Links
 a {
     color: @color__link--text;
@@ -76,6 +65,7 @@ a {
 // Layout
 // -----------------------------
 
+// Site / Page Container
 .site-container {
     max-width: @value__site--width;
 }
@@ -176,7 +166,7 @@ a {
         padding: 0;
         background-color: transparent;
         font-family: @font__navigation--font-family;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: @font__navigation--font-weight;
         line-height: @font__navigation--line-height;
         letter-spacing: @font__navigation--letter-spacing;
@@ -207,6 +197,27 @@ a {
         width: 250px;
         padding: 20px;
         background-color: @color__header--background;
+    }
+    .basket-item-image .image-link {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+    }
+    .basket-item-details {
+        margin-top: 10px;
+        line-height: 22px;
+    }
+    .item-remove {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        line-height: 11px;
+    }
+    .remove-text {
+        display: none;
     }
 }
 
