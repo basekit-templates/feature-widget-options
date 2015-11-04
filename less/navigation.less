@@ -3,23 +3,21 @@
 // -----------------------------------------
 
 // Template Navigation
-.template-navigation {
-    @media @tablet {
-        margin-top: 20px;
-        border-top: 1px solid @color__navigation--border;
-    }
-}
 
 // Navigation List
-.navigation-list {
+.navigation-list:not(.navigation-list--children) {
     margin: 0;
 
     @media @tablet {
         display: none;
+        text-align: left;
     }
 
-    &.open {
+    .navigation--open & {
         display: block;
+        position: absolute;
+        background-color: #fff;
+        padding: @value__header--spacing;
     }
 }
 
@@ -30,15 +28,6 @@
 
     @media @tablet {
         display: block;
-        padding: 5px 0;
-
-        &:first-child {
-            padding-top: 14px;
-            border-top: 1px solid @color__navigation--border;
-        }
-        &:last-child {
-            padding-bottom: 14px;
-        }
     }
 
     &.selected .item-name {
@@ -57,7 +46,7 @@
     color: @color__navigation--text;
 
     @media @tablet {
-        padding-left: 0;
+        padding: 0;
     }
 
     &:hover {
@@ -108,26 +97,64 @@
 }
 
 // Toggle Button
-.navigation-toggle {
+
+.extendednavigation__navigation-toggle {
+    display: none;
+}
+
+.template-header-navigation-toggle {
     display: none;
 
     @media @tablet {
         display: block;
-        width: 100%;
-        padding: 6px 0;
-        background-color: transparent;
-        color: @color__h1--text;
-        text-align: left;
-        text-transform: uppercase;
+        background-color: @color__navigation--text;
+        background-clip: content-box;
+        width: 40px;
+        height: 40px;
+        padding: 19px 8px;
+        margin: 0;
+        text-indent: 200%;
+        overflow: hidden;
+        position: relative;
+        right: -8px;
 
-        &:hover {
-            background: transparent;
+        // Top and bottom navigation item bar
+        &:after, &:before {
+            content: "";
+            height: 2px;
+            width: 24px;
+            position: absolute;
+            left: 8px;
+            display: block;
+            background: @color__navigation--text;
+            margin-right: 0;
+            margin-left: 0;
         }
-    }
 
-    &:after {
-        content: "+";
-        position: absolute;
-        right: 0;
+        // Top bar
+        &:before {
+            top: 13px;
+        }
+
+        // Bottom bar
+        &:after {
+            bottom: 13px;
+        }
+
+        // Toggle Button open state
+        // ------------------------------
+
+        .navigation--open & {
+            background-color: transparent;
+            box-shadow: none;
+
+            &:before {
+                top: 20px; background: @color__navigation--text; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -o-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);
+
+            }
+            &:after {
+                bottom: 18px; background: @color__navigation--text; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg);
+            }
+        }
     }
 }

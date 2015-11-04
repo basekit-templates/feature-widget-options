@@ -48,94 +48,131 @@
 
 	// Left
 	.header-layout--left & {
-		.flex-container {
+		.content-container {
 			.flexbox;
 			.justify-content(center);
+		}
 
-			@media @tablet {
-	            display: block;
-	        }
-		}
-		.flex-item:last-child {
-			@media @tablet {
-				right: @value__header--spacing;
-			}
-		}
-		.logo-companyname {
+		.logocompanyname {
 			text-align: left;
 		}
+
 		.basket-toggle {
 			margin-left: 10px;
 			text-align: right;
+			@media @tablet {
+				margin-left: 0;
+				text-align: left;
+			}
+		}
+
+		.pagetitle-text {
+			text-align: right;
+			margin-left: auto;
+		}
+
+		.basket-body {
+			@media @mobile {
+				right: auto;
+				left: 0;
+			}
 		}
 	}
 
 	// Right
 	.header-layout--right & {
-		.flex-container {
+		.content-container {
 			.flexbox;
 			.flex-direction(row-reverse);
 			.justify-content(center);
 
-			@media @tablet {
-	            display: block;
-	        }
 		}
-		.flex-item:first-child {
+		.template-header-item:first-child {
 			text-align: right;
 		}
-		.flex-item:last-child {
-			@media @tablet {
-				left: @value__header--spacing;
-			}
-		}
-		.logo-companyname {
+
+		.logocompanyname {
 			text-align: right;
 		}
 		.basket-toggle {
 			margin-right: 10px;
 			text-align: left;
+			@media @tablet {
+				margin-right: 0;
+				text-align: left;
+			}
+		}
+
+		.pagetitle-text {
+			text-align: left;
+		}
+
+		.template-header-navigation-toggle {
+			.order(0);
+			right: 0;
+			left: -8px;
+		}
+
+		.template-header-page-title {
+			.order(1);
+		}
+
+		.template-basket {
+			.order(2);
+
+		}
+
+		.basket-body {
+			right: auto;
+			left: 0;
+			@media @mobile {
+				right: 0;
+				left: auto;
+			}
 		}
 	}
 
 	// Center
 	.header-layout--center & {
-		padding-bottom: 0!important;
 
 		// Logo & Company Name
-		.logo-companyname {
+		.logocompanyname {
 			text-align: center;
 		}
-		.logo-companyname-item {
-		    display: block;
+		.logocompanyname-item {
+			display: block;
 
 		    &--logo {
 		    	margin-right: 0;
 		    }
 		}
 
+		.navigation-body {
+			text-align: center;
+		}
+
 		// Layout
-		.flex-container {
-			display: block;
+		.content-container {
+			.flexbox;
+			.flex-direction(column);
 			text-align: center;
 			padding-bottom: 0!important;
 
-			@media @tablet {
-	            display: block;
-	        }
 		}
-		.flex-item:last-child {
-			position: absolute;
-			top: @value__header--spacing;
-			right: @value__header--spacing;
 
-			@media @tablet {
-				top: -5px;
-				right: @value__header--spacing;
+		.template-header-item:nth-child(2) {
+			.order(3);
+		}
+		.template-header-item:last-child {
+			.flexbox;
+			.order(2);
+			@media @mobile  {
+				.flex-direction(column);
+				.align-items(center);
 			}
+
 		}
 		.navigation-list {
-			padding: @value__header--spacing 0;
 			text-align: center;
 
 			@media @tablet {
@@ -146,6 +183,31 @@
 		.company-link {
 			display: block;
 		}
+
+		.template-header-navigation-toggle {
+			.order(0);
+			right: 0;
+		}
+
+		.template-basket {
+			.order(1);
+			@media @mobile {
+				.order(0);
+			}
+
+		}
+
+		.template-header-page-title {
+			@media @mobile {
+				display: none;
+			}
+		}
+
+		.basket-body {
+			left: 50%;
+			margin-left: -125px;
+		}
+
 	}
 
 
@@ -159,11 +221,12 @@
 
 	// Overlap
 	.header-position--overlap & {
-		position: absolute;
-		z-index: 2;
-		background-color: transparent!important;
+		background-color: transparent;
+		position: relative;
+		z-index: 5;
 
-		.company-link {
+		.company-link,
+		.pagetitle-text {
 			color: @color__body--background;
 		}
 
@@ -181,12 +244,17 @@
 			color: @color__h1--text;
 		}
 
-		+ .widget .headline {
-			margin-top: 110px;
-		}
+
+
 
 		.basket-toggle {
 			color: @color__body--background;
+		}
+
+		.template-header-navigation-toggle {
+			&, &:before, &:after {
+				background-color: @color__body--background;
+			}
 		}
 
 		@media @tablet {
@@ -209,7 +277,6 @@
 			}
 		}
 	}
-
 }
 
 
@@ -306,41 +373,59 @@
 		.align-items(flex-end);
 		text-align: right;
 	}
-
-
-	// Feature Overlay Type
-	// --------------------
-
-	// Full
-	.feature-overlay-type--full .feature__parallax-background-image:after & {
-		content: "";
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-color: hsla(hue(@color__feature-content--background), saturation(@color__feature-content--background), lightness(@color__feature-content--background), @value__feature-content--opacity);
-	}
-
-	// Typography
-	.feature-overlay-type--typography & {
-		background-color: transparent!important;
-
-		.headline {
-	        display: inline-block;
-	        padding: 10px 20px;
-	        background-color: hsla(hue(@color__feature-headline--background), saturation(@color__feature-headline--background), lightness(@color__feature-headline--background), @value__feature-content--opacity);
-	    }
-	    .strapline {
-	        display: inline-block;
-	        margin-bottom: 10px;
-	        padding: 6px 20px;
-	        background-color: hsla(hue(@color__feature-strapline--background), saturation(@color__feature-strapline--background), lightness(@color__feature-strapline--background), @value__feature-content--opacity);
-	    }
-	}
-
 }
+
+
+// Feature Overlay Type
+// --------------------
+
+// Full
+
+.overlay {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.feature-overlay-type--full  {
+	&.feature-parallax--on .feature__parallax-background-image:after {
+		.overlay;
+	}
+
+
+	&.feature-parallax--off .feature__background-image:after {
+		.overlay;
+	}
+
+	.headline,
+	.strapline {
+		background-color: transparent !important;
+	}
+}
+
+
+
+// Typography
+.feature-overlay-type--typography & {
+	background-color: transparent!important;
+
+	.headline {
+        display: inline-block;
+        padding: 10px 20px;
+    }
+    .strapline {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 6px 20px;
+    }
+}
+
+
 
 
 // Feature Overlay Opacity
@@ -348,8 +433,11 @@
 
 @value__feature-content--opacity: 0.6;
 
-.hero {
-
+.feature__parallax-background-image:after,
+.feature__background-image:after,
+.headline,
+.strapline
+{
 	.feature-overlay-opacity--100 & {
 		background-color: hsla(hue(@color__feature-content--background), saturation(@color__feature-content--background), lightness(@color__feature-content--background), 1);
 	}
@@ -370,6 +458,7 @@
 	}
 
 }
+
 
 
 // Feature Parallax
@@ -414,21 +503,9 @@
 		}
 	}
 
-	.feature__parallax-background-image {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-size: cover;
-		z-index: 1;
-		-webkit-backface-visibility: hidden;
-	}
 
-	.feature__content-wrap {
-		z-index: 2;
-		position: relative;
-	}
+
+
 }
 
 .feature-parallax--on + .main-content {
@@ -436,16 +513,21 @@
 }
 
 
-
-
-
+.feature__parallax-background-image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-size: cover;
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+}
 
 
 		//   Off - DEMO ONLY, REMOVE FOR PRODUCTION CSS
 		.feature-parallax--off {
-			.feature__parallax-background-image {
-				display: none !important;
-			}
+
 			.feature {
 				top: 0 !important;
 			}

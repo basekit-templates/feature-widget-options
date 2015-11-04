@@ -1,17 +1,23 @@
 <header class="template-header">
-	<div class="content-container  flex-container">
-		<div class="flex-item">
-			{% include "includes/logo-companyname-widget.twig" %}
+	<div class="content-container">
+		<div class="template-header-item">
+			{% include "includes/logocompanyname-widget.twig" %}
 		</div>
-		<div class="flex-item">
+		<div class="template-header-item">
 			<nav class="template-navigation">
 				{{widget('extendednavigation', 'header-navigation', {"align":"right"})|raw}}
 			</nav>
 		</div>
-		<div class="flex-item">
+		<div class="template-header-item">
 			{% if plugins.ecommerce.store.live %}
+			<div class="template-header--basket">
 				{{widget('ecombasket', 'shopbasket', {})|raw}}
+			</div>
 			{% endif %}
+			<div class="template-header-page-title">
+				{{widget('pagetitle', 'header-page-title', {})|raw}}
+			</div>
+			<button class="template-header-navigation-toggle">{{'widgets.extendednavigation.menu'|translate('Menu')}}</button>
 		</div>
 	</div>
 </header>

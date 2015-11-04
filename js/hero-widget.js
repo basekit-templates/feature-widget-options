@@ -1,3 +1,10 @@
+// Toggles class open to display/hide the whole navigation
+$( ".navigation-toggle, .template-header-navigation-toggle" ).click(function() {
+    $( ".hero" ).toggleClass( "navigation--open" );
+});
+
+
+
 // ===============================================================
 // jQuery Request Animation Frame Polyfill
 // ===============================================================
@@ -79,12 +86,16 @@ if ( requestAnimationFrame ) {
 var featureParallaxEffect = function () {
 
 
+
+
         // ===============================================================
         // Set Up Elements
         // ===============================================================
         var
             widget                  = $(".feature"),
             widgetWrapper           = "featureWrapper";
+
+        // Create  elements
 
         widget.wrap("<div class='"+widgetWrapper+"'></div>");
         widget.append("<div class='feature__parallax-background-image'></div>");
@@ -125,7 +136,8 @@ var featureParallaxEffect = function () {
             scrolling               = false,
             resizing                = false,
             resizeTimer             = 0,
-            mobileDevice            = false;
+            mobileDevice            = false
+            screenSizeTrigger       = 768;
 
 
         // ===============================================================
@@ -144,6 +156,7 @@ var featureParallaxEffect = function () {
             widgetPosition          = widget.offset();
             widgetBottomCoordinate  = widgetPosition.top + widgetHeight;
             windowHeight            = $(window).height();
+            windowWidth             = $(window).width();
 
 
             // Check if widget is taller than the viewport
@@ -159,26 +172,21 @@ var featureParallaxEffect = function () {
             widget.width(widgetWidth);
             $("."+widgetWrapper).height(widgetHeight);
 
+            // Set top position of background element holder, so it covers space occupied by the header
+            widgetBackground.css({ top: -widgetPosition.top });
 
 
+            // Mobile device test
+
+            if ( navigator.userAgent.match(/(iPod|iPhone|iPad|android)/) || windowWidth <= screenSizeTrigger ) {
+                mobileDevice = true;
+            } else {
+                mobileDevice = false;
+            }
 
         };
 
-        // ===============================================================
-        // Mobile device test
-        // ===============================================================
 
-        if (navigator.userAgent.match(/(iPod|iPhone|iPad|android)/)) {
-            mobileDevice = true;
-        }
-
-        // ===============================================================
-        // Create elements
-        // ===============================================================
-
-
-        $(".feature__parallax-background-image").css({ 'background-image':  backgroundImage  });
-        widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
 
 
 
@@ -188,10 +196,14 @@ var featureParallaxEffect = function () {
 
         calcDimension();
 
-        // Set top position of background element holder, so it covers space occupied by the header
-        widgetBackground.css({ top: -widgetPosition.top });
 
 
+        // ===============================================================
+        // Create elements
+        // ===============================================================
+
+        $(".feature__parallax-background-image").css({ 'background-image':  backgroundImage  });
+        widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
 
 
         // ===============================================================
@@ -282,6 +294,7 @@ var featureParallaxEffect = function () {
             }, 250);
 
         });
+
 
 
         // ===============================================================
@@ -395,3 +408,89 @@ var featureParallaxEffect = function () {
 $(window).on("load",function(e){
     featureParallaxEffect();
 });
+
+
+
+
+
+
+// ===============================================================
+// Header Overlap
+// ===============================================================
+
+
+var headerOverlapFunction = function () {
+
+    // ===============================================================
+    // Set Up Elements
+    // ===============================================================
+    var widget                  = $(".feature");
+
+    // Create  elements
+    widget.append("<div class='feature__parallax-background-image'></div>");
+
+
+    // ===============================================================
+    // Initial variables
+    // ===============================================================
+
+    var widgetPosition          = 0,
+        resizeTimer             = 0,
+
+        // Background element
+        widgetBackground        = widget.find(".feature__parallax-background-image"),
+        backgroundImage         = widget.find(".feature__background-image").css("background-image");
+
+        // Background position setting
+        backgroundPosition      = parseFloat( widget.find(".feature__background-image").css("background-position").split(' ')[1] );
+
+
+    // ===============================================================
+    // Calc sizes
+    // ===============================================================
+
+
+    var calcDimension = function () {
+        // Get dimensions
+        widgetPosition          = widget.offset();
+
+        // Set top position of background element holder, so it covers space occupied by the header
+        widgetBackground.css({ top: -widgetPosition.top });
+    };
+
+
+
+    // ===============================================================
+    // Initial Dimensions Check
+    // ===============================================================
+
+    calcDimension();
+
+
+
+    // ===============================================================
+    // Create elements
+    // ===============================================================
+
+    widgetBackground.css({ 'background-image':  backgroundImage  });
+    widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
+
+
+    // ===============================================================
+    // When viewport is resized
+    // ===============================================================
+
+
+    $(window).on('resize', function(e) {
+
+        clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+            resizing = true;
+            calcDimension();
+            applyEffects();
+        }, 250);
+
+    });
+};
+
+
