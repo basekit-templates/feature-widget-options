@@ -5,17 +5,17 @@
 		</div>
 		<div class="template-header-item">
 			<nav class="template-navigation">
-				{{widget('extendednavigation', 'header-navigation', {"align":"right"})|raw}}
+				{{widget('extendednavigation', 'template-header-navigation', {"align":"right"})|raw}}
 			</nav>
 		</div>
 		<div class="template-header-item">
 			{% if plugins.ecommerce.store.live %}
 			<div class="template-header--basket">
-				{{widget('ecombasket', 'shopbasket', {})|raw}}
+				{{widget('ecombasket', 'template-header-basket', {})|raw}}
 			</div>
 			{% endif %}
 			<div class="template-header-page-title">
-				{{widget('pagetitle', 'header-page-title', {})|raw}}
+				{{widget('pagetitle', 'template-header-page-title', {})|raw}}
 			</div>
 			<button class="template-header-navigation-toggle">{{'widgets.extendednavigation.menu'|translate('Menu')}}</button>
 		</div>
