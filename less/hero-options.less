@@ -264,10 +264,7 @@
 			.navigation-body {
 				background-color: @color__header--background;
 			}
-			.navigation-list {
-				position: relative;
-				padding: 0 20px;
-			}
+
 			.navigation-item .item-name:hover,
 			.navigation-item.selected .item-name {
 				color: @color__navigation--text;
@@ -393,7 +390,7 @@
 }
 
 .feature-overlay-type--full  {
-	&.feature-parallax--on .feature__parallax-background-image:after {
+	&.feature-parallax--on .js-background-image:after {
 		.overlay;
 	}
 
@@ -433,7 +430,7 @@
 
 @value__feature-content--opacity: 0.6;
 
-.feature__parallax-background-image:after,
+.js-background-image:after,
 .feature__background-image:after,
 .headline,
 .strapline
@@ -489,7 +486,7 @@
 
 	// Feature
 
-	.feature {
+	&.feature {
 		z-index: 0;
 		-webkit-backface-visibility: hidden;
 		-webkit-transform: translate3d(0px, 0px, 0px);
@@ -513,7 +510,7 @@
 }
 
 
-.feature__parallax-background-image {
+.js-background-image {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -528,7 +525,7 @@
 		//   Off - DEMO ONLY, REMOVE FOR PRODUCTION CSS
 		.feature-parallax--off {
 
-			.feature {
+			&.feature {
 				top: 0 !important;
 			}
 			.content-inner-wrap {

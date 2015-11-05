@@ -30,7 +30,7 @@ var activeHeaderPosition = "";
 $( ".header-position" )
 	.change(function () {
 
-		$( ".hero" ).removeClass( activeHeaderPosition );
+		$( ".layout" ).removeClass( activeHeaderPosition );
 
 	    $( this ).children("option:selected").each(function() {
 	    	headerPosition = $( this ).val();
@@ -38,7 +38,7 @@ $( ".header-position" )
 
 	    activeHeaderPosition = headerPosition;
 
-    	$( ".hero" ).addClass( headerPosition );
+    	$( ".layout" ).addClass( headerPosition );
 
 	}).change();
 
@@ -49,7 +49,7 @@ var activeHeaderLayout = "";
 $( ".header-layout" )
 	.change(function () {
 
-		$( ".hero" ).removeClass( activeHeaderLayout );
+		$( ".layout" ).removeClass( activeHeaderLayout );
 
 	    $( this ).children("option:selected").each(function() {
 	    	headerLayout = $( this ).val();
@@ -57,7 +57,7 @@ $( ".header-layout" )
 
 	    activeHeaderLayout = headerLayout;
 
-    	$( ".hero" ).addClass( headerLayout );
+    	$( ".layout" ).addClass( headerLayout );
 
 	}).change();
 
@@ -68,7 +68,7 @@ var activeFeatureHeight = "";
 $( ".feature-height" )
 	.change(function () {
 
-		$( ".hero" ).removeClass( activeFeatureHeight );
+		$( ".feature" ).removeClass( activeFeatureHeight );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureHeight = $( this ).val();
@@ -76,7 +76,7 @@ $( ".feature-height" )
 
 	    activeFeatureHeight = featureHeight;
 
-    	$( ".hero" ).addClass( featureHeight );
+    	$( ".feature" ).addClass( featureHeight );
 
 	}).change();
 
@@ -87,7 +87,7 @@ var activeFeatureAlignment = "";
 $( ".feature-alignment" )
 	.change(function () {
 
-		$( ".hero" ).removeClass( activeFeatureAlignment );
+		$( ".feature" ).removeClass( activeFeatureAlignment );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureAlignment = $( this ).val();
@@ -95,7 +95,7 @@ $( ".feature-alignment" )
 
 	    activeFeatureAlignment = featureAlignment;
 
-    	$( ".hero" ).addClass( featureAlignment );
+    	$( ".feature" ).addClass( featureAlignment );
 
 	}).change();
 
@@ -106,7 +106,7 @@ var activeFeatureOverlayType = "";
 $( ".feature-overlay-type" )
 	.change(function () {
 
-		$( ".hero" ).removeClass( activeFeatureOverlayType );
+		$( ".feature" ).removeClass( activeFeatureOverlayType );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureOverlayType = $( this ).val();
@@ -114,7 +114,7 @@ $( ".feature-overlay-type" )
 
 	    activeFeatureOverlayType = featureOverlayType;
 
-    	$( ".hero" ).addClass( featureOverlayType );
+    	$( ".feature" ).addClass( featureOverlayType );
 
 	}).change();
 
@@ -125,7 +125,7 @@ var activeFeatureOverlayOpacity = "";
 $( ".feature-overlay-opacity" )
 	.change(function () {
 
-		$( ".hero" ).removeClass( activeFeatureOverlayOpacity );
+		$( ".feature" ).removeClass( activeFeatureOverlayOpacity );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureOverlayOpacity = $( this ).val();
@@ -133,7 +133,7 @@ $( ".feature-overlay-opacity" )
 
 	    activeFeatureOverlayOpacity = featureOverlayOpacity;
 
-    	$( ".hero" ).addClass( featureOverlayOpacity );
+    	$( ".feature" ).addClass( featureOverlayOpacity );
 
 	}).change();
 
@@ -144,7 +144,7 @@ var activeFeatureParallax = "";
 $( ".feature-parallax" )
 	.change(function () {
 
-		$( ".hero" ).removeClass( activeFeatureParallax );
+		$( ".feature" ).removeClass( activeFeatureParallax );
 
 	    $( this ).children("option:selected").each(function() {
 	    	featureParallax = $( this ).val();
@@ -152,7 +152,7 @@ $( ".feature-parallax" )
 
 	    activeFeatureParallax = featureParallax;
 
-    	$( ".hero" ).addClass( featureParallax );
+    	$( ".feature" ).addClass( featureParallax );
 
         if (featureParallax == "feature-parallax--on") {
 

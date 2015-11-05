@@ -1,6 +1,6 @@
 // Toggles class open to display/hide the whole navigation
 $( ".navigation-toggle, .template-header-navigation-toggle" ).click(function() {
-    $( ".hero" ).toggleClass( "navigation--open" );
+    $( ".layout" ).toggleClass( "navigation--open" );
 });
 
 
@@ -93,12 +93,12 @@ var featureParallaxEffect = function () {
         // ===============================================================
         var
             widget                  = $(".feature"),
-            widgetWrapper           = "featureWrapper";
+            widgetWrapper           = "js-feature-wrapper";
 
         // Create  elements
 
         widget.wrap("<div class='"+widgetWrapper+"'></div>");
-        widget.append("<div class='feature__parallax-background-image'></div>");
+        widget.append("<div class='js-background-image'></div>");
 
 
         // ===============================================================
@@ -115,7 +115,7 @@ var featureParallaxEffect = function () {
             widgetViewportOverflow  = false;
 
             // Background element
-            widgetBackground        = widget.find(".feature__parallax-background-image"),
+            widgetBackground        = widget.find(".js-background-image"),
             backgroundImage         = widget.find(".feature__background-image").css("background-image");
 
             // Background position setting
@@ -202,7 +202,7 @@ var featureParallaxEffect = function () {
         // Create elements
         // ===============================================================
 
-        $(".feature__parallax-background-image").css({ 'background-image':  backgroundImage  });
+        $(".js-background-image").css({ 'background-image':  backgroundImage  });
         widgetBackground.css('background-position', '50%' + backgroundPosition +'%');
 
 
@@ -427,7 +427,7 @@ var headerOverlapFunction = function () {
     var widget                  = $(".feature");
 
     // Create  elements
-    widget.append("<div class='feature__parallax-background-image'></div>");
+    widget.append("<div class='js-background-image'></div>");
 
 
     // ===============================================================
@@ -438,7 +438,7 @@ var headerOverlapFunction = function () {
         resizeTimer             = 0,
 
         // Background element
-        widgetBackground        = widget.find(".feature__parallax-background-image"),
+        widgetBackground        = widget.find(".js-background-image"),
         backgroundImage         = widget.find(".feature__background-image").css("background-image");
 
         // Background position setting
