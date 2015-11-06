@@ -1,6 +1,6 @@
 // Toggles class open to display/hide the whole navigation
-$( ".navigation-toggle, .template-header-navigation-toggle" ).click(function() {
-    $( ".layout" ).toggleClass( "navigation--open" );
+$( ".hero__navigation-toggle" ).click(function() {
+    $( ".hero" ).toggleClass( "navigation--open" );
 });
 
 
@@ -263,7 +263,7 @@ var featureParallaxEffect = function () {
 
         var fadeOutEffect = function (scrollProgress) {
             opacity = Math.min(1, ( 1 - scrollProgress ).toFixed( 2 ) );
-            widget.find(".content-inner-wrap").css('opacity', opacity);
+            widget.find(".content-wrap").css('opacity', opacity);
 
         };
 

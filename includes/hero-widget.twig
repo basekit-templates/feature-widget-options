@@ -1,16 +1,112 @@
-<div class="bk-layout  layout  widget__layout js-layout">
-    {% include "includes/header.twig" %}
+<div class="bk-hero  hero  widget__hero">
+
+    <header class="template-header  hero__template-header">
+
+        <div class="content-container  hero__content-container">
+            <div class="template-header-item  hero__template-header-item">
+
+                <div class="logocompanyname  hero__logocompanyname">
+
+                    <div class="logocompanyname-item  logocompanyname-item--logo  logocompanyname__logocompanyname-item">
+                        {{widget('logo', 'template-header-logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+                    </div>
+
+                    <div class="logocompanyname-item  logocompanyname-item--companyname  logocompanyname__logocompanyname-item">
+                        {{widget('companyname', 'template-header-companyname', {"business": "profile", "showTplWidget":"0" })|raw}}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="template-header-item  hero__template-header-item">
+
+                <nav class="navigation-body  hero__navigation-body">
+
+                    <ul class="navigation-list  hero__navigation-list  js-menu-list  itemcount-{{ i }}">
+                    {% for page in pages %}
+
+                        {% set pageRequest = (page.type == 'home' and app.mode != 'site-preview') ? '' : page.request %}
+                        {% if (page.type == 'home' or page.type == 'page' or page.type == 'index' or page.type == 'folder') and page.status != 'inactive' and page.hiddenFromNavigation != '1' %}
+
+                        <li id="menu-item_{{ page.ref }}" class="navigation-item  hero__navigation-item {{ page.type }}" {% if page.type == 'folder' %}aria-haspopup="true"{% endif %}>
+
+                            {% if (page.type != 'folder') %}
+
+                            <a href="{{ relativeUrlPrefix }}/{{ pageRequest }}" class="item-name  hero__item-name">{{ page.title }}</a>
+
+                            {% else %}
+
+                            <span class="item-name  item-name--parent  hero__item-name">{{ page.title }}</span>
+
+                            {% endif %}
+
+                            {% if (page.subPages) %}
+
+                            {% set j = 0 %}
+
+                            {% for subPage in page.subPages %}
+                                {% if subPage.status != 'inactive' and subPage.hiddenFromNavigation != '1' %}
+                                    {% set j = j + 1 %}
+                                {% endif %}
+                            {% endfor %}
+
+                            <ul class="navigation-list  navigation-list--children  hero__navigation-list itemcount-{{ j }}">
+
+                                {% for subPage in page.subPages %}
+                                {% if subPage.status != 'inactive' and subPage.hiddenFromNavigation != '1' %}
+
+                                <li id="menu-item_{{ subPage.ref }}" class="navigation-item  navigation-item--child  hero__navigation-item {{subPage.type}}" aria-haspopup="false">
+                                    <a href="{{ relativeUrlPrefix }}/{{ subPage.request }}" class="item-name  hero__item-name">{{ subPage.title }}</a>
+                                </li>
+
+                                {% endif %}
+
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+
+                        </li>
+                        {% endif %}
+
+                    {% endfor %}
+                    </ul>
+
+                </nav>
+
+            </div>
+
+            <div class="template-header-item  hero__template-header-item">
+
+                {% if plugins.ecommerce.store.live %}
+                <div class="basket  hero__basket">
+                    {{widget('ecombasket', 'template-header-basket', {})|raw}}
+                </div>
+                {% endif %}
+
+                <div class="page-title  hero__page-title">
+                    <h1 class="page-title-text  hero__page-title-text">Page Title</h1>
+                </div>
+
+                <button class="js-pull  navigation-toggle  icon  icon--bars  hero__navigation-toggle">{{'widgets.extendednavigation.menu'|translate('Menu')}}</button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="advancedfeature hero__advancedfeature">
+    {{widget('feature', 'feature', {
+        'header': 'profile',
+        'strapline': 'profile',
+        'defaultBgImg': asset('images/feature-image1.jpg'),
+        'positionTopPercentage': '50',
+        'showBtn': true,
+        'buttonText': 'Button',
+        'action': 'external',
+        'url': 'http://docs.basekit.com',
+        'target': '_blank'
+    })|raw}}
+    </div>
 </div>
-
-{{widget('feature', 'feature', {
-    'header': 'profile',
-    'strapline': 'profile',
-    'defaultBgImg': asset('images/feature-image1.jpg'),
-    'positionTopPercentage': '50',
-    'showBtn': true,
-    'buttonText': 'Button',
-    'action': 'external',
-    'url': 'http://docs.basekit.com',
-    'target': '_blank'
-})|raw}}
-

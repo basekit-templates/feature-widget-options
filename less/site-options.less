@@ -1,0 +1,33 @@
+// --------------------------------------
+// Variable Template: LESS > Hero Options
+// --------------------------------------
+
+
+// -----------------------------
+// #Site Options
+// -----------------------------
+
+@value__content-container--spacing: 5%;  // Content container spacing
+
+// Site Layout
+// -----------
+
+// Full
+.site-layout--full {
+	width: 100%;
+
+	.content-container {
+		// padding: 0 @value__content-container--spacing;
+	}
+	.main-content .content-container {
+		padding: @value__content-container--spacing;
+	}
+}
+
+// Contained
+.site-layout--contained {
+	width: 90%;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+

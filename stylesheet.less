@@ -2,8 +2,7 @@
 // Feature Widget Options: Stylesheet
 // -------------------------------------
 
-@templateCommon: "../../templates/common/";
-@templateLocal: "";
+
 
 
 // -----------------------------
@@ -27,14 +26,13 @@
 // #Imports
 // -----------------------------
 
-@import "@{templateCommon}/bk-less-framework.less";     // LESS Framework
+@import "@{templateCommon}/bk-less-framework-v8.less";     // LESS Framework
 @import "@{templateLocal}/validation.less";             // Validation
 
-
+@import "@{templateLocal}/less/hero-widget.less";       // Hero Widget
 @import "@{templateLocal}/less/variables.less";         // Variables
 @import "@{templateLocal}/less/mixins.less";            // Mixins
-@import "@{templateLocal}/less/navigation.less";        // Navigation
-@import "@{templateLocal}/less/hero-options.less";      // Feature options
+@import "@{templateLocal}/less/site-options.less";      // Feature options
 @import "@{templateLocal}/less/demo.less";              // Demo
 
 
@@ -74,93 +72,7 @@ a {
 .main-content {
     background-color: @color__container--background;
     position: relative;
-    z-index: 20;
 }
-
-
-
-
-// -----------------------------
-// #Header
-// -----------------------------
-
-.template-header {
-    width: 100%;
-    max-width: 100%;
-    background-color: @color__header--background;
-    z-index: 5;
-
-    @media @mobile {
-        padding-bottom: 0;
-    }
-
-    // Flex Container
-    .content-container {
-        .align-items(center);
-        @media @tablet {
-            .flex-wrap(wrap);
-            padding: 0;
-        }
-    }
-
-    .template-header-item:first-child {
-        min-width: 350px;
-        padding: @value__header--spacing;
-
-        @media @tablet {
-            .flex(1 1 auto);
-            min-width: 0;
-        }
-        @media @mobile {
-            padding-bottom: 0;
-        }
-    }
-
-     .template-header-item:nth-child(2) {
-        .flex(1 1 auto);
-
-        @media @tablet {
-            .order(3);
-            width: 100%;
-        }
-        @media @mobile {
-            .order(3);
-        }
-    }
-
-    .template-header-item:last-child {
-        padding: 0 @value__header--spacing 0 0;
-        @media @tablet {
-            .flexbox();
-            .justify-content(center);
-        }
-        @media @mobile {
-            width: 100%;
-            padding: 0 @value__header--spacing;
-        }
-    }
-
-    .template-header-page-title {
-        display: none;
-        @media @mobile {
-            display: block;
-            .flex(1 1 auto);
-
-            .pagetitle-text {
-                font-size: 12px;
-                line-height: 40px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                padding: 0;
-                max-width: 200px;
-            }
-        }
-    }
-
-}
-
-
 
 
 
@@ -184,189 +96,3 @@ a {
 
 
 
-// -----------------------------
-// #Widgets
-// -----------------------------
-
-
-// Hero
-// -----------------------------
-
-.layout {
-
-    // Baseket Toggle
-    .basket-toggle {
-        margin: 0;
-        padding: 0;
-        background-color: transparent;
-        font-family: @font__navigation--font-family;
-        font-size: 12px;
-        font-weight: @font__navigation--font-weight;
-        line-height: @font__navigation--line-height;
-        letter-spacing: @font__navigation--letter-spacing;
-        color: @color__navigation--text;
-        text-transform: uppercase;
-        white-space: nowrap;
-
-        @media @tablet {
-            font-size: 15px;
-            height: 40px;
-            line-height: 40px;
-        }
-
-        &:before {
-            margin-right: 0;
-        }
-    }
-    .basket-text {
-        display: none;
-    }
-
-    // Basket Body
-    .basket-body {
-        position: absolute;
-        right: 0;
-        width: 250px;
-        padding: 20px;
-        background-color: @color__header--background;
-    }
-    .basket-item-image .image-link {
-        width: 70px;
-        height: 70px;
-        line-height: 70px;
-    }
-    .basket-item-details {
-        margin-top: 10px;
-        line-height: 22px;
-    }
-    .item-remove {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 20px;
-        height: 20px;
-        padding: 0;
-        line-height: 11px;
-    }
-    .remove-text {
-        display: none;
-    }
-}
-
-
-// #Logo & Company Name
-// -----------------------------
-
-.logocompanyname-item {
-    display: inline-block;
-    vertical-align: middle;
-
-    @media @mobile {
-        display: block;
-        text-align: center;
-    }
-
-    &--logo {
-        margin-right: 10px;
-
-        @media @mobile {
-            margin-right: 0;
-        }
-    }
-}
-
-
-// #Logo
-// -----------------------------
-
-.logo {
-    line-height: 0;
-    font-size: 0;
-
-    @media @mobile {
-        max-height: 80px;
-    }
-}
-
-
-
-
-// #Company Name
-// -----------------------------
-
-.companyname {
-    display: block;
-
-    @media @tablet {
-        margin-bottom: 0;
-    }
-}
-
-// Company link
-.company-link {
-    color: @color__companyname--text;
-
-    &:hover {
-        text-decoration: none;
-    }
-}
-
-
-
-
-// #Feature
-// -----------------------------
-
-.feature {
-    position: relative;
-    background-color: @color__feature--background;
-
-    .background-image {
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-    .content-wrap {
-        width: 100%;
-        height: 100%;
-    }
-    .content-inner-wrap {
-        .flexbox;
-        .flex-direction(column);
-        margin: 0 auto;
-        padding: 30px;
-        height: 100%;
-    }
-    .headline {
-        color: @color__feature-headline--text;
-        text-transform: uppercase;
-
-        @media @tablet {
-            font-size: bkscale(@font-swatch8-font-size, 0.8);
-        }
-        @media @mobile {
-            font-size: bkscale(@font-swatch8-font-size, 0.65);
-            line-height: bkscale(@font-swatch8-line-height, 0.7);
-        }
-    }
-    .strapline {
-        margin: 10px 0 20px;
-        color: @color__feature-strapline--text;
-
-        @media @tablet {
-            font-size: bkscale(@font-swatch9-font-size, 0.8);
-        }
-        @media @mobile {
-            margin: 10px 0;
-            font-size: bkscale(@font-swatch9-font-size, 0.7);
-        }
-    }
-
-}
-
-.feature__content-wrap {
-    padding: 0;
-    z-index: 3;
-    position: relative;
-}
