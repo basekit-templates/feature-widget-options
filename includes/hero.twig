@@ -1,25 +1,25 @@
 <div class="bk-hero  hero  widget__hero">
 
-    <header class="template-header  hero__template-header">
+    <header class="hero-header  hero__hero-header">
 
         <div class="content-container  hero__content-container">
-            <div class="template-header-item  hero__template-header-item">
+            <div class="hero-header-item  hero__hero-header-item">
 
                 <div class="logocompanyname  hero__logocompanyname">
 
                     <div class="logocompanyname-item  logocompanyname-item--logo  logocompanyname__logocompanyname-item">
-                        {{widget('logo', 'template-header-logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+                        {{widget('logo', 'hero-header-logo', {"defaultlogo": asset('images/logo.png')})|raw}}
                     </div>
 
                     <div class="logocompanyname-item  logocompanyname-item--companyname  logocompanyname__logocompanyname-item">
-                        {{widget('companyname', 'template-header-companyname', {"business": "profile", "showTplWidget":"0" })|raw}}
+                        {{widget('companyname', 'hero-header-companyname', {"business": "profile", "showTplWidget":"0" })|raw}}
                     </div>
 
                 </div>
 
             </div>
 
-            <div class="template-header-item  hero__template-header-item">
+            <div class="hero-header-item  hero__hero-header-item">
 
                 <nav class="navigation-body  hero__navigation-body">
 
@@ -76,11 +76,11 @@
 
             </div>
 
-            <div class="template-header-item  hero__template-header-item">
+            <div class="hero-header-item  hero__hero-header-item">
 
                 {% if plugins.ecommerce.store.live %}
                 <div class="basket  hero__basket">
-                    {{widget('ecombasket', 'template-header-basket', {})|raw}}
+                    {{widget('ecombasket', 'hero-header-basket', {})|raw}}
                 </div>
                 {% endif %}
 

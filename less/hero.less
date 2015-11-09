@@ -1,21 +1,75 @@
-// -------------------------
+// -----------------------------
 // WIDGETS: Hero Widget
-// -------------------------
+// -----------------------------
+
+
+// -----------------------------
+// Table of Contents
+// -----------------------------
+
+
+// #Hero Header
+// -----------------------------
+
+//  #Default Settings
+
+//  #Header Alignment
+//   -- #Left & Right
+//   -- #Left
+//   -- #Right
+//   -- #Center
+
+//  #Header Position
+//   -- #Standard
+//   -- #Overlap
+
+//  #Page Title
+//  #Basket
+//  #Navigation
+
+
+// #Hero Feature
+// -----------------------------
+
+//  #Default Settings
+
+//  #Feature Height
+//    -- #Fullscreen
+//    -- #Medium
+//    -- #Small
+
+//  #Feature Alignment
+//    -- #Top
+//    -- #Middle
+//    -- #Bottom
+
+//  #Feature Overlay Type
+//    -- #Overlay Layer
+//    -- #Full
+//    -- #Typography
+//    -- #Box
+
+//  #Feature Parallax
+//  #Feature Opacity Opacity
+
+
+
 
 @color__hero-overlap--text: #fff;
 
 // -----------------------------
-// #Template Header
+// #Hero Header
 // -----------------------------
 
-.hero__template-header {
+.hero__hero-header {
     z-index: 5;
     position: relative;
 
     // Feature Parallax On
     .feature-parallax--on & {
-        // Template header
-        .template-header {
+
+        // Hero Header
+        .hero-header {
             -webkit-transform: translate3d(0px, 0px, 0px);
             -moz-transform: translate3d(0px, 0px, 0px);
             -o-transform: translate3d(0px, 0px, 0px);
@@ -24,8 +78,11 @@
         }
     }
 
+
     // -----------------------------
-    // Content Container
+    // Default Settings
+    // -----------------------------
+
     .content-container {
         .flexbox;
         .align-items(center);
@@ -41,23 +98,18 @@
         }
     }
 
-    // Header Item 1st
-    .template-header-item:nth-child(1) {
-
-    }
-
     // Header Item 2nd
-    .template-header-item:nth-child(2) {
+    .hero-header-item:nth-child(2) {
         .flex(1 1 auto;)
     }
 
     // Header Item 3rd
-    .template-header-item:nth-child(3) {
+    .hero-header-item:nth-child(3) {
         @media @mobile {
            width: 100%;
         }
-
     }
+
 
 
 
@@ -69,7 +121,8 @@
     // Left & Right
     // -----------------------------
 
-    .header-layout--left &, .header-layout--right & {
+    .header-layout--left &,
+    .header-layout--right & {
 
         .content-container {
             @media @tablet {
@@ -77,32 +130,35 @@
             }
         }
 
-        .template-header-item:nth-child(1) {
+        .hero-header-item:nth-child(1) {
             @media @tablet {
                 .flex(1 1 auto;)
             }
         }
 
-        .template-header-item:nth-child(2) {
+        .hero-header-item:nth-child(2) {
             @media @tablet {
                 .order(3);
                 width: 100%;
             }
         }
 
-        .template-header-item:nth-child(3) {
+        .hero-header-item:nth-child(3) {
             @media @tablet {
                 .flexbox;
                 .order(2);
             }
         }
 
+
         // Logo & Company Name
         // -----------------------------
-        .template-header-item .logocompanyname {
+
+        .hero-header-item .logocompanyname {
             .flexbox;
             .align-items(center);
             .flex-wrap(wrap);
+
             @media @mobile {
                 .flex-direction(column);
                 text-align: center;
@@ -110,19 +166,20 @@
             }
         }
 
-        .template-header-item .navigation-body {
+        .hero-header-item .navigation-body {
             @media @tablet {
                 text-align: left;
             }
         }
     }
 
+
     // Left
     // -----------------------------
 
     .header-layout--left & {
 
-        .template-header-item:nth-child(1) {
+        .hero-header-item:nth-child(1) {
             @media @tablet {
                 margin-left: 20px;
             }
@@ -130,7 +187,7 @@
                 margin-left: 0;
             }
         }
-        .template-header-item:nth-child(3) {
+        .hero-header-item:nth-child(3) {
             @media @tablet {
                 margin-right: 20px;
             }
@@ -168,6 +225,7 @@
 
         .basket-body {
             right: 0;
+
             @media @mobile {
                 left: 0;
                 right: auto;
@@ -185,7 +243,7 @@
             .flex-direction(row-reverse);
         }
 
-        .template-header-item:nth-child(1) {
+        .hero-header-item:nth-child(1) {
             @media @tablet {
                 margin-right: 20px;
             }
@@ -193,7 +251,7 @@
                 margin-right: 0;
             }
         }
-        .template-header-item:nth-child(3) {
+        .hero-header-item:nth-child(3) {
             @media @tablet {
                 margin-left: 20px;
             }
@@ -210,6 +268,7 @@
 
         .logocompanyname-item--logo {
             margin-left: 20px;
+
             @media @mobile {
                 margin-left: 0;
             }
@@ -245,14 +304,14 @@
 
     .header-layout--center & {
 
-         .template-header-item:nth-child(2) {
+         .hero-header-item:nth-child(2) {
             @media @tablet {
                 .order(3);
                 width: 100%;
             }
         }
 
-        .template-header-item:nth-child(3) {
+        .hero-header-item:nth-child(3) {
             @media @tablet {
                 .order(2);
             }
@@ -262,7 +321,7 @@
             .flex-direction(column);
         }
 
-        .template-header-item:nth-child(3) {
+        .hero-header-item:nth-child(3) {
             @media @tablet {
                 .flexbox;
                 .flex-direction(column);
@@ -278,11 +337,6 @@
             @media @mobile {
                 display: none;
             }
-        }
-
-        .basket-body {
-            left: 50%;
-            margin-left: -125px;
         }
     }
 
@@ -301,16 +355,16 @@
         background-color: @color__header--background;
     }
 
-    // -----------------------------
+
     // Overlap
+    // -----------------------------
 
     .header-position--overlap & {
         background-color: transparent;
 
         .company-link,
         .navigation-item .item-name,
-        .page-title-text
-         {
+        .page-title-text {
             color: @color__hero-overlap--text;
         }
         .hero__navigation-toggle,
@@ -328,9 +382,8 @@
 }
 
 
-
-// -----------------------------
 // Page Title
+// -----------------------------
 
 .hero__page-title {
     display: none;
@@ -353,12 +406,8 @@
 }
 
 
-
-
-
-
+// #Basket
 // -----------------------------
-// Basket
 
 .hero__basket {
 
@@ -375,9 +424,10 @@
     // Basket Body
     .basket-body {
         position: absolute;
-        width: 250px;
-        background-color: @color__header--background;
         z-index: 5;
+        width: 250px;
+        padding: 20px;
+        background-color: @color__header--background;
     }
 
     // Image Link
@@ -389,14 +439,122 @@
 }
 
 
+// #Navigation
+// -----------------------------
+
+// Navigation Toggle
+.hero__navigation-toggle {
+    display: none;
+
+    @media @tablet {
+        display: block;
+        background-color: @color__navigation--text;
+        background-clip: content-box;
+        width: 40px;
+        height: 40px;
+        padding: 19px 8px;
+        margin: 0;
+        text-indent: 200%;
+        overflow: hidden;
+        position: relative;
+
+        // Top and bottom navigation item bar
+        &:after, &:before {
+            content: "";
+            height: 2px;
+            width: 24px;
+            position: absolute;
+            left: 8px;
+            display: block;
+            background: @color__navigation--text;
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        // Top bar
+        &:before {
+            top: 13px;
+        }
+
+        // Bottom bar
+        &:after {
+            bottom: 13px;
+        }
+
+
+        // Toggle Button open state
+        // ------------------------------
+
+        .navigation--open & {
+            background-color: transparent !important;
+            box-shadow: none;
+
+            &:before , &:after {
+                background: @color__navigation--text;
+            }
+
+            &:before {
+                top: 20px;  -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -o-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);
+            }
+
+            &:after {
+                bottom: 18px;  -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+// Navigation Body
+.hero__navigation-body {
+
+    // Navigation list
+    & > .hero__navigation-list {
+        margin: 0;
+        @media @tablet {
+            display: none;
+        }
+
+        .navigation--open & {
+            display: block;
+            position: absolute;
+            background-color: @color__navigation--background;
+            z-index: 4;
+        }
+    }
+
+    // Navigation Item
+    .navigation-item {
+        display: inline-block;
+        vertical-align: middle;
+
+        @media @tablet {
+            display: block;
+        }
+    }
+
+    // Folder arrow
+    .item-name--parent:after {
+        display: inline-block;
+        vertical-align: middle;
+        content: "";
+        margin-left: 4px;
+        border: 5px solid transparent;
+        border-top-color: @color__navigation--text;
+    }
+}
+
 
 
 
 // -----------------------------
-// Hero Feature
+// #Hero Feature
 // -----------------------------
 
 .hero__advancedfeature {
+
+
+    // #Default Settings
+    // -----------------------------
 
     .content-wrap {
         position: relative;
@@ -449,11 +607,17 @@
         -webkit-backface-visibility: hidden;
     }
 
+
+
+
     // -----------------------------
-    // Feature Height
+    // #Feature Height
     // -----------------------------
 
+
     // Fullscreen
+    // -----------------------------
+
    .feature-height--fullscreen & {
         .content-wrap{
             min-height: 100vh;
@@ -466,6 +630,8 @@
 
 
         // Medium
+        // -----------------------------
+
         .feature-height--medium & {
             min-height: 45vh;
 
@@ -478,6 +644,8 @@
         }
 
         // Small
+        // -----------------------------
+
         .feature-height--small & {
             min-height: 30vh;
 
@@ -488,6 +656,8 @@
     }
 
 
+
+
     // -----------------------------
     // Feature Alignment
     // -----------------------------
@@ -496,6 +666,8 @@
     .content-inner-wrap {
 
         // Top
+        // -----------------------------
+
         .feature-alignment--top--left & {
             .justify-content(flex-start);
             .align-items(flex-start);
@@ -518,7 +690,10 @@
             text-align: right;
         }
 
+
         // Middle
+        // -----------------------------
+
         .feature-alignment--middle--left & {
             .justify-content(center);
             .align-items(flex-start);
@@ -541,7 +716,10 @@
             text-align: right;
         }
 
+
         // Bottom
+        // -----------------------------
+
         .feature-alignment--bottom--left & {
             .justify-content(flex-end);
             .align-items(flex-start);
@@ -570,11 +748,15 @@
 }
 
 
-// -----------------------
-// Feature Overlay Type
-// -----------------------
 
-// Overlay layer
+
+// -----------------------------
+// #Feature Overlay Type
+// -----------------------------
+
+
+// #Overlay Layer
+// -----------------------------
 
 .hero__advancedfeature-overlay {
     content: "";
@@ -588,8 +770,20 @@
 }
 
 
+// Overlay Type: Full
+// -----------------------------
 
-// Typography overlay
+.feature-overlay-type--full {
+    .hero__advancedfeature .js-background-image:after {
+        .hero__advancedfeature-overlay;
+        .hero__advancedfeature-background;
+    }
+}
+
+
+// Overlay Type: Typography
+// -----------------------------
+
 .feature-overlay-type--typography & {
     .headline {
         display: inline-block;
@@ -603,20 +797,6 @@
     }
 }
 
-
-
-
-// Full overlay
-
-.feature-overlay-type--full {
-    .hero__advancedfeature .js-background-image:after {
-        .hero__advancedfeature-overlay;
-        .hero__advancedfeature-background;
-    }
-}
-
-// Typography overlay
-
 .feature-overlay-type--typography {
     .hero__advancedfeature .headline,
     .hero__advancedfeature .strapline {
@@ -624,7 +804,9 @@
     }
 }
 
-// Box overlay
+
+// Overlay Type: Box
+// -----------------------------
 
 .feature-overlay-type--box {
     .hero__advancedfeature .content-inner-wrap {
@@ -636,17 +818,14 @@
 
 
 
-.hero__advancedfeature {
+// -----------------------------
+// #Feature Parallax
+// -----------------------------
 
-    // -----------------------
-    // Feature Parallax
-    // -----------------------
+.hero__advancedfeature {
 
     // On
     .feature-parallax--on & {
-
-        // Feature
-
         .feature {
             -webkit-backface-visibility: hidden;
             -webkit-transform: translate3d(0px, 0px, 0px);
@@ -668,6 +847,12 @@
 }
 
 
+
+
+// -----------------------------
+// #Feature Overlay Opacity
+// -----------------------------
+
 .hero__advancedfeature-background {
     .feature-overlay-opacity--100& {
         background-color: hsla(hue(@color__feature-content--background), saturation(@color__feature-content--background), lightness(@color__feature-content--background), 1);
@@ -686,116 +871,5 @@
     }
     .feature-overlay-opacity--0& {
         background-color: hsla(hue(@color__feature-content--background), saturation(@color__feature-content--background), lightness(@color__feature-content--background), 0);
-    }
-}
-
-
-// -----------------------------
-// Navigation
-// -----------------------------
-
-// Navigation toggle
-
-.hero__navigation-toggle {
-    display: none;
-
-    @media @tablet {
-        display: block;
-        background-color: @color__navigation--text;
-        background-clip: content-box;
-        width: 40px;
-        height: 40px;
-        padding: 19px 8px;
-        margin: 0;
-        text-indent: 200%;
-        overflow: hidden;
-        position: relative;
-
-        // Top and bottom navigation item bar
-        &:after, &:before {
-            content: "";
-            height: 2px;
-            width: 24px;
-            position: absolute;
-            left: 8px;
-            display: block;
-            background: @color__navigation--text;
-            margin-right: 0;
-            margin-left: 0;
-        }
-
-        // Top bar
-        &:before {
-            top: 13px;
-        }
-
-        // Bottom bar
-        &:after {
-            bottom: 13px;
-        }
-
-        // Toggle Button open state
-        // ------------------------------
-
-        .navigation--open & {
-            background-color: transparent !important;
-            box-shadow: none;
-
-            &:before , &:after {
-                background: @color__navigation--text;
-            }
-
-            &:before {
-                top: 20px;  -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -o-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);
-            }
-
-            &:after {
-                bottom: 18px;  -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg);
-            }
-        }
-    }
-}
-
-
-
-
-
-// Navigation Body
-
-.hero__navigation-body {
-
-    // Navigation list
-    & > .hero__navigation-list {
-        margin: 0;
-        @media @tablet {
-            display: none;
-        }
-
-        .navigation--open & {
-            display: block;
-            position: absolute;
-            background-color: @color__navigation--background;
-            z-index: 4;
-        }
-    }
-
-    // Navigation Item
-    .navigation-item {
-        display: inline-block;
-        vertical-align: middle;
-
-        @media @tablet {
-            display: block;
-        }
-    }
-
-    // Folder arrow
-    .item-name--parent:after {
-        display: inline-block;
-        vertical-align: middle;
-        content: "";
-        margin-left: 4px;
-        border: 5px solid transparent;
-        border-top-color: @color__navigation--text;
     }
 }
