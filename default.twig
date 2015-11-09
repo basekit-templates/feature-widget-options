@@ -4,27 +4,16 @@
 
 <!-- Page Content -->
 <div class="page  page--default">
-	<div class="site-container">
 
-		{% include "includes/hero.twig" %}
+	{% include "includes/hero.twig" %}
 
-		<div class="main-content">
-			<div class="content-container">
-				{{zone('main')|raw}}
-			</div>
+	<div class="main-content">
+		<div class="content-container">
+			{{zone('main')|raw}}
 		</div>
-
 	</div>
 </div>
 
 {% include "includes/options.twig" %}
-
-{% endblock %}
-
-
-{% block scripts %}
-
-	<script src="{{asset('js/options.js')}}"></script>
-	<script src="{{asset('js/hero-widget.js')}}"></script>
 
 {% endblock %}
