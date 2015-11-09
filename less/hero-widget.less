@@ -416,6 +416,7 @@
 
     .headline {
         color: @color__feature-headline--text;
+        padding-bottom: 0;
 
         @media @tablet {
             font-size: bkscale(@font-swatch8-font-size, 0.8);
@@ -461,6 +462,9 @@
     }
 
     .content-wrap {
+        height: 20px; // IE fix
+
+
         // Medium
         .feature-height--medium & {
             min-height: 45vh;
@@ -495,6 +499,9 @@
         .feature-alignment--top--left & {
             .justify-content(flex-start);
             .align-items(flex-start);
+            -ms-flex-pack: start;
+            -ms-flex-line-pack: justify;
+            -ms-flex-align: start;
             text-align: left;
         }
         .feature-alignment--top--center & {
@@ -505,6 +512,9 @@
         .feature-alignment--top--right & {
             .justify-content(flex-start);
             .align-items(flex-end);
+            -ms-flex-pack: start;
+            -ms-flex-line-pack: justify;
+            -ms-flex-align: end;
             text-align: right;
         }
 
@@ -512,6 +522,9 @@
         .feature-alignment--middle--left & {
             .justify-content(center);
             .align-items(flex-start);
+            -ms-flex-pack: center;
+            -ms-flex-line-pack: justify;
+            -ms-flex-align: start;
             text-align: left;
         }
         .feature-alignment--middle--center & {
@@ -522,6 +535,9 @@
         .feature-alignment--middle--right & {
             .justify-content(center);
             .align-items(flex-end);
+            -ms-flex-pack: center;
+            -ms-flex-line-pack: justify;
+            -ms-flex-align: end;
             text-align: right;
         }
 
@@ -529,16 +545,25 @@
         .feature-alignment--bottom--left & {
             .justify-content(flex-end);
             .align-items(flex-start);
+            -ms-flex-pack: end;
+            -ms-flex-line-pack: justify;
+            -ms-flex-align: start;
             text-align: left;
         }
         .feature-alignment--bottom--center & {
             .justify-content(flex-end);
             .align-items(center);
+            -ms-flex-pack: end;
+            -ms-flex-line-pack: justify;
+            -ms-flex-align: center;
             text-align: center;
         }
         .feature-alignment--bottom--right & {
             .justify-content(flex-end);
             .align-items(flex-end);
+            -ms-flex-pack: end;
+            -ms-flex-line-pack: justify;
+            -ms-flex-align: end;
             text-align: right;
         }
     }
